@@ -1,0 +1,31 @@
+# Broadband Connectivity Assessment Tool (BCAT)
+
+## National Telecommunications &amp; Information Administration
+## Washington State Office of the CIO
+
+### Background and Need
+
+During November 2017, the National Telecommunications &amp; Information Administration and State
+of Washington, completed a beta rest of the BroadbandUSA Connectivity Assessment Tool
+(BCAT). BCAT is a community-based planning tool designed to inform and accelerate local
+broadband efforts. The tool supports local leaders as they advance broadband infrastructure
+deployment, improve digital inclusion, stimulate economic development, and strengthen
+broadband policies.
+
+The online tool invites community teams to explore up to 12 broadband planning modules; to
+view data from the U.S. Census Bureau and the Federal Communications Commission; to
+collaborate and record local responses; and to access a customized Action Report. The resulting
+report links local teams to resources that can help them move quickly to translate issues and
+aspirations into concrete plans that attract broadband investment and strengthen community
+connectivity.
+
+### Proposed Hack-a-thon Project
+
+Objective: Develop a working prototype of the front-end interface to collect user input utilizing current wireframes and design specifications.
+
+Based on previously conducted user research project, NTIA has a set of specifications for an initial version of the re-designed Broadband Connectivity Assessment tool that they would like to implement (see files for final design and wireframes). Eventually, the tool gathers information from the users in the form of a questionnaire housed within each category/module of interest and aggregates the data per module and overall to create a customer “Action Report” for the user at the end. At this time, getting the framework and initial working model for the front-end data collection web app in working order is of value to NTIA and the State of Washington.
+
+### Contacts
+Karen Archer Perry: Senior Policy Analyst | NTIA | U.S. Department of Commerce
+Will Saunders: Open Data Guy | Office of the CIO | State of Washington
+Sarthak Mishra: Government Projects Director | Seattle Data For Good
