@@ -17,7 +17,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node keystone.js",
+    "start": "node survey-app/keystone.js",
     "compile": "stylus -w public/styles/site.styl -o public/styles/site.css"
   }
 }
