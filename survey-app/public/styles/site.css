@@ -6724,12 +6724,6 @@ button.close {
 body {
   background-color: #4071b8;
 }
-nav.navbar-nav.navbar-default li a {
-  color: #e6f3f8;
-}
-.active {
-  color: #800080;
-}
 .jumbotron {
   background-color: #e6f3f8;
 }
