@@ -35,11 +35,8 @@ var routes = {
 exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
-<<<<<<< HEAD
 	app.get('/survey', routes.views.survey);
-=======
 
->>>>>>> add generated keystone app
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
