@@ -20,7 +20,10 @@ var _ = require('lodash');
 exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
+<<<<<<< HEAD
 		{ label: 'Survey', key: 'survey', href:'/survey'},
+=======
+>>>>>>> add generated keystone app
 	];
 	res.locals.user = req.user;
 	next();
