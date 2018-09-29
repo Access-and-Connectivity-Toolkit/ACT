@@ -1067,7 +1067,7 @@ html {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica", sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333;
@@ -1250,7 +1250,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: inherit;
+  font-family: "Merriweather", "Georgia", serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -4674,8 +4674,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #090909;
+  background-color: #233251;
+  border-color: #141c2d;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
@@ -4686,7 +4686,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-color: transparent;
 }
 .navbar-inverse .navbar-text {
-  color: #9d9d9d;
+  color: #fff;
 }
 .navbar-inverse .navbar-nav > li > a {
   color: #9d9d9d;
@@ -4700,7 +4700,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
   color: #fff;
-  background-color: #090909;
+  background-color: #141c2d;
 }
 .navbar-inverse .navbar-nav > .disabled > a,
 .navbar-inverse .navbar-nav > .disabled > a:hover,
@@ -4720,20 +4720,20 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #101010;
+  border-color: #182338;
 }
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
-  background-color: #090909;
+  background-color: #141c2d;
   color: #fff;
 }
 @media (max-width: 767px) {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
-    border-color: #090909;
+    border-color: #141c2d;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
-    background-color: #090909;
+    background-color: #141c2d;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
     color: #9d9d9d;
@@ -4747,7 +4747,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #fff;
-    background-color: #090909;
+    background-color: #141c2d;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover,
@@ -5966,9 +5966,9 @@ button.close {
 }
 .modal-content {
   position: relative;
-  background-color: #fff;
+  background-color: #e6f3f8;
   border: 1px solid #999;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid #4071b8;
   border-radius: 6px;
   box-shadow: 0 3px 9px rgba(0,0,0,0.5);
   background-clip: padding-box;
@@ -5981,7 +5981,7 @@ button.close {
   bottom: 0;
   left: 0;
   z-index: 1040;
-  background-color: #000;
+  background-color: #fff;
 }
 .modal-backdrop.fade {
   opacity: 0;
@@ -5993,7 +5993,7 @@ button.close {
 }
 .modal-header {
   padding: 15px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid transparent;
   min-height: 16.428571429px;
 }
 .modal-header .close {
@@ -6010,7 +6010,7 @@ button.close {
 .modal-footer {
   padding: 15px;
   text-align: right;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid transparent;
 }
 .modal-footer .btn + .btn {
   margin-left: 5px;
@@ -6050,7 +6050,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6065,7 +6065,7 @@ button.close {
   word-break: normal;
   word-spacing: normal;
   word-wrap: normal;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica", sans-serif;
   font-size: 12px;
   opacity: 0;
   filter: alpha(opacity=0);
@@ -6169,7 +6169,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6184,7 +6184,7 @@ button.close {
   word-break: normal;
   word-spacing: normal;
   word-wrap: normal;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica", sans-serif;
   font-size: 14px;
   background-color: #fff;
   background-clip: padding-box;
@@ -6718,8 +6718,71 @@ button.close {
 #header {
   margin-top: 30px;
 }
+#landing-header,
 a {
   color: #000;
+}
+.modal-content {
+  text-align: center;
+  border: #4071b8 6px solid;
+}
+.modal-content .btn-secondary {
+  background-color: #fff;
+  border: #4071b8 1.5px solid;
+  color: #4071b8;
+}
+.modal-content .btn {
+  margin-bottom: 10px;
+}
+.navbar img {
+  max-height: 70px;
+  display: inline-block;
+  margin-right: 10px;
+}
+.navbar h2 {
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+}
+#landing-top {
+  background-image: url("../images/paul-gilmore-184255-unsplash.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+#landing-mid {
+  background-color: #fff;
+  padding: 20px;
+}
+#landing-mid p {
+  line-height: 2;
+}
+.navbar-inverse {
+  margin-bottom: 0;
+}
+#landing .jumbotron {
+  background-color: #4071b8;
+  color: #fff;
+  width: 70%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 30px;
+}
+#about {
+  background-color: #e6f3f8;
+}
+#about p {
+  line-height: 2;
+}
+#signin {
+  background-color: #233251;
+  color: #fff;
+}
+#signin a {
+  color: #e6f3f8;
+  text-decoration: underline;
+}
+#showPassword {
+  text-align: right;
 }
 #footer {
   margin-top: 30px;

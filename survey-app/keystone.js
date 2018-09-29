@@ -41,6 +41,9 @@ keystone.set('locals', {
 // Load your project's Routes
 keystone.set('routes', require('./routes'));
 
+// Set login image
+keystone.set('signin logo', '../images/BCATlogo.svg');
+
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
