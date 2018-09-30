@@ -21,7 +21,7 @@ block content
 						button.btn.btn-primary.btn-lg(data-target='#startModal', data-toggle='modal') Get Started
 					div.col-md-6#signin
 						h3 Sign in
-						form
+						form(method='POST', action='/signin', role='signin')
 							div.form-group
 								label(for='userLogin') Username or email address
 								input(type='email', class='form-control', id='userLogin')

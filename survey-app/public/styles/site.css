@@ -6718,7 +6718,6 @@ button.close {
 #header {
   margin-top: 30px;
 }
-#landing-header,
 a {
   color: #000;
 }
@@ -6736,6 +6735,7 @@ a {
 }
 .navbar img {
   max-height: 70px;
+  max-width: 70px;
   display: inline-block;
   margin-right: 10px;
 }
