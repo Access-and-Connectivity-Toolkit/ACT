@@ -37,7 +37,7 @@ var routes = {
 exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/survey', middleware.requireUser, routes.views.survey);
+	app.get('/assessment', middleware.requireUser, routes.views.assessment);
 	app.get('/about', middleware.requireUser, routes.views.about);
 	app.get('/team', middleware.requireUser, routes.views.team);
 	app.get('/resources', middleware.requireUser, routes.views.resources);

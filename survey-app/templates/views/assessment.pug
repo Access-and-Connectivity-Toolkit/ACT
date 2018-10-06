@@ -1,0 +1,7 @@
+extends ../layouts/default
+
+block content
+    .container: .jumbotron
+        if modules.length
+            each mod in modules
+                iframe(src=mod.url, width="640", height="913", frameborder="0", marginheight="0", marginwidth="0") Loading...    
