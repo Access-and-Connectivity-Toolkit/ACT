@@ -1,0 +1,9 @@
+extends ../layouts/default
+
+block content
+    .container-fluid(style={background: 'white'})
+        if success
+            h2 You signed up!
+            a(href="/keystone") Click here to sign in
+        else
+            h2 Signup failed

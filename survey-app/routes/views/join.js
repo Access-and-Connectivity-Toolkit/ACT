@@ -6,5 +6,13 @@ exports = module.exports = function (req, res) {
     var Team = keystone.list('Team').model;
     view.query('teams', Team.find());
 
+    view.on('post', function(next) {
+        
+        locals.team = req.body.team;
+        console.log(req.body);
+
+        next();
+    });
+
     view.render('join');
 };
