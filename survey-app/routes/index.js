@@ -37,6 +37,7 @@ var routes = {
 exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
+	app.get('/join', routes.views.join);
 	app.get('/assessment', middleware.requireUser, routes.views.assessment);
 	app.get('/about', middleware.requireUser, routes.views.about);
 	app.get('/team', middleware.requireUser, routes.views.team);

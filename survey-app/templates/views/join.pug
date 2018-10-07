@@ -1,0 +1,28 @@
+extends ../layouts/default
+
+block content
+    .container-fluid(style={background: 'white'})
+        h3 Join an existing team
+        div.jumbotron
+            form(method="POST", role="form", action="signup")
+                div.col-md-6
+                    div.form-group
+                        label State
+                        select.form-control
+                            option -- Select a State --
+                            option Washington
+                            option Oregon
+
+                div.col-md-6#team-select
+                    div.form-group
+                        label Team
+                        select.form-control(size=5)
+                            option -- Select a Team --
+                            if teams.length
+                                for team in teams
+                                    option #{team.name}
+                    a() I don't see my team
+
+
+                a.btn.btn-primary(href="/") < Back
+                button.btn.btn-primary.pull-right.form-group(type="submit") Next >

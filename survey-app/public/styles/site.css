@@ -6781,6 +6781,13 @@ a {
   color: #e6f3f8;
   text-decoration: underline;
 }
+#team-select a {
+  color: #4071b8;
+  text-decoration: underline;
+}
+#team-select .form-group {
+  margin-bottom: 2px;
+}
 #showPassword {
   text-align: right;
 }
