@@ -3,3 +3,17 @@ extends ../layouts/default
 block content
 	.container: .jumbotron
 		h2 Resources
+		p These are some helpful resources
+		
+	.container
+		div.row.show-grid
+			if resources.length
+				each resource in resources
+					div.col-sm-4
+						div.panel-default
+							div.panel-heading
+								h2.panel-title= resource.title
+							div.panel.panel-body= resource.description
+								br
+								br
+								a(href=resource.url) #{resource.url}

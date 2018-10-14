@@ -1,0 +1,72 @@
+extends ../layouts/default
+
+block content
+    .container-fluid(style={background: 'white'})
+        if !team
+            h3 Join an existing team
+            div.jumbotron
+                form(method="POST", role="form", action="")
+                    div.col-md-6
+                        div.form-group
+                            label State
+                            select.form-control
+                                option -- Select a State --
+                                option Washington
+                                option Oregon
+
+                    div.col-md-6#team-select
+                        div.form-group
+                            label Team
+                            select.form-control(size=5, id="team", name="team")
+                                option -- Select a Team --
+                                if teams.length
+                                    for team in teams
+                                        option #{team.name}
+                            span.help-block #[a() I don't see my team]
+
+
+                    a.btn.btn-primary(href="/") < Back
+                    button.btn.btn-primary.pull-right.form-group(type="submit") Next >
+        else
+            h2 #{team} Assessment
+            div.jumbotron
+                h3 Create an account
+                form(method="POST", action="signup", role="form")
+                    div.form-group
+                        label Team Code
+                        input.form-control(type="text", name="code", placeholder="Enter Code")
+                        span.help-block Don't have a code? #[a(href="/") Message your team administrator]
+                    hr
+                    div.form-group
+                        label Password (8+ characters, containing at least one number and capital)
+                        input.form-control(type="password", name="password", placeholder="********")
+                    div.form-group
+                        label Confirm Password
+                        input.form-control(type="confirm", name="confirm", placeholder="********")
+                    div.form-group
+                        label First Name
+                        input.form-control(type="text", name="first", placeholder="First Name")
+                    div.form-group
+                        label Last Name
+                        input.form-control(type="text", name="last", placeholder="Last Name")
+                    div.form-group
+                        label Email
+                        input.form-control(type="email", name="email", placeholder="Email Address")
+                    div.form-group
+                        label Phone (xxx-xxx-xxxx)
+                        input.form-control(type="text", name="phone", placeholder="xxx-xxx-xxxx")
+                    div.form-group
+                        label Street Address
+                        input.form-control(type="text", name="st_address", placeholder="Street Address, Apt #")
+                    div.form-group
+                        label City
+                        input.form-control(type="text", name="city", placeholder="City")
+                    div.form-group
+                        label State
+                        input.form-control(type="text", name="state", placeholder="State")
+                    .form-group
+                        label Zipcode
+                        input.form-control(type="text", name="zip", placeholder="Zip")
+
+                    a.btn.btn-primary(href="/join") < Back
+                    button.btn.btn-primary.pull-right.form-group(type="submit") Next >
