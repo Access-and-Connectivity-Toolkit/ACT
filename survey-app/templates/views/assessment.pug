@@ -2,6 +2,20 @@ extends ../layouts/default
 
 block content
     .container: .jumbotron
-        if modules.length
-            each mod in modules
-                iframe(src=mod.url, width="640", height="913", frameborder="0", marginheight="0", marginwidth="0") Loading...    
+            if path.length
+                h2 #{path[0].name} Path
+            if modules.length
+                .row.justify-content-around
+                    - let i = 0
+                    each mod in modules
+                        .col-sm-2
+                            a(href=("/assessment?surveyIndex=" + i) id=i++) #{mod.name}
+            if modules.length && surveyIndex
+                if surveyIndex >= 0 && surveyIndex < modules.length
+                    - let mod = modules[surveyIndex]
+                    p #{mod.name}
+                    iframe(src=mod.url, width="640", height="913", frameborder="0", marginheight="0", marginwidth="0") Loading... 
+                else
+                    p Invalid request
+            if modules.length == 0
+                p You haven't been assigned any surveys 
