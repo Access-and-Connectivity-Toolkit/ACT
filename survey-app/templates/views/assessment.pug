@@ -1,28 +1,34 @@
 extends ../layouts/default
 
 block content
-    .container: .jumbotron
-        if path.length
-            h2 #{path[0].name} Path
-        .row
-            .col-sm-8
+    .container-fluid: .row.show-grid#assessment-mid
+        .container
+            if path.length
+                h2 #{path[0].name} Path
+                br
                 if modules.length
-                    .row.justify-content-around
+                    .row.justify-content-between
                         - let i = 0
                         each mod in modules
                             .col-sm-2
                                 a(href=("/assessment?surveyIndex=" + i) id=i++) #{mod.name}
-                if modules.length && surveyIndex
-                    if surveyIndex >= 0 && surveyIndex < modules.length
-                        - let mod = modules[surveyIndex]
-                        h3 #{mod.name}
-                        iframe(src=mod.url, width="640", height="913", frameborder="0", marginheight="0", marginwidth="0") Loading... 
-                    else
-                        p Invalid request
-                if modules.length == 0
-                    p You haven't been assigned any surveys 
-            .col-sm-4
-                if modules.length && surveyIndex
-                    if modules[surveyIndex].resources
-                        h3 Resources
-                        iframe(src=modules[surveyIndex].resources frameborder="0" style="width:100%;height:608px;display:block;padding:0;margin:0")
+            else
+                h2 You haven't been assigned an assessment path yet.
+        .container-fluid#assessment-body
+            .row
+                .container
+                    .col-sm-8
+                        if modules.length && surveyIndex
+                            if surveyIndex >= 0 && surveyIndex < modules.length
+                                - let mod = modules[surveyIndex]
+                                h3 #{mod.name}
+                                iframe(src=mod.url, width="100%", height="913", frameborder="0", marginheight="0", marginwidth="0") Loading... 
+                            else
+                                p Invalid request
+                        if modules.length == 0
+                            p You haven't been assigned any surveys 
+                    .col-sm-4
+                        if modules.length && surveyIndex
+                            if modules[surveyIndex].resources
+                                h3 Resources
+                                iframe(src=modules[surveyIndex].resources frameborder="0" style="width:100%;height:918px;display:block;padding:0;margin:0")

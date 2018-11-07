@@ -6753,6 +6753,12 @@ a {
   background-color: #fff;
   padding: 20px;
 }
+#assessment-mid {
+  background-color: #fff;
+}
+#assessment-body {
+  background-color: #e6f3f8;
+}
 #landing-mid p {
   line-height: 2;
 }
