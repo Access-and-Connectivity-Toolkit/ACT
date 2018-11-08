@@ -28,7 +28,7 @@ block content
                         if modules.length == 0
                             p You haven't been assigned any surveys 
                     .col-sm-4
-                        if modules.length && surveyIndex
+                        if (modules.length && surveyIndex) && (surveyIndex >= 0 && surveyIndex < modules.length)
                             if modules[surveyIndex].resources
                                 h3 Resources
                                 iframe(src=modules[surveyIndex].resources frameborder="0" style="width:100%;height:913px;display:block;padding:0;margin:0")
