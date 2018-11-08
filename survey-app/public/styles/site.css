@@ -6771,6 +6771,8 @@ a {
 }
 #assessment-body {
   background-color: #e6f3f8;
+  padding-bottom: 30px;
+  margin-top: 20px;
 }
 #landing-mid p {
   line-height: 2;
