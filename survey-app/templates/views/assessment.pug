@@ -7,11 +7,11 @@ block content
                 h2 #{path[0].name} Path
                 br
                 if modules.length
-                    .row.justify-content-between
+                    ul.nav.nav-pills
                         - let i = 0
                         each mod in modules
-                            .col-sm-2
-                                a(href=("/assessment?surveyIndex=" + i) id=i++) #{mod.name}
+                            li.nav-item
+                                a.nav-link(href=("/assessment?surveyIndex=" + i) id=i++) #{mod.name}
             else
                 h2 You haven't been assigned an assessment path yet.
         .container-fluid#assessment-body
