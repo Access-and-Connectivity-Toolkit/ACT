@@ -33,16 +33,11 @@ block content
                 h3 Create an account
                 form(method="POST", action="signup", role="form")
                     div.form-group
-                        label Team Code
-                        input.form-control(type="text", name="code", placeholder="Enter Code")
-                        span.help-block Don't have a code? #[a(href="/") Message your team administrator]
-                    hr
-                    div.form-group
                         label Password (8+ characters, containing at least one number and capital)
                         input.form-control(type="password", name="password", placeholder="********")
                     div.form-group
                         label Confirm Password
-                        input.form-control(type="confirm", name="confirm", placeholder="********")
+                        input.form-control(type="password", name="confirm", placeholder="********")
                     div.form-group
                         label First Name
                         input.form-control(type="text", name="first", placeholder="First Name")
