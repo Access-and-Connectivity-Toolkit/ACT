@@ -11,5 +11,8 @@ exports = module.exports = function (req, res) {
     var Module = keystone.list('Module').model;
     view.query('modules', Module.find({'pathways': req.user.assignedPath}).sort({'index': 'asc'}));
 
+    var Team = keystone.list('Team').model;
+    view.query('team', Team.find({'_id': req.user.team}));
+
     view.render('assessment');
 };

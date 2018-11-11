@@ -4,17 +4,21 @@ block content
     .container-fluid: .row.show-grid#assessment-mid
         .container
             if path.length
-                h2 #{path[0].name} Path
+                .col-sm-8
+                    h2 #{path[0].name} Path
+                .col-sm-4#assessment-label
+                    h5 #{team[0].name} Assessment
                 if modules.length
-                    ul.nav.nav-pills(role="tablist")
-                        - let i = 0
-                        each mod in modules
-                            if i == 0
-                                li.nav-item.active
-                                    a.nav-link(data-toggle="pill" href="#"+i++) #{mod.name}
-                            else
-                                li.nav-item
-                                    a.nav-link(data-toggle="pill" href="#"+i++) #{mod.name}
+                    .col-sm-12
+                        ul.nav.nav-pills(role="tablist")
+                            - let i = 0
+                            each mod in modules
+                                if i == 0
+                                    li.nav-item.active
+                                        a.nav-link(data-toggle="pill" href="#"+i++) #{mod.name}
+                                else
+                                    li.nav-item
+                                        a.nav-link(data-toggle="pill" href="#"+i++) #{mod.name}
             else
                 h2 You haven't been assigned an assessment path yet.
         .container-fluid#assessment-body
