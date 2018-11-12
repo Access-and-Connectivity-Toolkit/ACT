@@ -8,6 +8,8 @@ All of the code for the project is current in the `survey-app` folder. This proj
 * MongoDB
   * Mac: `brew install mongodb`
   * [Windows](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
+  * If this is your first time using MongoDB, you will also need to set up a `/data/db` directory with the correct permissions.
+    * [Mac and Windows Examples](https://stackoverflow.com/questions/41420466/mongodb-shuts-down-with-code-100)
 
 ## Set up
 * Clone the repository   
