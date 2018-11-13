@@ -36,7 +36,7 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function (app) {
 	// Views
-	app.get('/', routes.views.index);
+	app.all('/', routes.views.index);
 	app.all('/join', routes.views.join);
 	app.post('/signup', routes.views.signup);
 	app.get('/assessment', middleware.requireUser, routes.views.assessment);
