@@ -31,6 +31,7 @@ All of the code for the project is current in the `survey-app` folder. This proj
 * In a separate terminal run `npm start` or  `node keystone`
 * Check `localhost:3000`
 * Debugging work out of the box with VSCode
+* Locally you should be able to sign in to the keystone admin with the username `user@keystonejs.com` and password `pass`
 
 ## Structure
 ```
