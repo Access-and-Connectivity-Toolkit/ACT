@@ -48,7 +48,7 @@ keystone.set('signout redirect', '/');
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	users: ['users', 'teams'],
+	users: ['users', 'teams', 'roles'],
 	modules: ['modules', 'ModulePath'],
 });
 
