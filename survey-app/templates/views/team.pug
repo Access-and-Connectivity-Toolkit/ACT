@@ -2,4 +2,16 @@ extends ../layouts/default
 
 block content
 	.container: .jumbotron
-		h2 Team Folder
+		if team.length
+			h2 #{team[0].name} Team Folder
+		else
+			h2 Team Folder
+
+		if team.length
+			if team[0].leader.toString() === user._id.toString()
+				h4 Your Team
+				if members.length
+					each member in members
+						row
+							p.col-sm-4 #{member.name.first} #{member.name.last}
+							p.col-sm-4 Role
