@@ -14,7 +14,6 @@ const sdk = new BoxSDK({
 
 // Create new basic client with developer token
 const client = sdk.getBasicClient(process.env.BOX_DEV_TOKEN);
-// const client = sdk.getBasicClient('HZ8qLxVQwtnk1VG8Bca7APJuBdejwPgJ');
 const folderId = '58640691930';
 
 async function runBackup() {
