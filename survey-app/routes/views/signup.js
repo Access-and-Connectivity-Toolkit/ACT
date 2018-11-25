@@ -7,9 +7,6 @@ exports = module.exports = function (req, res) {
 
     locals.success = false;
 
-    locals.stuff = req.body;
-    console.log(req.body);
-
     var newUser = new User({
         name: {first: req.body.first, last: req.body.last},
         password: req.body.password,
@@ -30,8 +27,22 @@ exports = module.exports = function (req, res) {
             console.log(err);
         } else {
             locals.success = true;
+
+            var onSuccess = function() {
+                res.redirect('/home');
+            }
+    
+            var onFail = function() {
+                console.log(err);
+                res.redirect('/');
+            }
+
+            keystone.session.signin({
+                email: req.body.email, 
+                password: req.body.password
+            }, req, res, onSuccess, onFail);
         }
 
-        view.render('signup');
+        // view.render('signup');
     });
 };
