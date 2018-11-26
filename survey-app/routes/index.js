@@ -38,7 +38,7 @@ exports = module.exports = function (app) {
 	// Views
 	app.all('/', routes.views.index);
 	app.all('/join', routes.views.join);
-	app.post('/signup', routes.views.signup);
+	app.all('/signup', routes.views.signup);
 	app.get('/assessment', middleware.requireUser, routes.views.assessment);
 	app.get('/about', middleware.requireUser, routes.views.about);
 	app.get('/team', middleware.requireUser, routes.views.team);

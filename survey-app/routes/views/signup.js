@@ -5,44 +5,115 @@ exports = module.exports = function (req, res) {
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
-    locals.success = false;
+    // Should have set team in the join step, so send user back
+    if (!req.query.team && !req.body.team) {
+        res.redirect('join');
+        return;
+    }
 
-    var newUser = new User({
-        name: {first: req.body.first, last: req.body.last},
-        password: req.body.password,
-        email: req.body.email,
-        phone: req.body.phone,
-        location: {
-            street1: req.body.st_address,
-            postcode: req.body.zip,
-            state: req.body.state,
-            suburb: req.body.city,
-            country: 'USA'
-        },
-        isAdmin: false
-    });
+    locals.team = req.query.team;
+    locals.validationErrors = {};
 
-    newUser.save(function(err) {
-        if (err) {
-            console.log(err);
+    // Get formData from request, if this request is from a previously
+    // failed registration, get formData from the session
+    locals.formData = req.body || {};
+    if (req.session.formData) {
+        locals.formData = req.session.formData;
+    }
+    if (req.body) {
+        req.session.formData = req.body;
+    }
+
+    var onFail = function(message) {
+        req.flash('error', message);
+        return res.redirect('back');
+    }
+
+    function checkExistingEmail() {
+        return new Promise((resolve, reject) => {
+            keystone.list('User').model.findOne({email: req.body.email}, (err, user) => {
+                if (err) {
+                    console.log(err);
+                }
+
+                if (user) {
+                    reject('An account already exists for that email');
+                }
+
+                resolve();
+            });
+        });
+    }
+
+    function findTeam() {
+        console.log('here??');
+        return new Promise((resolve, reject) => {
+            keystone.list('Team').model.findOne({name: req.body.team}, (err, team) => {
+                if (err) {
+                    reject(err);
+                }
+
+                if (!team) {
+                    reject('Team not found');
+                }
+
+                resolve(team);
+            });
+        });
+    }
+
+    view.on('post', function() {
+        if (req.body.password !== req.body.confirm) {
+            // Clear these since user won't be able to see which is wrong
+            req.session.formData.password = null;
+            req.session.formData.confirm = null;
+
+            onFail('Passwords don\'t match');
         } else {
-            locals.success = true;
+            checkExistingEmail().then(() => findTeam()) 
+            .then((team) => {
+                console.log(team);
+                var newUser = new User({
+                    name: {first: req.body.first, last: req.body.last},
+                    password: req.body.password,
+                    email: req.body.email,
+                    phone: req.body.phone,
+                    location: {
+                        street1: req.body.st_address,
+                        postcode: req.body.zip,
+                        state: req.body.state,
+                        suburb: req.body.city,
+                        country: 'USA'
+                    },
+                    team: team._id,
+                    isAdmin: false
+                });
 
-            var onSuccess = function() {
-                res.redirect('/home');
-            }
+                console.log(team._id);
     
-            var onFail = function() {
-                console.log(err);
-                res.redirect('/');
-            }
-
-            keystone.session.signin({
-                email: req.body.email, 
-                password: req.body.password
-            }, req, res, onSuccess, onFail);
+                newUser.save(function(err) {
+                    if (err) {
+                        console.log('signin issues??');
+                        onFail(err);
+                    } else {
+                        var onSuccess = function() {
+                            res.redirect('/home');
+                        }
+    
+                        keystone.session.signin({
+                            email: req.body.email, 
+                            password: req.body.password
+                        }, req, res, onSuccess, onFail);
+    
+                        // Don't need this anymore, shouldn't keep it
+                        req.session.formData = null;
+                    }
+                });
+            }).catch((err) => {
+                onFail(err);
+            });
         }
-
-        // view.render('signup');
     });
+
+    view.render('signup');
 };

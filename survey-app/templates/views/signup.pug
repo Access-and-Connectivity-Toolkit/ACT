@@ -2,8 +2,46 @@ extends ../layouts/default
 
 block content
     .container-fluid(style={background: 'white'})
-        if success
-            h2 You signed up!
-            a(href="/keystone") Click here to sign in
+        if team
+            h2 #{team} Assessment
+            div.jumbotron
+                h3 Create an account
+                form(method="POST", action="signup", role="form")
+                    div.form-group
+                        label Password (8+ characters, containing at least one number and capital)
+                        input.form-control(type="password", name="password", placeholder="********", required="true", value=formData.password)
+                    div.form-group
+                        label Confirm Password
+                        input.form-control(type="password", name="confirm", placeholder="********", required="true", value=formData.confirm)
+                    div.form-group
+                        label First Name
+                        input.form-control(type="text", name="first", placeholder="First Name", required="true", value=formData.first)
+                    div.form-group
+                        label Last Name
+                        input.form-control(type="text", name="last", placeholder="Last Name", required="true", value=formData.last)
+                    div.form-group
+                        label Email
+                        input.form-control(type="email", name="email", placeholder="Email Address", value=formData.email, required="true")
+                    div.form-group
+                        label Phone (xxx-xxx-xxxx)
+                        input.form-control(type="text", name="phone", placeholder="xxx-xxx-xxxx", required="true", value=formData.phone)
+                    div.form-group
+                        label Street Address
+                        input.form-control(type="text", name="st_address", placeholder="Street Address, Apt #", required="true", value=formData.st_address)
+                    div.form-group
+                        label City
+                        input.form-control(type="text", name="city", placeholder="City", required="true", value=formData.city)
+                    div.form-group
+                        label State
+                        input.form-control(type="text", name="state", placeholder="State", required="true", value=formData.state)
+                    .form-group
+                        label Zipcode
+                        input.form-control(type="text", name="zip", placeholder="Zip", required="true", value=formData.zip)
+                    .form-group
+                        input.form-control(type="hidden", name="team", value=team, required="true")
+
+                    a.btn.btn-primary(href="/join") < Back
+                    button.btn.btn-primary.pull-right.form-group(type="submit") Next >
         else
-            h2 Signup failed
+            h2 You're lost.
+            a(href="/") Head back to BCAT
