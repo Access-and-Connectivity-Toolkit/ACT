@@ -1,8 +1,8 @@
-var keystone = require('keystone');
+const keystone = require('keystone');
 
-exports = module.exports = function (req, res) {
-	var view = new keystone.View(req, res);
-	var locals = res.locals;
+exports = module.exports = (req, res) => {
+	const view = new keystone.View(req, res);
+	const locals = res.locals;
 
 	// Already signed in
 	if (req.user) {
@@ -13,16 +13,16 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = '/';
 
-	view.on('post', function(next) {
+	view.on('post', (next) => {
 		if (!req.body.email || !req.body.password) {
 			return next();
 		}
 
-		var onSuccess = function() {
+		const onSuccess = () => {
 			res.redirect('/home');
 		}
 
-		var onFail = function() {
+		const onFail = () => {
 			return next();
 		}
 

@@ -1,9 +1,9 @@
-var keystone = require('keystone');
-var User = keystone.list('User').model;
+const keystone = require('keystone');
+const User = keystone.list('User').model;
 
-exports = module.exports = function (req, res) {
-    var view = new keystone.View(req, res);
-    var locals = res.locals;
+exports = module.exports = (req, res) => {
+    const view = new keystone.View(req, res);
+    const locals = res.locals;
 
     // Should have set team in the join step, so send user back
     if (!req.query.team && !req.body.team) {
@@ -24,7 +24,7 @@ exports = module.exports = function (req, res) {
         req.session.formData = req.body;
     }
 
-    var onFail = function(message) {
+    const onFail = (message) => {
         req.flash('error', message);
         return res.redirect('back');
     }
@@ -62,7 +62,7 @@ exports = module.exports = function (req, res) {
         });
     }
 
-    view.on('post', function() {
+    view.on('post', () => {
         if (req.body.password !== req.body.confirm) {
             // Clear these since user won't be able to see which is wrong
             req.session.formData.password = null;
@@ -72,8 +72,7 @@ exports = module.exports = function (req, res) {
         } else {
             checkExistingEmail().then(() => findTeam()) 
             .then((team) => {
-                console.log(team);
-                var newUser = new User({
+                const newUser = new User({
                     name: {first: req.body.first, last: req.body.last},
                     password: req.body.password,
                     email: req.body.email,
@@ -88,15 +87,13 @@ exports = module.exports = function (req, res) {
                     team: team._id,
                     isAdmin: false
                 });
-
-                console.log(team._id);
     
-                newUser.save(function(err) {
+                newUser.save((err) => {
                     if (err) {
                         console.log('signin issues??');
                         onFail(err);
                     } else {
-                        var onSuccess = function() {
+                        const onSuccess = () => {
                             res.redirect('/home');
                         }
     

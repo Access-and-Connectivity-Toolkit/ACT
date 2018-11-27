@@ -1,11 +1,11 @@
-var keystone = require('keystone');
-var Types = keystone.Field.Types;
+const keystone = require('keystone');
+const Types = keystone.Field.Types;
 
 /**
  * Resource Model
  * ==========
  */
-var Resource = new keystone.List('Resource');
+const Resource = new keystone.List('Resource');
 
 Resource.add({
     title: { type: Types.Text, initial: true, required: true },

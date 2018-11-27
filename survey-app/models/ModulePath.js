@@ -1,7 +1,6 @@
-var keystone = require('keystone');
-var Types = keystone.Field.Types;
+const keystone = require('keystone');
 
-var ModulePath = new keystone.List('ModulePath', {
+const ModulePath = new keystone.List('ModulePath', {
 	autokey: { from: 'name', path: 'key', unique: true },
 	label: 'Pathways',
 });

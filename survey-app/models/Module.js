@@ -1,11 +1,11 @@
-var keystone = require('keystone');
-var Types = keystone.Field.Types;
+const keystone = require('keystone');
+const Types = keystone.Field.Types;
 
 /**
  * Module Model
  * ==========
  */
-var Module = new keystone.List('Module');
+const Module = new keystone.List('Module');
 
 Module.add({
     name: { type: Types.Text, initial: true, required: true },
