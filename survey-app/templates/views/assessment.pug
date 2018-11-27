@@ -3,12 +3,12 @@ extends ../layouts/default
 block content
     .container-fluid: .row.show-grid#assessment-mid
         .container
-            if path.length 
+            if path
                 .col-sm-8
-                    h2 #{path[0].name} Path
+                    h2 #{path.name} Path
                 .col-sm-4#assessment-label
-                    if team.length
-                        h5 #{team[0].name} Assessment
+                    if team
+                        h5 #{team.name} Assessment
                 if modules.length
                     .col-sm-12
                         ul.nav.nav-pills(role="tablist")

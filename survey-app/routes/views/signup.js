@@ -1,18 +1,21 @@
 const keystone = require('keystone');
 const User = keystone.list('User').model;
 
-exports = module.exports = (req, res) => {
+exports = module.exports = async (req, res) => {
     const view = new keystone.View(req, res);
     const locals = res.locals;
 
+    // Already signed in and have account
+    if (req.user) {
+        return res.redirect('/');
+    }
+
     // Should have set team in the join step, so send user back
     if (!req.query.team && !req.body.team) {
-        res.redirect('join');
-        return;
+        return res.redirect('join');
     }
 
     locals.team = req.query.team;
-    locals.validationErrors = {};
 
     // Get formData from request, if this request is from a previously
     // failed registration, get formData from the session
@@ -46,7 +49,6 @@ exports = module.exports = (req, res) => {
     }
 
     function findTeam() {
-        console.log('here??');
         return new Promise((resolve, reject) => {
             keystone.list('Team').model.findOne({name: req.body.team}, (err, team) => {
                 if (err) {
@@ -90,7 +92,6 @@ exports = module.exports = (req, res) => {
     
                 newUser.save((err) => {
                     if (err) {
-                        console.log('signin issues??');
                         onFail(err);
                     } else {
                         const onSuccess = () => {
