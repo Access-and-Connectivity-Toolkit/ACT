@@ -1,5 +1,19 @@
 extends ../layouts/default
+include ../mixins/question-types
 
 block content
 	.container: .jumbotron
 		h2 About
+		if questions
+			form(method="POST" action="")
+				//- Maybe it'd be better to have this in the mixin...
+				each question in questions
+					if question.type === 'Radio'
+						+radio-question(question)
+					else if question.type === 'Checkboxes'
+						+checkbox-question(question)
+					else if question.type === 'Scale'
+						+scale-question(question)
+					else
+						+textarea-question(question)
+				button.btn.btn-primary(type="submit") Submit 

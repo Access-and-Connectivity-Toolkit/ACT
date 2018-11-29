@@ -50,6 +50,7 @@ keystone.set('signout redirect', '/');
 keystone.set('nav', {
 	users: ['users', 'teams', 'roles'],
 	modules: ['modules', 'ModulePath'],
+	questions: ['questions', 'surveys']
 });
 
 // Start Keystone to connect to your database and initialise the web server

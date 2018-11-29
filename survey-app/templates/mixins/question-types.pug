@@ -1,0 +1,37 @@
+mixin radio-question(question)
+    if question
+        .form-group
+            p #{question.title}
+            each ans in question.answers
+                .radio
+                    label
+                        input(type="radio", name=question.title, value=ans)
+                        | #{ans}
+
+mixin checkbox-question(question)
+    if question
+        .form-group
+            p #{question.title}
+            each ans in question.answers
+                .checkbox
+                    label
+                        input.checkbox-input(type="checkbox" value=ans, name=question.title)
+                        | #{ans}
+
+mixin textarea-question(question)
+    if question
+        .form-group
+            p #{question.title}
+            textarea.form-control(rows="5" name=question.title)
+
+mixin scale-question(question)
+    if question
+        .form-group#scale
+            p #{question.title}
+            .radio
+                span Not at all
+                each val in [1, 2, 3, 4, 5]
+                    label.radio-inline
+                        input(type="radio", name=question.title, value=val)
+                span To a large extent
+

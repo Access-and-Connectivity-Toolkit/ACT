@@ -16,5 +16,5 @@ exports.create = {
                 {'name': 'Business'},
                 {'name': 'Healthcare'},
                 {'name': 'Reviewer'},
-	],
+	]
 };
