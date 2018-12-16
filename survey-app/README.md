@@ -27,8 +27,8 @@ All of the code for the project is current in the `survey-app` folder. This proj
   ```
   For now, `<a_bunch_of_characters>` can be whatever you'd like.  
 
-* Start mongodb: `mongod`
-* In a separate terminal run `npm start` or  `node keystone`
+* In a separate terminal start mongodb: `mongod`
+* In the survey-app directory run `npm start`
 * Check `localhost:3000`
 * Debugging work out of the box with VSCode
 * Locally you should be able to sign in to the keystone admin with the username `user@keystonejs.com` and password `pass`
