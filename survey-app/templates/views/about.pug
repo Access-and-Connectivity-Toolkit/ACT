@@ -5,7 +5,7 @@ block content
 	.container: .jumbotron
 		h2 About
 		if questions
-			form(method="POST" action="")
+			form(method="POST" action="" id="assessment")
 				//- Maybe it'd be better to have this in the mixin...
 				each question in questions
 					if question.type === 'Radio'
@@ -16,4 +16,6 @@ block content
 						+scale-question(question)
 					else
 						+textarea-question(question)
-				button.btn.btn-primary(type="submit") Submit 
+				button.btn.btn-primary(type="submit") Submit
+				
+				script(src='js/survey.js')

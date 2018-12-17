@@ -14,7 +14,6 @@ exports = module.exports = (req, res) => {
 
     getSurveyId('Test').then((surveyId) => {
         view.query('questions', Question.find({survey: surveyId}).sort({'name': 'asc'}));
-
         view.render('about');
     })
 
