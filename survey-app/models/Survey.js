@@ -10,6 +10,7 @@ Survey.add({
 });
 
 Survey.relationship({ ref: 'Question', refPath: 'survey' });
+Survey.relationship({ ref: 'Answer', refPath: 'surveyId'});
 
 Survey.track = true;
 Survey.register();

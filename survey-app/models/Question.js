@@ -15,4 +15,6 @@ Question.add({
     answers: { type: Types.TextArray }
 });
 
+Question.relationship({ ref: 'Answer', refPath: 'questionId'});
+
 Question.register();
