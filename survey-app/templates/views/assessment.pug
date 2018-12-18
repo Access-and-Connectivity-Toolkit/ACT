@@ -1,54 +1,57 @@
 extends ../layouts/default
+include ../mixins/question-types
 
 block content
     .container-fluid: .row.show-grid#assessment-mid
         .container
             if path
                 .col-sm-8
-                    h2 #{path.name} Path
+                    h2 #{path} Path
                 .col-sm-4#assessment-label
                     if team
                         h5 #{team.name} Assessment
-                if modules.length
+                if modules && modules.length
                     .col-sm-12
                         ul.nav.nav-pills(role="tablist")
                             - let i = 0
                             each mod in modules
-                                if i == 0
+                                if i == active
                                     li.nav-item.active
-                                        a.nav-link(data-toggle="pill" href="#"+i++) #{mod.name}
+                                        a.nav-link(href="/assessment?surveyIndex="+i++) #{mod.name}
                                 else
                                     li.nav-item
-                                        a.nav-link(data-toggle="pill" href="#"+i++) #{mod.name}
+                                        a.nav-link(href="/assessment?surveyIndex="+i++) #{mod.name}
             else
                 h2 You haven't been assigned an assessment path yet.
         .container-fluid#assessment-body
             .row
-                if modules.length
+                if modules && modules.length
                     - let i = 0
                     .tab-content
                         each mod in modules
-                            if i == 0
+                            if i == active
                                 .tab-pane.active(id=i++ role="tabpanel")
-                                    .container
-                                            .col-sm-8
-                                                h3 #{mod.name}
-                                                iframe(src=mod.url, width="100%", height="913", frameborder="0", marginheight="0", marginwidth="0") Loading...
-                    
-                                            .col-sm-4
-                                                if mod.resources
-                                                    h3 Resources
-                                                    iframe(src=mod.resources frameborder="0" style="width:100%;height:913px;display:block;padding:0;margin:0")
-                            else
-                                .tab-pane(id=i++ role="tabpanel")
                                     .container
                                         .col-sm-8
                                             h3 #{mod.name}
-                                            iframe(src=mod.url, width="100%", height="913", frameborder="0", marginheight="0", marginwidth="0") Loading...
+                                            if mod.questions
+                                                +question-form(mod.questions, mod.id)
                 
                                         .col-sm-4
                                             if mod.resources
                                                 h3 Resources
                                                 iframe(src=mod.resources frameborder="0" style="width:100%;height:913px;display:block;padding:0;margin:0")
-                if modules.length == 0
-                    p You haven't been assigned any surveys 
+                            else
+                                .tab-pane(id=i++ role="tabpanel")
+                                    .container
+                                        .col-sm-8
+                                            h3 #{mod.name}
+                                            if mod.questions
+                                                +question-form(mod.questions, mod.id)
+                
+                                        .col-sm-4
+                                            if mod.resources
+                                                h3 Resources
+                                                iframe(src=mod.resources frameborder="0" style="width:100%;height:913px;display:block;padding:0;margin:0")
+                if !modules || modules.length == 0
+                    p You haven't been assigned any modules 

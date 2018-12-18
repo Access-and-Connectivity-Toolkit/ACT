@@ -34,3 +34,21 @@ mixin scale-question(question)
                     label.radio-inline
                         input(type="radio", name=question.id, value=val)
                 span To a large extent
+
+mixin question-form(questions, moduleId)
+    form(method="POST" action="" id="assessment")
+        each question in questions
+            if question.type === 'Radio'
+                +radio-question(question)
+            else if question.type === 'Checkboxes'
+                +checkbox-question(question)
+            else if question.type === 'Scale'
+                +scale-question(question)
+            else
+                +textarea-question(question)
+        input.form-control(type="hidden", name="moduleId", value=moduleId, required="true")
+        
+        button.btn.btn-primary(type="submit") Save
+        button.btn.btn-primary(type="submit") Mark as complete
+
+        script(src='js/survey.js')

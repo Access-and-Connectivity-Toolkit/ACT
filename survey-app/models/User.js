@@ -11,7 +11,7 @@ User.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, unique: true, index: true },
 	password: { type: Types.Password, initial: true, required: true },
-	assignedPath: {type: Types.Relationship, ref: 'ModulePath', many: false },
+	assignedModules: {type: Types.Relationship, ref: 'Module', many: true },
 	team: { type: Types.Relationship, ref: 'Team' },
 	location: {type: Types.Location, initial: true },
 	phone: { type: Types.Text, initial: true }
