@@ -11,19 +11,17 @@ getAssignedModules = async (assignedModules) => {
 
 getModuleQuestions = async (moduleId) => {
     return await Question.find({module: moduleId}).sort({'name': 'asc'});
-}
+};
 
 getUserAnswers = async (moduleId, userId) => {
-    console.log(moduleId);
-    console.log(userId);
-
-    return await Answer.find(
-        {$and: [
-            {moduleId: moduleId},
-            {userId: userId}
-        ]}
+    return await Answer.find({
+            $and: [
+                {moduleId: moduleId},
+                {userId: userId}
+            ]
+        }
     );
-}
+};
 
 exports = module.exports = (req, res) => {
     const view = new keystone.View(req, res);
@@ -40,53 +38,68 @@ exports = module.exports = (req, res) => {
         Promise.all(mods.map(async (mod) => {
             const modId = mod._id;
             const questions = await getModuleQuestions(modId);
+            const answers = await getUserAnswers(modId, req.user.id);
             
             return {
                 id: modId,
                 name: mod.name,
-                questions: questions
+                questions: questions,
+                answers: answers
             };
         })).then((modules) => {
             locals.modules = modules;
             view.render('assessment');
         });
     });
-    // getModuleId('Test').then((id) => {
-    //     moduleId = id;
-    //     view.query('questions', Question.find({module: moduleId}).sort({'name': 'asc'}));
-    // }).then(() => getUserAnswers(moduleId, req.user._id)).then((userAnswers) => {
-    //     console.log(userAnswers);
-    // }).then(()=> {
-    //     view.render('assessment');
-    // });
 
     view.on('post', async () => {
         console.log(req.body);
+        const moduleId = req.body.moduleId;
+        const prevAnswers = await getUserAnswers(moduleId, req.user.id);
 
         for (const question in req.body) {
             if (question == 'moduleId') continue;
 
             const answer = req.body[question];
-            console.log(question);
-            // Need to handle editing answers...
 
             // Textareas can submit empty strings
             if (answer) {
-                const newAnswer = new Answer({
-                    userId: req.user._id,
-                    questionId: question,
-                    moduleId: req.body.moduleId,
-                    answer: answer
-                });
-    
-                newAnswer.save((err) => {
-                    if (err) {
-                        console.log('failed');
-                        console.log(err);
-                    } else {
-                        console.log('worked..?');
-                    }
-                });
+                let previous = prevAnswers.find(_ => _.questionId == question);
+
+                if (previous && previous.answer !== req.body[question]) {
+                    const query = Answer.findOne({_id: previous._id});
+
+                    // findOneAndUpdate doesn't change updatedAt, so we're doing it manually...
+                    const updates = {
+                        answer: answer, 
+                        updatedAt: Date.now()
+                    };
+                    
+                    Answer.findOneAndUpdate(query, updates, {new: true}, (err, docs) => {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            console.log('worked?');
+                            console.log(docs);
+                        }
+                    });
+                } else {
+                    const newAnswer = new Answer({
+                        userId: req.user._id,
+                        questionId: question,
+                        moduleId: req.body.moduleId,
+                        answer: answer
+                    });
+
+                    newAnswer.save((err) => {
+                        if (err) {
+                            console.log('failed');
+                            console.log(err);
+                        } else {
+                            console.log('worked..?');
+                        }
+                    });
+                }
             }
         }
 

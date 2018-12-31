@@ -1,7 +1,7 @@
 const keystone = require('keystone');
 const Types = keystone.Field.Types;
 
-const Answer = new keystone.List('Answer');
+const Answer = new keystone.List('Answer', {track: {updatedAt: true}});
 
 Answer.add({
     userId: { type: Types.Relationship, ref: 'User', initial: true, required: true },

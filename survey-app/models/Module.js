@@ -13,5 +13,4 @@ Module.relationship({ ref: 'Question', refPath: 'module' });
 Module.relationship({ ref: 'Answer', refPath: 'moduleId'});
 Module.relationship({ ref: 'User', refPath: 'assignedModules'});
 
-Module.track = true;
 Module.register();

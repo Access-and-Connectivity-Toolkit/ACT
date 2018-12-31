@@ -24,6 +24,11 @@
 			}
 		});
 	}
+
+	// Work around for now - should not need this...
+	$(":submit").on("click", function() {
+		storeResponses();
+	});
 	
 	function storeResponses() {
 		let form = $("#assessment").serializeArray();
