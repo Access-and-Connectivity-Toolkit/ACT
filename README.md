@@ -22,15 +22,15 @@ All of the code for the project is current in the `survey-app` folder. This proj
 * Create a `.env` file with a cookie secret:   
 
   ```
-  touch .env
   echo "COOKIE_SECRET=<a_bunch_of_characters>" > .env
   ```
   For now, `<a_bunch_of_characters>` can be whatever you'd like.  
 
-* Start mongodb: `mongod`
-* In a separate terminal run `npm start` or  `node keystone`
+* In a separate terminal start mongodb: `mongod`
+* Run `npm start`
 * Check `localhost:3000`
-* Debugging work out of the box with VSCode
+* Login to the admin page with username: `user@keystonejs.com` and password: `pass`
+* Debugging should work out of the box with VSCode
 
 ## Structure
 ```
@@ -57,6 +57,7 @@ BCAT/survey-app
   * this is the folder for express routing
   * new routes are added to `routes/index.js`
   * code for handling each new route should go under `routes/views/<your_view>.js`
+  * to create a variable that's accessible by a pug template, save it as `locals.varname`, which will be `varname` in the pug template
 * templates
   * this is the folder for pug templates
   * code for new pages go under `templates/views/<your_view>.pug`
