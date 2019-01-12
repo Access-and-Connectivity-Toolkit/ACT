@@ -1,6 +1,6 @@
 const keystone = require('keystone');
 const Question = keystone.list('Question');
-const Survey = keystone.list('Survey');
+const Module = keystone.list('Module');
 
 // Based off of suggested method to import models with relationships
 // here: https://keystonejs.com/documentation/database/application-updates/
@@ -41,13 +41,13 @@ const createQuestion = async (question, survey) => {
     if (surveys[survey]) {
         questionSurvey = surveys[survey];
     } else {
-        questionSurvey = new Survey.model({name: survey});
+        questionSurvey = new Module.model({name: survey});
         surveys[survey] = questionSurvey;
         await questionSurvey.save();
     }
 
     const newQuestion = new Question.model(question);
-    newQuestion.survey = questionSurvey._id.toString();
+    newQuestion.module = questionSurvey._id.toString();
 
     await newQuestion.save();
 }
