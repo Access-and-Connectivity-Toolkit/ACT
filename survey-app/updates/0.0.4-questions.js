@@ -8,29 +8,43 @@ const Module = keystone.list('Module');
 const questions = [
     {
         name: 'Test Q1', 
-        title:'What is broadband?',
+        question:'What is broadband?',
         type: 'Checkboxes',
         answers: ['Internet', 'Food', 'Wires', 'Water'],
         survey: 'Test'
     },
     {
         name: 'Test Q2',
-        title: 'Why can\'t I stop sneezing?',
+        question: 'What color is this page?',
         type: 'Radio',
-        answers: ['I have a cold', 'I am allergic to myself', 'All of the above'],
+        answers: ['Blue', 'White', 'All of the above'],
         survey: 'Test'
     },
     {
         name: 'Test Q3',
-        title: 'How are you today?',
+        question: 'How are you today?',
         type: 'Textarea',
         survey: 'Test'
     },
     {
         name: 'Test Q4',
-        title: 'Did you like this survey?',
+        question: 'Did you like this survey?',
         type: 'Scale',
         survey: 'Test'
+    },
+    {
+        name: 'Stuff 1',
+        question: 'How important is broadband to you?',
+        type: 'Scale',
+        survey: 'Stuff',
+        answers: ['Very', 'Not at all']
+    },
+    {
+        name: 'Stuff 2',
+        question: 'How often do you use the internet?',
+        type: 'Scale',
+        survey: 'Stuff',
+        answers: ['Everyday', 'Never']
     }
 ];
 

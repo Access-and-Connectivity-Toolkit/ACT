@@ -20,7 +20,7 @@ getUserAnswers = async (moduleId, userId) => {
                 {userId: userId}
             ]
         }
-    );
+    ).sort({'updatedAt': 'desc'});
 };
 
 exports = module.exports = (req, res) => {
@@ -39,6 +39,9 @@ exports = module.exports = (req, res) => {
             const modId = mod._id;
             const questions = await getModuleQuestions(modId);
             const answers = await getUserAnswers(modId, req.user.id);
+
+            //console.log("answers" + modId);
+            //console.log(answers);
             
             return {
                 id: modId,
@@ -48,6 +51,7 @@ exports = module.exports = (req, res) => {
             };
         })).then((modules) => {
             locals.modules = modules;
+            console.log(modules);
             view.render('assessment');
         });
     });
@@ -63,7 +67,7 @@ exports = module.exports = (req, res) => {
             const answer = req.body[question];
 
             // Textareas can submit empty strings
-            if (answer) {
+            //if (answer) {
                 let previous = prevAnswers.find(_ => _.questionId == question);
 
                 if (previous && previous.answer !== req.body[question]) {
@@ -100,7 +104,7 @@ exports = module.exports = (req, res) => {
                         }
                     });
                 }
-            }
+            //}
         }
 
         return res.redirect('back');

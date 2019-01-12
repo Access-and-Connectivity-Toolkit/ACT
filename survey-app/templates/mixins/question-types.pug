@@ -1,7 +1,7 @@
 mixin radio-question(question)
     if question
         div(class="form-group")
-            p #{question.title}
+            p #{question.question}
             each ans in question.answers
                 .radio
                     label
@@ -11,7 +11,7 @@ mixin radio-question(question)
 mixin checkbox-question(question)
     if question
          div(class="form-group")
-            p #{question.title}
+            p #{question.question}
             each ans in question.answers
                 .checkbox
                     label
@@ -21,13 +21,13 @@ mixin checkbox-question(question)
 mixin textarea-question(question)
      if question
          div(class="form-group")
-            p #{question.title}
+            p #{question.question}
             textarea.form-control(rows="5" name=question.id)
 
 mixin scale-question(question)
      if question
          div(id="scale" class="form-group")
-            p #{question.title}
+            p #{question.question}
             .radio
                 if question.answers && question.answers.length >= 2
                     span #{question.answers[0]}
@@ -42,7 +42,7 @@ mixin scale-question(question)
                             input(type="radio", name=question.id, value=val)
                     span To a large extent
 
-mixin question-form(questions, moduleId)
+mixin question-form(questions, moduleId, answers)
     form(method="POST" action="" id="assessment")
         each question in questions
             if question.type === 'Radio'
@@ -59,3 +59,8 @@ mixin question-form(questions, moduleId)
         button.btn.btn-primary(type="submit") Mark as complete
 
         script(src='js/survey.js')
+        script(type='text/javascript').
+            console.log(!{JSON.stringify(answers)});
+            console.log(localStorageStuff);
+            localStorageStuff.setOldAnswers(!{JSON.stringify(answers)});
+            localStorageStuff.runUpdates();
