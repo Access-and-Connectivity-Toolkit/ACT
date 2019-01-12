@@ -29,11 +29,18 @@ mixin scale-question(question)
          div(id="scale" class="form-group")
             p #{question.title}
             .radio
-                span Not at all
-                each val in [1, 2, 3, 4, 5]
-                    label.radio-inline
-                        input(type="radio", name=question.id, value=val)
-                span To a large extent
+                if question.answers && question.answers.length >= 2
+                    span #{question.answers[0]}
+                    each val in [1, 2, 3, 4, 5]
+                        label.radio-inline
+                            input(type="radio", name=question.id, value=val)
+                    span #{question.answers[1]}
+                else
+                    span Not at all
+                    each val in [1, 2, 3, 4, 5]
+                        label.radio-inline
+                            input(type="radio", name=question.id, value=val)
+                    span To a large extent
 
 mixin question-form(questions, moduleId)
     form(method="POST" action="" id="assessment")
