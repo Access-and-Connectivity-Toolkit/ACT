@@ -1,0 +1,66 @@
+mixin radio-question(question)
+    if question
+        div(class="form-group")
+            p #{question.question}
+            each ans in question.answers
+                .radio
+                    label
+                        input(type="radio", name=question.id, value=ans)
+                        | #{ans}
+
+mixin checkbox-question(question)
+    if question
+         div(class="form-group")
+            p #{question.question}
+            each ans in question.answers
+                .checkbox
+                    label
+                        input.checkbox-input(type="checkbox" value=ans, name=question.id)
+                        | #{ans}
+
+mixin textarea-question(question)
+     if question
+         div(class="form-group")
+            p #{question.question}
+            textarea.form-control(rows="5" name=question.id)
+
+mixin scale-question(question)
+     if question
+         div(id="scale" class="form-group")
+            p #{question.question}
+            .radio
+                if question.answers && question.answers.length >= 2
+                    span #{question.answers[0]}
+                    each val in [1, 2, 3, 4, 5]
+                        label.radio-inline
+                            input(type="radio", name=question.id, value=val)
+                    span #{question.answers[1]}
+                else
+                    span Not at all
+                    each val in [1, 2, 3, 4, 5]
+                        label.radio-inline
+                            input(type="radio", name=question.id, value=val)
+                    span To a large extent
+
+mixin question-form(questions, moduleId, answers)
+    form(method="POST" action="" id="assessment")
+        each question in questions
+            if question.type === 'Radio'
+                +radio-question(question)
+            else if question.type === 'Checkboxes'
+                +checkbox-question(question)
+            else if question.type === 'Scale'
+                +scale-question(question)
+            else
+                +textarea-question(question)
+        input.form-control(type="hidden", name="moduleId", value=moduleId, required="true")
+        
+        button.btn.btn-primary(type="submit") Save
+        button.btn.btn-primary(type="submit") Mark as complete
+
+        script(src='js/survey.js')
+        script(type='text/javascript').
+            console.log(!{JSON.stringify(answers)});
+            console.log(localStorageStuff);
+            localStorageStuff.setOldAnswers(!{JSON.stringify(answers)});
+            localStorageStuff.runUpdates();
