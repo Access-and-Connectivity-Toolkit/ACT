@@ -32,6 +32,7 @@ block content
                             var selectedState = $('#state-selection').val();
                             $('#team > option').each(function () {
                                 var teamState = $(this).attr('state');
+                                // if a state has been selected and the team option doesn't have this state, hide it
                                 if (selectedState !== "-- Select a State --" && teamState && teamState !== selectedState) {
                                     $( this ).css( "display", "none" );
                                 } else {
