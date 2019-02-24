@@ -17,5 +17,22 @@
 * Dashboard for participant - see progress of their own modules/quizzes, and bulletin board that's updated by team lead 
 * Dashboard for team lead - see progress of their team for assigned modules/quizzes, and set messages to be shown on the team bulletin board  
 
+### Assessment
+* KAP to finalized assessment questions
+* Alia to convert to JSON
+
 ### Reports
-* TBD
+* KAP and Alia to create set of dummy responses
+* Mock up Report
+* Develop set of Recommended Actions 
+-- If you want to correct data
+-- If you want to identify funding sources
+-- If you want to do a more detailed engineering study
+-- If you want to evaluate technology/business options
+-- If you want to engage partners
+
+### Other
+* Consider developing case studies
+
+### Outreach/Testing
+
