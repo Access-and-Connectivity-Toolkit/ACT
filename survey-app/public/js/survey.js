@@ -18,7 +18,7 @@ var localStorageStuff = localStorageStuff || (function () {
 		populateResponses(resp);
 
 		setInterval(storeResponses, 10000); // this should be configurable on keystone app startup
-		setInterval(submitAnswers, 5000); // this should be configurable on keystone app startup
+		setInterval(submitAnswers, 60000); // this should be configurable on keystone app startup
 		
 		$(":submit").on("click", function(e) {
 			e.preventDefault(); 
