@@ -39,9 +39,6 @@ exports = module.exports = (req, res) => {
             const modId = mod._id;
             const questions = await getModuleQuestions(modId);
             const answers = await getUserAnswers(modId, req.user.id);
-
-            //console.log("answers" + modId);
-            //console.log(answers);
             
             return {
                 id: modId,
@@ -51,7 +48,6 @@ exports = module.exports = (req, res) => {
             };
         })).then((modules) => {
             locals.modules = modules;
-            console.log(modules);
             view.render('assessment');
         });
     });
