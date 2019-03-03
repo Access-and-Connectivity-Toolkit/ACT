@@ -6724,6 +6724,15 @@ button.close {
 a {
   color: #333;
 }
+.answers {
+  margin-left: 15px;
+}
+.question {
+  font-weight: bold;
+}
+.scale {
+  display: inline-block;
+}
 .modal-content {
   text-align: center;
   border: #4071b8 6px solid;
