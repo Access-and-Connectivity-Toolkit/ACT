@@ -9,16 +9,38 @@ const fs = require('fs');
 
 const MODULES_FOLDER = 'modules/';
 
+const getQuestionFiles = (path) => {
+	return new Promise((resolve, reject) => {
+		fs.readdir(path, (err, result) => {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(result);
+			}
+		});
+	});
+};
+
+const getFileQuestions = (filePath) => {
+	return new Promise((resolve, reject) => {
+		fs.readFile(filePath, 'utf-8', (err, result) => {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(JSON.parse(result));
+			}
+		});
+	});
+};
+
 const getQuestions = async () => {
-	const files = fs.readdirSync(MODULES_FOLDER);
-	const questions = [];
-
-	for (let i = 0; i < files.length; i++) {
-		const fileQuestions = JSON.parse(fs.readFileSync(MODULES_FOLDER + files[i], 'utf-8'));
-		questions.push(...fileQuestions);
-	}
-
-	return questions;
+	const files = await getQuestionFiles(MODULES_FOLDER);
+	
+	return Promise.all(files.map(async (file) => { 
+		return await getFileQuestions(MODULES_FOLDER + file);
+	})).then((questions) => {
+		return [].concat(...questions);
+	});
 };
 
 const surveys = {};
