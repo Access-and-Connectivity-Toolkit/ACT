@@ -22,6 +22,10 @@ var localStorageStuff = localStorageStuff || (function () {
 		
 		$(":submit").on("click", function(e) {
 			e.preventDefault(); 
+			$(this).html('&#10004'); 
+			setTimeout(function(){
+				$(":submit").html('Mark as complete'); 
+			}, 2000);
 			submitAnswers(true);
 		});
 	}
