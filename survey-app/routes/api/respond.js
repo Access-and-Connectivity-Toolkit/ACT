@@ -72,7 +72,6 @@ async function updateModuleProgress(moduleId, userId, answersLength, isComplete)
 	}
 
 	let currentProgress = {progress, percentage, updatedAt};
-	// const modProgress = new ModuleProgress({userId, moduleId, progress, percentage, updatedAt});
 	 ModuleProgress.findOneAndUpdate({
 		$and: [
 			{moduleId: moduleId},
