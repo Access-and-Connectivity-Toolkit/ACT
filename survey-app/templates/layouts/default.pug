@@ -48,8 +48,8 @@ html
 		if !user
 			div(role="navigation").navbar.navbar-inverse.navbar-static-top
 				#landing-header: .container-fluid
-					a.navbar-logo(href='/') 
-						img(alt='BCAT', src='../images/BCATLogo_white.svg')
+					a.navbar-logo(href='/')
+						img(alt='BCAT', src='../images/BCATlogo_white.svg')
 					h2 Broadband Connectivity Assessment Tool
 		else
 			//- #header: .container-fluid
@@ -61,7 +61,7 @@ html
 						span.icon-bar
 						span.icon-bar
 				a.navbar-brand(href='/home')
-						img(alt='BCAT', src='../images/BCATLogo_white.svg')
+						img(alt='BCAT', src='../images/BCATlogo_white.svg')
 				.collapse.navbar-collapse
 					ul.nav.navbar-nav.navbar-left
 						each link in navLinks

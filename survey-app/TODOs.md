@@ -12,7 +12,7 @@
 * Assign localstorage bcat responses by bcat + userID
 
 ### Allow participants to join teams
-* Participants should be able to filter down teams to their own state, and then choose their specific team    
+~~* Participants should be able to filter down teams to their own state, and then choose their specific team~~    
 
 ### Dashboard
 * Dashboard for participant - see progress of their own modules/quizzes, and bulletin board that's updated by team lead 
