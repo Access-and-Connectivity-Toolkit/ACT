@@ -11,6 +11,7 @@ Module.add({
 
 Module.relationship({ ref: 'Question', refPath: 'module' });
 Module.relationship({ ref: 'Answer', refPath: 'moduleId'});
+Module.relationship({ ref: 'ModuleProgress', refPath: 'moduleId'});
 Module.relationship({ ref: 'User', refPath: 'assignedModules'});
 
 Module.register();
