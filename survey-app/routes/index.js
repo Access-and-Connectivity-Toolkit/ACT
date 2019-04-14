@@ -29,10 +29,14 @@ keystone.pre('render', middleware.flashMessages);
 // Import Route Controllers
 const routes = {
 	views: importRoutes('./views'),
+	api: importRoutes('./api'),
 };
 
 // Setup Route Bindings
 exports = module.exports = (app) => {
+	// API's
+	app.post('/api/respond', middleware.requireUser, routes.api.respond.question); 
+	
 	// Views
 	app.all('/', routes.views.index);
 	app.all('/join', routes.views.join);

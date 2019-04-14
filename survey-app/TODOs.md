@@ -9,6 +9,7 @@
 ### Answering Quizzes: 
 * Participants should be able to mark their quiz as complete
 * Make it more obvious to participants that they need to **SEND** their quiz
+* Assign localstorage bcat responses by bcat + userID
 
 ### Allow participants to join teams
 ~~* Participants should be able to filter down teams to their own state, and then choose their specific team~~    

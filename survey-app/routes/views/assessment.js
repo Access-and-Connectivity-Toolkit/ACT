@@ -28,7 +28,7 @@ exports = module.exports = (req, res) => {
     
     const locals = res.locals;
     locals.section = 'assessment';
-
+	
     locals.path = "Test";
     locals.active = req.query.surveyIndex || 0;
 
@@ -39,9 +39,6 @@ exports = module.exports = (req, res) => {
             const modId = mod._id;
             const questions = await getModuleQuestions(modId);
             const answers = await getUserAnswers(modId, req.user.id);
-
-            //console.log("answers" + modId);
-            //console.log(answers);
             
             return {
                 id: modId,
@@ -51,62 +48,8 @@ exports = module.exports = (req, res) => {
             };
         })).then((modules) => {
             locals.modules = modules;
-            console.log(modules);
             view.render('assessment');
         });
     });
-
-    view.on('post', async () => {
-        console.log(req.body);
-        const moduleId = req.body.moduleId;
-        const prevAnswers = await getUserAnswers(moduleId, req.user.id);
-
-        for (const question in req.body) {
-            if (question == 'moduleId') continue;
-
-            const answer = req.body[question];
-
-            // Textareas can submit empty strings
-            //if (answer) {
-                let previous = prevAnswers.find(_ => _.questionId == question);
-
-                if (previous && previous.answer !== req.body[question]) {
-                    const query = Answer.findOne({_id: previous._id});
-
-                    // findOneAndUpdate doesn't change updatedAt, so we're doing it manually...
-                    const updates = {
-                        answer: answer, 
-                        updatedAt: Date.now()
-                    };
-                    
-                    Answer.findOneAndUpdate(query, updates, {new: true}, (err, docs) => {
-                        if (err) {
-                            console.log(err);
-                        } else {
-                            console.log('worked?');
-                            console.log(docs);
-                        }
-                    });
-                } else {
-                    const newAnswer = new Answer({
-                        userId: req.user._id,
-                        questionId: question,
-                        moduleId: req.body.moduleId,
-                        answer: answer
-                    });
-
-                    newAnswer.save((err) => {
-                        if (err) {
-                            console.log('failed');
-                            console.log(err);
-                        } else {
-                            console.log('worked..?');
-                        }
-                    });
-                }
-            //}
-        }
-
-        return res.redirect('back');
-    });
+    
 };
