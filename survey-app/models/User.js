@@ -26,6 +26,7 @@ User.schema.virtual('canAccessKeystone').get(function() {
 
 User.relationship({ ref: 'Team', refPath: 'leader'});
 User.relationship({ ref: 'Answer', refPath: 'userId'});
+User.relationship({ ref: 'ModuleProgress', refPath: 'userId'});
 
 
 /**

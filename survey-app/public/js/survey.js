@@ -1,5 +1,5 @@
 var localStorageStuff = localStorageStuff || (function () {
-	const StoreKey = "bcat";
+	const StoreKey = "bcat-" + currentUserId;
 	let dbAnswers = {};
 
 	return {
@@ -17,16 +17,40 @@ var localStorageStuff = localStorageStuff || (function () {
 		}
 		populateResponses(resp);
 
-		console.log(dbAnswers);
-
 		setInterval(storeResponses, 10000); // this should be configurable on keystone app startup
-
-		// Work around for now - should not need this...?
-		$(":submit").on("click", function() {
-			storeResponses();
+		setInterval(submitAnswers, 60000); // this should be configurable on keystone app startup
+		
+		$(":submit").on("click", function(e) {
+			e.preventDefault(); 
+			$(this).html('&#10004'); 
+			setTimeout(function(){
+				$(":submit").html('Mark as complete'); 
+			}, 2000);
+			submitAnswers(true);
 		});
 	}
 
+	function submitAnswers(isComplete) {
+		//TODO: get number of questions, get number of answers, calculate completion percentage and submit
+		
+		var queryUrl = '/api/respond'; 
+		if (isComplete) {
+			queryUrl += '?isComplete=' + isComplete
+		}
+		
+		$.ajax({
+			method: 'POST',
+			url: queryUrl,
+			data : $('#assessment').serialize(),
+			success: function(data){
+				console.debug('success!', data);
+			},
+			error: function(xhr, desc, err){
+				console.error('error', err); 
+			}
+		});
+	}
+	
 	// Populates with answers from localStorage or db, whichever is newer
 	function populateResponses(formArray) {
 		let form = $("#assessment").serializeArray();

@@ -55,12 +55,10 @@ mixin question-form(questions, moduleId, answers)
                 +textarea-question(question)
         input.form-control(type="hidden", name="moduleId", value=moduleId, required="true")
         
-        button.btn.btn-primary(type="submit") Save
         button.btn.btn-primary(type="submit") Mark as complete
-
+        script(type='text/javascript').
+            var currentUserId='#{user.id}'; //see survey.js for currentUserId usage  
         script(src='js/survey.js')
         script(type='text/javascript').
-            console.log(!{JSON.stringify(answers)});
-            console.log(localStorageStuff);
             localStorageStuff.setOldAnswers(!{JSON.stringify(answers)});
             localStorageStuff.runUpdates();
