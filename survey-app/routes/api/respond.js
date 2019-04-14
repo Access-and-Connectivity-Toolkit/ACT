@@ -62,7 +62,8 @@ exports.question = async (req, res) => {
 
 async function updateModuleProgress(moduleId, userId, answersLength, isComplete) {
 	let progress = 'IN_PROGRESS';
-	// todo: go over the default of 100% progress if there isn't a  
+	// todo: go over the default of 100% progress artificially set when isComplete === true
+    //    i was thinking it might be good for when people don't want to fill in textarea answers.. but not sure
 	let percentage = 100.0;
 	let updatedAt = Date.now();
 	if (isComplete && isComplete === 'true') {
