@@ -9,27 +9,38 @@ block content
 
 		if team
 			if isLeader
-				h4 Your Team
+				h3 Your Team
 				if members.length
-					each member in members
-						row
-							p.col-sm-4 #{member.name.first} #{member.name.last}
-							p.col-sm-4 #{member.modules}
-							a.col-sm-4(href=`mailto:` + member.email) Email
-							a.col-sm-4(data-target='#modal', data-toggle='modal') Assign Modules
-							
+					.container
+						.row.column-labels
+							.col-sm-2 Name
+							.col-sm-5 Assigned Modules
+							.col-sm-2 Role
+							.col-sm-3 Options
+						each member in members
+							.row
+								.col-sm-2 #{member.name.first} #{member.name.last}
+								.col-sm-5 #{member.modules}
+								.col-sm-2 #{member.role}
+								.col-sm-1
+									a(href=`mailto:` + member.email) Email
+								.col-sm-2
+									a(data-target='#modal', data-toggle='modal') Assign Modules
+						
 	//- Would probably be better to handle this with jquery or something, this is getting gross
 	#modal.modal
 		.modal-dialog
 			.modal-content
 				.modal-header
-					h3.modal-title Hey There!
+					h3.modal-title Update Assigned Modules
 				.modal-body
-					.form-group
-						p Assigned Modules
-						each mod, id in modMap
-							.checkbox
-								label
-									input.checkbox-input(type="checkbox" value=id, name=mod)
-									| #{mod}
-					button.btn.btn-primary(type='button', data-dismiss='modal') Exit
+					form(action="", method="post")
+						.form-group
+							p Assigned Modules
+							each mod, id in modMap
+								.checkbox
+									label
+										input.checkbox-input(type="checkbox" value=id, name=mod, checked=true)
+										| #{mod}
+						button.btn.btn-primary(type='button', data-dismiss='modal') Cancel
+						button.btn.btn-primary(type='submit') Update

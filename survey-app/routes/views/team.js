@@ -1,8 +1,10 @@
 const keystone = require('keystone');
+const ObjectId = require('mongoose').Types.ObjectId; 
 
 const Team = keystone.list('Team').model;
 const Users = keystone.list('User').model;
 const Modules = keystone.list('Module').model;
+const Roles = keystone.list('Role').model;
 
 getTeamId = async (team) => {
     return await Team.findOne({'_id': team});
@@ -12,10 +14,9 @@ isTeamLeader = (team, userId) => {
     return team.leader.toString() === userId.toString();
 };
 
-getTeamMembers = async (team, userId) => {
+getTeamMembers = async (team) => {
     return await Users.find({
-        'team': team,
-        '_id' : userId
+        'team': team
     });
 };
 
@@ -33,17 +34,34 @@ createModuleMap = (modules) => {
     return modNames;
 };
 
-// This should probably be in an api route
 updateAssignedModules = async (userId, modules) => {
     const query = {'_id': userId};
     const update = {'assignedModules': modules};
-    Team.findOneAndUpdate(query, update, {new: true}, (err, mods) => {
+
+    Users.findOneAndUpdate(query, update, {new: true}, (err, mods) => {
         if (err) {
             console.error(err);
         }
         
         return mods;
     });
+};
+
+// map roles to names
+// TODO: does this make more sense to do up front?
+createRoleMap = async(roles) => {
+    const roleNames = {};
+
+    for (let i = 0; i < roles.length; i++) {
+        roleNames[roles[i]._id] = roles[i].name;
+    }
+
+    return roleNames;
+};
+
+// get all roles
+getRoles = async() => {
+    return await Roles.find();
 };
 
 exports = module.exports = async (req, res) => {
@@ -54,6 +72,14 @@ exports = module.exports = async (req, res) => {
     const modules = await getModules();
     const modMap = createModuleMap(modules);
     locals.modMap = modMap;
+
+    const roles = await getRoles();
+    const roleMap = createRoleMap(roles);
+
+    view.on('post', async () => {
+        await updateAssignedModules(req.user._id, Object.values(req.body));
+        res.redirect("");
+    });
 
     getTeamId(req.user.team).then(async (team) => {
         locals.team = team;
@@ -72,6 +98,9 @@ exports = module.exports = async (req, res) => {
                 modNames[j] = modMap[assignedMods[j]];
             }
             newMembers[i].modules = modNames;
+            
+            // for some reason this doesn't do anything -- members[i].role undefined
+            newMembers[i].role = roleMap[members[i].role];
         }
 
         locals.members = newMembers;
