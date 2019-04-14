@@ -1,0 +1,99 @@
+[
+    {
+    "name": "Local Insights on Provider Data 01",
+    "question": "This module invites teams to review the FCC 477 data related to provider coverage and other soures, add local insights, and document  conclusions. This module is a foundation to the the next module on 'Provider Engagement.'",
+    "type": "Info",
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 02",
+    "question": "Review FCC 477 Wireline and Fixed Wireless Data on Broadband Deployment using the I3 Connectivity Explorer or another tool. Look for the Providers Table, which lists: Provider Name; technology deployed; number of census blocks served; percent of region served; and advertised upload and download speeds.  By using the selctor boxes, you can include/exclude satellite providers; you can look at the data by blocks, block groups or tracts; and you can filter the list to look at only residential or only business service providers.",
+    "type": "Info",
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 03",
+    "question": "Additonal resources that can be reviewed: I3 Connectivity Explorer Providers Maps; FCC 477 Wireline and Fixed Wireless Deployment Maps and Reports; speed test such as M-Lab.",
+    "type": "Info",
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 04",
+    "question": "The FCC 477 data on residential broadband aligns with consumer experiences in our community.",
+    "type": "Scale",
+    "answers": ["Not at all","To a large extent"],
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 05",
+    "question": "Does the FCC 477 data represent the service and coverage experience of consumers in your community?  Please explain:",
+    "type": "Textarea",
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 06",
+    "question": "The FCC 477 data data on business broadband aligns with consumer experiences in our community.",
+    "type": "Scale",
+    "answers": ["Not at all","To a large extent"],
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 07",
+    "question": "Does the FCC 477 data represent the service and coverage experience of consumers in your community?  Please explain:",
+    "type": "Textarea",
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 08",
+    "question": "The FCC 477 data data on business broadband aligns with consumer experiences in our community.",
+    "type": "Scale",
+    "answers": ["Not at all","To a large extent"],
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 09",
+    "question": "Commentary on FCC 477 Business Filings",
+    "type": "Textarea",
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 10",
+    "question": "The advertised speeds listed with the FCC are consistent with the experience of your residential and business users.",
+    "type": "Scale",
+    "answers": ["Not at all","To a large extent"],
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 11",
+    "question": "Are the advertised speeds listed with the FCC consistent with the experience of your residential and business users.",
+    "type": "Textarea",
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 12",
+    "question": "Are there providers on the list that could be potential partners for expanded deployments?",
+    "type": "Radio",
+    "answers": ["Yes","No"],
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 13",
+    "question": "If yes, please list provider names.",
+    "type": "Textarea",
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 14",
+    "question": "Are there providers on the list that are reporting services that you feel are not available in your region?",
+    "type": "Radio",
+    "answers": ["Yes","No"],
+    "survey": "Local Insights on Provider Data"
+    },
+    {
+    "name": "Local Insights on Provider Data 15",
+    "question": "If yes, please comment.  You may also send comments to the FCC at 477info@FCC.gov.",
+    "type": "Textarea",
+    "survey": "Local Insights on Provider Data"
+    }
+]
+    
