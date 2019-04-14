@@ -24,7 +24,7 @@ exports.question = async (req, res) => {
 		const answer = req.body[question];
 		// Textareas can submit empty strings, and we will assume empty Textareas are not completed answers
 		if (!answer) continue;
-		// once we've filtered out all the fraudulent answers, up the answered q's length
+		// once we've filtered out all the answers that aren't actually user responses (moduleId, empty text), up the answered q's length
 		answersLength++;
 
 		let previous = prevAnswers.find(_ => _.questionId == question);
