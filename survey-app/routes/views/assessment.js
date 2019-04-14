@@ -40,7 +40,6 @@ exports = module.exports = (req, res) => {
             const questions = await getModuleQuestions(modId);
             const answers = await getUserAnswers(modId, req.user.id);
             
-            
             return {
                 id: modId,
                 name: mod.name,

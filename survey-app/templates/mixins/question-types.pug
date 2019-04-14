@@ -1,9 +1,9 @@
 mixin radio-question(question)
     if question
         div(class="form-group")
-            p #{question.question}
+            p.question #{question.question}
             each ans in question.answers
-                .radio
+                .radio.answers
                     label
                         input(type="radio", name=question.id, value=ans)
                         | #{ans}
@@ -11,9 +11,9 @@ mixin radio-question(question)
 mixin checkbox-question(question)
     if question
          div(class="form-group")
-            p #{question.question}
+            p.question #{question.question}
             each ans in question.answers
-                .checkbox
+                .checkbox.answers
                     label
                         input.checkbox-input(type="checkbox" value=ans, name=question.id)
                         | #{ans}
@@ -21,14 +21,14 @@ mixin checkbox-question(question)
 mixin textarea-question(question)
      if question
          div(class="form-group")
-            p #{question.question}
+            p.question #{question.question}
             textarea.form-control(rows="5" name=question.id)
 
 mixin scale-question(question)
      if question
-         div(id="scale" class="form-group")
-            p #{question.question}
-            .radio
+         div(class="form-group")
+            p.question #{question.question}
+            .radio.answers.scale
                 if question.answers && question.answers.length >= 2
                     span #{question.answers[0]}
                     each val in [1, 2, 3, 4, 5]
@@ -41,6 +41,14 @@ mixin scale-question(question)
                         label.radio-inline
                             input(type="radio", name=question.id, value=val)
                     span To a large extent
+            .checkbox.answers.scale
+                label
+                    input.checkbox-input(type="checkbox" value=0, name="N/A") 
+                    | N/A
+
+mixin info-question(question)
+    if question
+        p.question #{question.question}
 
 mixin question-form(questions, moduleId, answers)
     form(method="POST" action="" id="assessment")
@@ -51,8 +59,11 @@ mixin question-form(questions, moduleId, answers)
                 +checkbox-question(question)
             else if question.type === 'Scale'
                 +scale-question(question)
-            else
+            else if question.type === 'Textarea'
                 +textarea-question(question)
+            else
+                +info-question(question)
+
         input.form-control(type="hidden", name="moduleId", value=moduleId, required="true")
         
         button.btn.btn-primary(type="submit") Mark as complete
