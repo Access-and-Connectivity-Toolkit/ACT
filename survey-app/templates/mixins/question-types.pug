@@ -43,7 +43,7 @@ mixin scale-question(question)
                     span To a large extent
             .checkbox.answers.scale
                 label
-                    input.checkbox-input(type="checkbox" value=0, name="N/A") 
+                    input.checkbox-input(type="checkbox" value=0, name="N/A")
                     | N/A
 
 mixin info-question(question)
@@ -65,10 +65,11 @@ mixin question-form(questions, moduleId, answers)
                 +info-question(question)
 
         input.form-control(type="hidden", name="moduleId", value=moduleId, required="true")
-        
-        button.btn.btn-primary(type="submit") Mark as complete
+
+        button.btn.btn-primary(type="submit" id="save-progress") Save
+        button.btn.btn-primary(type="submit", id="complete-module") Mark as complete
         script(type='text/javascript').
-            var currentUserId='#{user.id}'; //see survey.js for currentUserId usage  
+            var currentUserId='#{user.id}'; //see survey.js for currentUserId usage
         script(src='js/survey.js')
         script(type='text/javascript').
             localStorageStuff.setOldAnswers(!{JSON.stringify(answers)});

@@ -62,6 +62,7 @@ exports.question = async (req, res) => {
 
 async function updateModuleProgress(moduleId, userId, answersLength, isComplete) {
 	let progress = 'IN_PROGRESS';
+	// todo: go over the default of 100% progress if there isn't a  
 	let percentage = 100.0;
 	let updatedAt = Date.now();
 	if (isComplete && isComplete === 'true') {

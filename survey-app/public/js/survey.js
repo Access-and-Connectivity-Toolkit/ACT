@@ -10,8 +10,8 @@ var localStorageStuff = localStorageStuff || (function () {
 	}
 
 	function runUpdates() {
-		let bcatResponses = localStorage.getItem(StoreKey); 
-		let resp = {};  
+		let bcatResponses = localStorage.getItem(StoreKey);
+		let resp = {};
 		if (bcatResponses) {
 			resp = JSON.parse(bcatResponses);
 		}
@@ -19,25 +19,30 @@ var localStorageStuff = localStorageStuff || (function () {
 
 		setInterval(storeResponses, 10000); // this should be configurable on keystone app startup
 		setInterval(submitAnswers, 60000); // this should be configurable on keystone app startup
-		
 		$(":submit").on("click", function(e) {
-			e.preventDefault(); 
-			$(this).html('&#10004'); 
+            let submitElem = $(this);
+            let originalText = submitElem.html();
+			e.preventDefault();
+			$(this).html('&#10004');
 			setTimeout(function(){
-				$(":submit").html('Mark as complete'); 
+				$(submitElem).html(originalText);
 			}, 2000);
-			submitAnswers(true);
+			if (submitElem.attr("id") === "complete-module") {
+                submitAnswers(true);
+                return
+            }
+			submitAnswers(false);
 		});
 	}
 
 	function submitAnswers(isComplete) {
 		//TODO: get number of questions, get number of answers, calculate completion percentage and submit
-		
-		var queryUrl = '/api/respond'; 
+
+		var queryUrl = '/api/respond';
 		if (isComplete) {
 			queryUrl += '?isComplete=' + isComplete
 		}
-		
+
 		$.ajax({
 			method: 'POST',
 			url: queryUrl,
@@ -46,11 +51,11 @@ var localStorageStuff = localStorageStuff || (function () {
 				console.debug('success!', data);
 			},
 			error: function(xhr, desc, err){
-				console.error('error', err); 
+				console.error('error', err);
 			}
 		});
 	}
-	
+
 	// Populates with answers from localStorage or db, whichever is newer
 	function populateResponses(formArray) {
 		let form = $("#assessment").serializeArray();
@@ -66,7 +71,7 @@ var localStorageStuff = localStorageStuff || (function () {
 				let value = val.value;
 
 				let prev = dbAnswers.find(_ => _.questionId == name);
-				
+
 				// Use db answer if it's newer
 				if (prev) {
 					console.log(Date.parse(prev.updatedAt));
@@ -114,7 +119,7 @@ var localStorageStuff = localStorageStuff || (function () {
 		if (value) {
 			var $el = $('[name="'+ name +'"]'),
 			type = $el.attr('type');
-		
+
 			switch(type){
 				case 'checkbox':
 				case 'radio':
@@ -125,7 +130,7 @@ var localStorageStuff = localStorageStuff || (function () {
 			}
 		}
 	}
-	
+
 	function storeResponses() {
 		let ans = localStorage.getItem(StoreKey);
 		let form = $("#assessment").serializeArray();
@@ -138,7 +143,7 @@ var localStorageStuff = localStorageStuff || (function () {
 
 		let moduleId = form.find(_ => _.name === "moduleId");
 		ans[moduleId.value] = {form: form, time: Date.now()};
-		
+
 		localStorage.setItem(StoreKey, JSON.stringify(ans));
 	}
 })();
