@@ -1,0 +1,41 @@
+[
+    {
+    "name": "Broadband Action Team 01",
+    "question": "The goal of this module is to establish your starting point as a team. Identify the current represenation of your broadband action team to identify what actions need to be taken to better represent the community.",
+    "type": "Info",
+    "survey": "Broadband Action Team"
+    },
+    {
+    "name": "Broadband Action Team 02",
+    "question": "Is there a broadband champion in your community? Is there more than one?",
+    "type": "Radio",
+    "answers": ["No","Slightly Active","Highly Active"],
+    "survey": "Broadband Action Team"
+    },
+    {
+    "name": "Broadband Action Team 03",
+    "question": "Does your community have a formal or informal broadband planning team?",
+    "type": "Radio",
+    "answers": ["No","Informal","Formal"],
+    "survey": "Broadband Action Team"
+    },
+    {
+    "name": "Broadband Action Team 04",
+    "question": "Do you already have a broadband plan?  ",
+    "type": "Radio",
+    "answers": ["No","Yes, outdated","Yes, updated regularly or recently"],
+    "survey": "Broadband Action Team"
+    },
+    {
+    "name": "Broadband Action Team 05",
+    "question": "If your broadband planning team has a website or if the broadband plan is available online, please provide links. ",
+    "type": "Textarea",
+    "survey": "Broadband Action Team"
+    },
+    {
+    "name": "Broadband Action Team 06",
+    "question": "What changes would you like to see in your broadband action team in the next 3 to 18 months?",
+    "type": "Textarea",
+    "survey": "Broadband Action Team"
+    }
+]
