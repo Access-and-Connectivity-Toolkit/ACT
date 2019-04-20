@@ -14,20 +14,24 @@ block content
 					.container
 						.row.column-labels
 							.col-sm-2 Name
-							.col-sm-5 Assigned Modules
-							.col-sm-2 Role
+							.col-sm-4 Assigned Modules
+							.col-sm-3 Role
 							.col-sm-3 Options
 						each member in members
 							.row
 								.col-sm-2 #{member.name.first} #{member.name.last}
-								.col-sm-5 #{member.modules}
-								.col-sm-2 #{member.role}
+								.col-sm-4 #{member.modules}
+								.col-sm-3 #{member.roleName}
 								.col-sm-1
 									a(href=`mailto:` + member.email) Email
 								.col-sm-2
-									a(data-target='#modal', data-toggle='modal') Assign Modules
-						
-	//- Would probably be better to handle this with jquery or something, this is getting gross
+									a.test(data-target='#modal', data-toggle='modal', data-user=member.id) Assign Modules
+
+	script(src='js/assign.js')
+	script(type='text/javascript').
+		moduleAssigner.setModuleMap(!{JSON.stringify(membersToModules)});
+		moduleAssigner.start();
+
 	#modal.modal
 		.modal-dialog
 			.modal-content
@@ -36,11 +40,11 @@ block content
 				.modal-body
 					form(action="", method="post")
 						.form-group
-							p Assigned Modules
 							each mod, id in modMap
 								.checkbox
 									label
-										input.checkbox-input(type="checkbox" value=id, name=mod, checked=true)
+										input.checkbox-input(type="checkbox", value=id, name=mod)
 										| #{mod}
+							input(type="hidden", value="" name="userId" id="userId")
 						button.btn.btn-primary(type='button', data-dismiss='modal') Cancel
 						button.btn.btn-primary(type='submit') Update

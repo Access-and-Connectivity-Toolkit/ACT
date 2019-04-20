@@ -1,5 +1,4 @@
 const keystone = require('keystone');
-const ObjectId = require('mongoose').Types.ObjectId; 
 
 const Team = keystone.list('Team').model;
 const Users = keystone.list('User').model;
@@ -47,8 +46,6 @@ updateAssignedModules = async (userId, modules) => {
     });
 };
 
-// map roles to names
-// TODO: does this make more sense to do up front?
 createRoleMap = async(roles) => {
     const roleNames = {};
 
@@ -59,7 +56,6 @@ createRoleMap = async(roles) => {
     return roleNames;
 };
 
-// get all roles
 getRoles = async() => {
     return await Roles.find();
 };
@@ -74,10 +70,18 @@ exports = module.exports = async (req, res) => {
     locals.modMap = modMap;
 
     const roles = await getRoles();
-    const roleMap = createRoleMap(roles);
+    const roleMap = await createRoleMap(roles);
 
     view.on('post', async () => {
-        await updateAssignedModules(req.user._id, Object.values(req.body));
+        if (!req.body.userId) {
+            console.error("missing user");
+            // TODO: in app error messages
+        } else {
+            const userId = req.body.userId;
+            delete req.body.userId;
+
+            await updateAssignedModules(userId, Object.values(req.body));
+        }
         res.redirect("");
     });
 
@@ -89,21 +93,27 @@ exports = module.exports = async (req, res) => {
         return await getTeamMembers(team, req.user._id);
     }).then((members) => {
         let newMembers = members;
+        const membersToModules = {};
 
         for (let i = 0; i < members.length; i++) {
-            // need to translate ids into names for each user
-            let assignedMods = members[i].assignedModules;
-            let modNames = [];
+            // translate module and role ids into names for each user
+            const assignedMods = members[i].assignedModules;
+            const assignedMap = {};
+            const modNames = [];
+
             for (let j = 0; j < assignedMods.length; j++) {
                 modNames[j] = modMap[assignedMods[j]];
+                assignedMap[assignedMods[j]] = true;
             }
+
             newMembers[i].modules = modNames;
+            newMembers[i].roleName = roleMap[members[i].role];
             
-            // for some reason this doesn't do anything -- members[i].role undefined
-            newMembers[i].role = roleMap[members[i].role];
+            membersToModules[members[i].id] = assignedMap;
         }
 
-        locals.members = newMembers;
+        locals.members = members;
+        locals.membersToModules = membersToModules;
 
         view.render('team');
     });

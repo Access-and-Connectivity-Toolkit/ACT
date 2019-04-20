@@ -6724,7 +6724,6 @@ button.close {
 a {
   color: #333;
 }
-
 .answers {
   margin-left: 15px;
 }
@@ -6734,11 +6733,9 @@ a {
 .scale {
   display: inline-block;
 }
-
 .column-labels {
   font-weight: bold;
 }
-
 .modal-content {
   text-align: center;
   border: #4071b8 6px solid;
