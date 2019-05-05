@@ -21,11 +21,13 @@ block content
 							.row
 								.col-sm-2 #{member.name.first} #{member.name.last}
 								.col-sm-4 #{member.modules}
-								.col-sm-3 #{member.roleName}
+								.col-sm-2 #{member.roleName}
+								.col-sm-1 #{member.completed} / #{member.assigned}
 								.col-sm-1
 									a(href=`mailto:` + member.email) Email
 								.col-sm-2
 									a.test(data-target='#modal', data-toggle='modal', data-user=member.id) Assign Modules
+						p #{assigned}
 
 	script(src='js/assign.js')
 	script(type='text/javascript').

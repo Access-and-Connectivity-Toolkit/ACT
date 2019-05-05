@@ -1,9 +1,13 @@
 const keystone = require('keystone');
+const mongoose = require('mongoose');
+
+const ObjectId = mongoose.Types.ObjectId;
 
 const Team = keystone.list('Team').model;
 const Users = keystone.list('User').model;
 const Modules = keystone.list('Module').model;
 const Roles = keystone.list('Role').model;
+const ModuleProgress = keystone.list('ModuleProgress').model;
 
 getTeamId = async (team) => {
     return await Team.findOne({'_id': team});
@@ -60,6 +64,30 @@ getRoles = async() => {
     return await Roles.find();
 };
 
+getNumModulesAssigned = async(teamMembers) => {
+    const assigned = await ModuleProgress.aggregate(
+        {$match: {'userId': {"$in": teamMembers}}},
+        {$group: {_id: '$userId', count: {$sum: 1}}});
+
+    return reformatProgressResults(assigned);
+};
+
+reformatProgressResults = (results) => {
+    const res = {};
+    for (let i = 0; i < results.length; i++) {
+        res[results[i]._id] = results[i].count; 
+    }
+    return res;
+};
+
+getNumModulesCompleted = async(teamMembers) => {
+    const completed = await ModuleProgress.aggregate(
+        {$match: {'userId': {"$in": teamMembers}, 'progress': 'COMPLETE'}},
+        {$group: {_id: '$userId', count: {$sum: 1}}});
+    
+    return reformatProgressResults(completed);
+}
+
 exports = module.exports = async (req, res) => {
     const view = new keystone.View(req, res);
     const locals = res.locals;
@@ -91,9 +119,13 @@ exports = module.exports = async (req, res) => {
         locals.user = req.user;
 
         return await getTeamMembers(team, req.user._id);
-    }).then((members) => {
+    }).then(async (members) => {
         let newMembers = members;
         const membersToModules = {};
+
+        const memberIds = members.map(_ => ObjectId(_.id));
+        const memberAssigned = await getNumModulesAssigned(memberIds);
+        const memberCompleted = await getNumModulesCompleted(memberIds);
 
         for (let i = 0; i < members.length; i++) {
             // translate module and role ids into names for each user
@@ -108,6 +140,8 @@ exports = module.exports = async (req, res) => {
 
             newMembers[i].modules = modNames;
             newMembers[i].roleName = roleMap[members[i].role];
+            newMembers[i].assigned = memberAssigned[members[i]._id];
+            newMembers[i].completed = memberCompleted[members[i]._id];
             
             membersToModules[members[i].id] = assignedMap;
         }
