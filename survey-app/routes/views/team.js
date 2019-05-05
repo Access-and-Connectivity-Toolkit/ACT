@@ -37,10 +37,8 @@ updateAssignedModules = async (userId, roleId, modules) => {
     const query = {'_id': userId};
     const update = {'assignedModules': modules};
     if (roleId) {
-        console.log("oh damn we are updating the role id!");
         update['role'] = roleId
     }
-    console.log("update", update);
     Users.findOneAndUpdate(query, update, {new: true}, (err, mods) => {
         if (err) {
             console.error(err);
