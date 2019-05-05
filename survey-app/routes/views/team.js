@@ -35,10 +35,7 @@ createModuleMap = (modules) => {
 
 updateAssignedModules = async (userId, roleId, modules) => {
     const query = {'_id': userId};
-    const update = {'assignedModules': modules};
-    if (roleId) {
-        update['role'] = roleId
-    }
+    const update = {'assignedModules': modules, 'role': roleId !== "no-role" ? roleId : null};
     Users.findOneAndUpdate(query, update, {new: true}, (err, mods) => {
         if (err) {
             console.error(err);

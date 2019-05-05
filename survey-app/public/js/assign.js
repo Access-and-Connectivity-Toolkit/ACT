@@ -17,7 +17,7 @@ var userFormAssigner = userFormAssigner || (function() {
                     if (roleId) {
                         $(`select#role option[value=${roleId}]`).prop('selected', true);
                     } else {
-                        $('select#role option[value=empty]').prop('selected', true);
+                        $('select#role option[value="no-role"]').prop('selected', true);
                     }
                     const userId = $(event.relatedTarget).data('user');
                     const userModules = assignedModulesByUser[userId];
