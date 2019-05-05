@@ -36,7 +36,7 @@ const routes = {
 exports = module.exports = (app) => {
 	// API's
 	app.post('/api/respond', middleware.requireUser, routes.api.respond.question);
-	app.post('/api/export/csv', middleware.requireUser, routes.api.export.csv);
+	app.get('/api/export/csv', middleware.requireUser, routes.api.export.csv);
 	
 	// Views
 	app.all('/', routes.views.index);

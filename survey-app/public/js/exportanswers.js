@@ -4,20 +4,25 @@ var exporter = exporter || (function() {
 		var queryUrl = '/api/export/csv?teamId=' + currentTeamId;
 		
 		$.ajax({
-			method: 'POST',
+			method: 'GET',
 			url: queryUrl,
 			success: function(data){
 				console.debug('success!', data);
-				downloadCSV({ filename: currentTeamName + '.csv', data: data})
+				if (data.length === 0) {
+					alert('No Answers Found'); 
+				} else {
+					downloadCSV({ filename: currentTeamName + '.csv', data: data})
+				}
 			},
 			error: function(xhr, desc, err){
-				console.error('error', err);
+				alert(err);
 			}
 		});
 		
 	});
 
 	//csv export directly from https://halistechnology.com/2015/05/28/use-javascript-to-export-your-data-as-csv/
+	//tweaked to be able to display values with commas in them
 
 	function convertArrayOfObjectsToCSV(args) {
 		var result, ctr, keys, columnDelimiter, lineDelimiter, data;
@@ -41,7 +46,7 @@ var exporter = exporter || (function() {
 			keys.forEach(function(key) {
 				if (ctr > 0) result += columnDelimiter;
 
-				result += item[key];
+				result += "\"" + item[key] + "\"";
 				ctr++;
 			});
 			result += lineDelimiter;
