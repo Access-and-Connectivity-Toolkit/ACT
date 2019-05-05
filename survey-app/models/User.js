@@ -14,7 +14,8 @@ User.add({
 	assignedModules: {type: Types.Relationship, ref: 'Module', many: true },
 	team: { type: Types.Relationship, ref: 'Team' },
 	location: {type: Types.Location, initial: true },
-	phone: { type: Types.Text, initial: true }
+	phone: { type: Types.Text, initial: true },
+	role: { type: Types.Relationship, ref: 'Role'},
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 });
