@@ -12,34 +12,60 @@ block content
 				h3 Your Team
 				if members.length
 					.container
-						.row.column-labels
-							.col-sm-2 Name
-							.col-sm-4 Assigned Modules
-							.col-sm-3 Role
-							.col-sm-3 Options
-						each member in members
-							.row
-								.col-sm-2 #{member.name.first} #{member.name.last}
-								.col-sm-4 #{member.modules}
-								.col-sm-3 #{member.roleName}
-								.col-sm-1
-									a(href=`mailto:` + member.email) Email
-								.col-sm-2
-									a.test(data-target='#modal', data-toggle='modal', data-user=member.id) Assign Modules
+
+						table.table
+							tr
+								th Name
+								th Assigned Modules
+								th Progress
+								th Role
+								th Email
+								th Options
+							each member in members
+								tr
+									td #{member.name.first} #{member.name.last}
+									td #{member.modules.join(", ")}
+
+									if member.assigned
+										if member.completed
+											td #{member.completed} / #{member.assigned}
+										else
+											td 0 / #{member.assigned}
+									else
+										td N / A
+									if member.roleName
+										td #{member.roleName}
+
+									else
+										td None
+									td
+										a(href=`mailto:` + member.email) #{member.email}
+									td
+										button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=member.role) Update
+
 
 	script(src='js/assign.js')
 	script(type='text/javascript').
-		moduleAssigner.setModuleMap(!{JSON.stringify(membersToModules)});
-		moduleAssigner.start();
+		userFormAssigner.setModuleMap(!{JSON.stringify(membersToModules)});
+		userFormAssigner.start();
 
 	#modal.modal
 		.modal-dialog
 			.modal-content
 				.modal-header
-					h3.modal-title Update Assigned Modules
+					h3.modal-title Update Assigned Modules and Roles
 				.modal-body
 					form(action="", method="post")
 						.form-group
+							h4 Role
+
+							select.form-control(id="role", name="role")
+
+								option(value="no-role") --- None ---
+
+								each role, id in roleMap
+									option(value=id) #{role}
+							h4 Modules
 							each mod, id in modMap
 								.checkbox
 									label

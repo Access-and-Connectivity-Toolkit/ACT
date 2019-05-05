@@ -1,9 +1,13 @@
 const keystone = require('keystone');
+const mongoose = require('mongoose');
+
+const ObjectId = mongoose.Types.ObjectId;
 
 const Team = keystone.list('Team').model;
 const Users = keystone.list('User').model;
 const Modules = keystone.list('Module').model;
 const Roles = keystone.list('Role').model;
+const ModuleProgress = keystone.list('ModuleProgress').model;
 
 getTeamId = async (team) => {
     return await Team.findOne({'_id': team});
@@ -33,15 +37,14 @@ createModuleMap = (modules) => {
     return modNames;
 };
 
-updateAssignedModules = async (userId, modules) => {
+updateUser = async (userId, roleId, modules) => {
     const query = {'_id': userId};
-    const update = {'assignedModules': modules};
-
+    const update = {'assignedModules': modules, 'role': roleId !== "no-role" ? roleId : null};
     Users.findOneAndUpdate(query, update, {new: true}, (err, mods) => {
         if (err) {
             console.error(err);
         }
-        
+
         return mods;
     });
 };
@@ -60,6 +63,22 @@ getRoles = async() => {
     return await Roles.find();
 };
 
+reformatProgressResults = (results) => {
+    const res = {};
+    for (let i = 0; i < results.length; i++) {
+        res[results[i]._id] = results[i].count;
+    }
+    return res;
+};
+
+getNumModulesCompleted = async(teamMembers) => {
+    const completed = await ModuleProgress.aggregate(
+        {$match: {'userId': {"$in": teamMembers}, 'progress': 'COMPLETE'}},
+        {$group: {_id: '$userId', count: {$sum: 1}}});
+
+    return reformatProgressResults(completed);
+}
+
 exports = module.exports = async (req, res) => {
     const view = new keystone.View(req, res);
     const locals = res.locals;
@@ -71,7 +90,7 @@ exports = module.exports = async (req, res) => {
 
     const roles = await getRoles();
     const roleMap = await createRoleMap(roles);
-
+    locals.roleMap = roleMap;
     view.on('post', async () => {
         if (!req.body.userId) {
             console.error("missing user");
@@ -80,9 +99,13 @@ exports = module.exports = async (req, res) => {
             const userId = req.body.userId;
             delete req.body.userId;
 
-            await updateAssignedModules(userId, Object.values(req.body));
+            let roleId = req.body.role;
+            delete req.body.role;
+
+            await updateUser(userId, roleId, Object.values(req.body));
+
         }
-        res.redirect("");
+        res.redirect('back');
     });
 
     getTeamId(req.user.team).then(async (team) => {
@@ -91,9 +114,12 @@ exports = module.exports = async (req, res) => {
         locals.user = req.user;
 
         return await getTeamMembers(team, req.user._id);
-    }).then((members) => {
+    }).then(async (members) => {
         let newMembers = members;
         const membersToModules = {};
+
+        const memberIds = members.map(_ => ObjectId(_.id));
+        const memberCompleted = await getNumModulesCompleted(memberIds);
 
         for (let i = 0; i < members.length; i++) {
             // translate module and role ids into names for each user
@@ -105,10 +131,12 @@ exports = module.exports = async (req, res) => {
                 modNames[j] = modMap[assignedMods[j]];
                 assignedMap[assignedMods[j]] = true;
             }
-
             newMembers[i].modules = modNames;
             newMembers[i].roleName = roleMap[members[i].role];
-            
+
+            newMembers[i].assigned = modNames.length;
+            newMembers[i].completed = memberCompleted[members[i]._id];
+
             membersToModules[members[i].id] = assignedMap;
         }
 
