@@ -46,9 +46,8 @@ block content
 
 	script(src='js/assign.js')
 	script(type='text/javascript').
-		moduleAssigner.setModuleMap(!{JSON.stringify(membersToModules)});
-		moduleAssigner.start();
-		roleAssigner();
+		userFormAssigner.setModuleMap(!{JSON.stringify(membersToModules)});
+		userFormAssigner.start();
 
 	#modal.modal
 		.modal-dialog
