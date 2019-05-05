@@ -44,7 +44,8 @@ exports = module.exports = (req, res) => {
                 id: modId,
                 name: mod.name,
                 questions: questions,
-                answers: answers
+                answers: answers,
+                resources: mod.resources
             };
         })).then((modules) => {
             locals.modules = modules;
