@@ -41,7 +41,7 @@ updateAssignedModules = async (userId, modules) => {
         if (err) {
             console.error(err);
         }
-        
+
         return mods;
     });
 };
@@ -71,7 +71,7 @@ exports = module.exports = async (req, res) => {
 
     const roles = await getRoles();
     const roleMap = await createRoleMap(roles);
-
+    locals.roleMap = roleMap;
     view.on('post', async () => {
         if (!req.body.userId) {
             console.error("missing user");
@@ -79,10 +79,10 @@ exports = module.exports = async (req, res) => {
         } else {
             const userId = req.body.userId;
             delete req.body.userId;
-
+            
             await updateAssignedModules(userId, Object.values(req.body));
         }
-        res.redirect("");
+        res.redirect('back')
     });
 
     getTeamId(req.user.team).then(async (team) => {
@@ -108,7 +108,7 @@ exports = module.exports = async (req, res) => {
 
             newMembers[i].modules = modNames;
             newMembers[i].roleName = roleMap[members[i].role];
-            
+
             membersToModules[members[i].id] = assignedMap;
         }
 
