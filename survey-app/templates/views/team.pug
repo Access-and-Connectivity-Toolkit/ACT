@@ -17,6 +17,7 @@ block content
 							tr
 								th Name
 								th Assigned Modules
+								th Progress
 								th Role
 								th Email
 								th Options
@@ -24,6 +25,13 @@ block content
 								tr
 									td #{member.name.first} #{member.name.last}
 									td #{member.modules}
+									if member.assigned
+										if member.completed
+											td #{member.completed} / #{member.assigned}
+										else 
+											td 0 / #{member.assigned}
+									else
+										td N / A
 									if member.rolename
 										td #{member.rolename}
 									else

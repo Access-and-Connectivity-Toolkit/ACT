@@ -64,14 +64,6 @@ getRoles = async() => {
     return await Roles.find();
 };
 
-getNumModulesAssigned = async(teamMembers) => {
-    const assigned = await ModuleProgress.aggregate(
-        {$match: {'userId': {"$in": teamMembers}}},
-        {$group: {_id: '$userId', count: {$sum: 1}}});
-
-    return reformatProgressResults(assigned);
-};
-
 reformatProgressResults = (results) => {
     const res = {};
     for (let i = 0; i < results.length; i++) {
@@ -124,7 +116,6 @@ exports = module.exports = async (req, res) => {
         const membersToModules = {};
 
         const memberIds = members.map(_ => ObjectId(_.id));
-        const memberAssigned = await getNumModulesAssigned(memberIds);
         const memberCompleted = await getNumModulesCompleted(memberIds);
 
         for (let i = 0; i < members.length; i++) {
@@ -141,7 +132,7 @@ exports = module.exports = async (req, res) => {
             newMembers[i].modules = modNames;
             newMembers[i].roleName = roleMap[members[i].role];
 
-            newMembers[i].assigned = memberAssigned[members[i]._id];
+            newMembers[i].assigned = modNames.length;
             newMembers[i].completed = memberCompleted[members[i]._id];
 
             membersToModules[members[i].id] = assignedMap;
