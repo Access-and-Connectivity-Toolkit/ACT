@@ -22,7 +22,7 @@ exports.csv = async (req, res) => {
 		.then(function(allAnswers) {
 			var flattenedAnswers = [];
 			
-			//filter out all answers where userId is equal to null
+			//filter out all answers where userId is equal to null, mongoose does not filter this out for us in the match statement
 			const filteredAnswers = _.filter(allAnswers, answer => answer.userId != null);
 
 			filteredAnswers.forEach(function(answer) {
