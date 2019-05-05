@@ -28,3 +28,17 @@ var moduleAssigner = moduleAssigner || (function() {
         }
     }
 })();
+
+const roleAssigner = () => {
+    $(document).ready(() => {
+        $('#modal').on('show.bs.modal', function(event) {
+            const roleId = $(event.relatedTarget).data('role');
+
+            if (roleId) {
+                $(`select#role option[value=${roleId}]`).prop('selected', true);
+            } else {
+                $('select#role option[value=empty]').prop('selected', true);
+            }
+        });
+    });
+}

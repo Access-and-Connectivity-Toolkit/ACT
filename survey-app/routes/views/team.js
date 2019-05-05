@@ -33,10 +33,14 @@ createModuleMap = (modules) => {
     return modNames;
 };
 
-updateAssignedModules = async (userId, modules) => {
+updateAssignedModules = async (userId, roleId, modules) => {
     const query = {'_id': userId};
     const update = {'assignedModules': modules};
-
+    if (roleId) {
+        console.log("oh damn we are updating the role id!");
+        update['role'] = roleId
+    }
+    console.log("update", update);
     Users.findOneAndUpdate(query, update, {new: true}, (err, mods) => {
         if (err) {
             console.error(err);
@@ -79,8 +83,9 @@ exports = module.exports = async (req, res) => {
         } else {
             const userId = req.body.userId;
             delete req.body.userId;
-            
-            await updateAssignedModules(userId, Object.values(req.body));
+            let roleId = req.body.role;
+            delete req.body.role;
+            await updateAssignedModules(userId, roleId, Object.values(req.body));
         }
         res.redirect('back')
     });

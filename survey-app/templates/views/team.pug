@@ -23,19 +23,20 @@ block content
 								tr
 									td #{member.name.first} #{member.name.last}
 									td #{member.modules}
-									if member.rolename
-										td #{member.rolename}
+									if member.roleName
+										td #{member.roleName}
 									else
 										td None
 									td
 										a(href=`mailto:` + member.email) #{member.email}
 									td
-										button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id) Update User
+										button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=member.role) Update User
 
 	script(src='js/assign.js')
 	script(type='text/javascript').
 		moduleAssigner.setModuleMap(!{JSON.stringify(membersToModules)});
 		moduleAssigner.start();
+		roleAssigner();
 
 	#modal.modal
 		.modal-dialog
@@ -46,8 +47,8 @@ block content
 					form(action="", method="post")
 						.form-group
 							h4 Role
-							select.form-control
-								option(value="") ---
+							select.form-control(id="role", name="role")
+								option(value="empty") ---
 								each role, id in roleMap
 									option(value=id) #{role}
 							h4 Modules
