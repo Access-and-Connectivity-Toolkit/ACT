@@ -7,6 +7,7 @@ const Module = new keystone.List('Module', {
 
 Module.add({
 	name: { type: String, required: true },
+	rank: { type: Number, required: true, initial: true}
 });
 
 Module.relationship({ ref: 'Question', refPath: 'module' });

@@ -6,7 +6,7 @@ const Team = keystone.list('Team').model;
 const Answer = keystone.list('Answer').model;
 
 getAssignedModules = async (assignedModules) => {
-    return await Module.find({'_id': assignedModules});
+    return await Module.find({'_id': assignedModules}).sort({'rank': 'asc'});
 };
 
 getModuleQuestions = async (moduleId) => {
@@ -51,5 +51,4 @@ exports = module.exports = (req, res) => {
             view.render('assessment');
         });
     });
-    
 };
