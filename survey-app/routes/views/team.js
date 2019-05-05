@@ -105,7 +105,7 @@ exports = module.exports = async (req, res) => {
                 modNames[j] = modMap[assignedMods[j]];
                 assignedMap[assignedMods[j]] = true;
             }
-
+            console.log("modNames", modNames);
             newMembers[i].modules = modNames;
             newMembers[i].roleName = roleMap[members[i].role];
 

@@ -22,7 +22,7 @@ block content
 							each member in members
 								tr
 									td #{member.name.first} #{member.name.last}
-									td #{member.modules}
+									td #{member.modules.join(", ")}
 									if member.roleName
 										td #{member.roleName}
 									else
@@ -30,7 +30,7 @@ block content
 									td
 										a(href=`mailto:` + member.email) #{member.email}
 									td
-										button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=member.role) Update User
+										button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=member.role) Update
 
 	script(src='js/assign.js')
 	script(type='text/javascript').
