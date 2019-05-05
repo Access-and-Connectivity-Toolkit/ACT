@@ -12,10 +12,12 @@ block content
 				h3 Your Team
 				if members.length
 					.container
+
 						table.table
 							tr
 								th Name
 								th Assigned Modules
+								th Progress
 								th Role
 								th Email
 								th Options
@@ -23,14 +25,24 @@ block content
 								tr
 									td #{member.name.first} #{member.name.last}
 									td #{member.modules.join(", ")}
+
+									if member.assigned
+										if member.completed
+											td #{member.completed} / #{member.assigned}
+										else
+											td 0 / #{member.assigned}
+									else
+										td N / A
 									if member.roleName
 										td #{member.roleName}
+
 									else
 										td None
 									td
 										a(href=`mailto:` + member.email) #{member.email}
 									td
 										button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=member.role) Update
+
 
 	script(src='js/assign.js')
 	script(type='text/javascript').
@@ -46,8 +58,11 @@ block content
 					form(action="", method="post")
 						.form-group
 							h4 Role
+
 							select.form-control(id="role", name="role")
+
 								option(value="no-role") --- None ---
+
 								each role, id in roleMap
 									option(value=id) #{role}
 							h4 Modules
