@@ -107,7 +107,7 @@ exports = module.exports = async (req, res) => {
             await updateAssignedModules(userId, roleId, Object.values(req.body));
 
         }
-        res.redirect('back')
+        res.redirect('back');
     });
 
     getTeamId(req.user.team).then(async (team) => {
