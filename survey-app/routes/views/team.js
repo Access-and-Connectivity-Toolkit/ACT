@@ -139,12 +139,9 @@ exports = module.exports = async (req, res) => {
             newMembers[i].modules = modNames;
             newMembers[i].roleName = roleMap[members[i].role];
 
-<<<<<<< HEAD
             newMembers[i].assigned = modNames.length;
             newMembers[i].completed = memberCompleted[members[i]._id];
 
-=======
->>>>>>> 784e54c4c6063d5a7a9ec5ffe81f1794209d9210
             membersToModules[members[i].id] = assignedMap;
         }
 
