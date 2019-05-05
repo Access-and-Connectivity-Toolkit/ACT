@@ -23,6 +23,6 @@
     "lint": "eslint .",
     "start": "node keystone.js",
     "compile": "stylus -w public/styles/site.styl -o public/styles/site.css",
-    "dev": "nodemon keysone"
+    "dev": "nodemon keystone.js"
   }
 }
