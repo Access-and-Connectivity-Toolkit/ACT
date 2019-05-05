@@ -60,8 +60,9 @@ block content
 							h4 Role
 
 							select.form-control(id="role", name="role")
-								option(value="empty") ---
 
+								option(value="no-role") --- None ---
+								
 								each role, id in roleMap
 									option(value=id) #{role}
 							h4 Modules
