@@ -77,7 +77,6 @@ var localStorageStuff = localStorageStuff || (function () {
 					console.log(Date.parse(prev.updatedAt));
 					console.log(timestamp);
 					if (Date.parse(prev.updatedAt) > timestamp) {
-						console.log("updating");
 						name = prev.questionId;
 						value = prev.answer;
 					}
@@ -89,8 +88,6 @@ var localStorageStuff = localStorageStuff || (function () {
 				setAnswer(name, value);
 			});
 		}
-
-		console.log(Object.keys(dbAnswers));
 
 		// Get the rest of the db answers if they're for fields not covered...
 		for (const answer of Object.keys(dbAnswers)) {
@@ -119,7 +116,7 @@ var localStorageStuff = localStorageStuff || (function () {
 		if (value) {
 			var $el = $('[name="'+ name +'"]'),
 			type = $el.attr('type');
-
+			
 			switch(type){
 				case 'checkbox':
 				case 'radio':
@@ -134,7 +131,7 @@ var localStorageStuff = localStorageStuff || (function () {
 	function storeResponses() {
 		let ans = localStorage.getItem(StoreKey);
 		let form = $("#assessment").serializeArray();
-
+		
 		if (ans) {
 			ans = JSON.parse(ans);
 		} else {

@@ -26,7 +26,7 @@ mixin textarea-question(question)
 
 mixin scale-question(question)
      if question
-         div(class="form-group")
+        div(class="form-group")
             p.question #{question.question}
             .radio.answers.scale
                 if question.answers && question.answers.length >= 2
@@ -43,7 +43,7 @@ mixin scale-question(question)
                     span To a large extent
             .checkbox.answers.scale
                 label
-                    input.checkbox-input(type="checkbox" value=0, name="N/A")
+                    input.checkbox-input(type="radio" value=0 name=question.id)
                     | N/A
 
 mixin info-question(question)

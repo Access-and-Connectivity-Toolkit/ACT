@@ -18,6 +18,7 @@ exports.question = async (req, res) => {
 	).sort({'updatedAt': 'desc'});
 
 	let answersLength = 0;
+
 	for (const question in req.body) {
 		if (question == 'moduleId') continue;
 
