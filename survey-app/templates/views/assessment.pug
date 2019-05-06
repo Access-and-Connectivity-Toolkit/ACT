@@ -35,7 +35,12 @@ block content
                             if modules[active].resources.length > 0
                                 h3 Resources
                                 each resource in modules[active].resources
-                                    a(href=resource) #{resource}
-                                    br
+                                    a(href=resource.link) 
+                                        .thumbnail
+                                            img(src=resource.image alt=resource.title)
+                                            .caption
+                                                h3 #{resource.title}
+                                                p #{resource.description}
+
                 if !modules || modules.length == 0
                     p You haven't been assigned any modules 
