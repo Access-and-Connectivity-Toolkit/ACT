@@ -1,5 +1,7 @@
 const keystone = require('keystone');
 
+const grabity = require('grabity');
+
 const Module = keystone.list('Module').model;
 const Question = keystone.list('Question').model;
 const Team = keystone.list('Team').model;
@@ -23,6 +25,17 @@ getUserAnswers = async (moduleId, userId) => {
     ).sort({'updatedAt': 'desc'});
 };
 
+getResourceLinkInfo = async(links) => {
+    const results = [];
+    for (let i = 0; i < links.length; i++) {
+        const details = await grabity.grabIt(links[i]);
+        details["link"] = links[i];
+        results[i] = details;
+    }
+    
+    return results;
+};
+
 exports = module.exports = (req, res) => {
     const view = new keystone.View(req, res);
     
@@ -39,13 +52,17 @@ exports = module.exports = (req, res) => {
             const modId = mod._id;
             const questions = await getModuleQuestions(modId);
             const answers = await getUserAnswers(modId, req.user.id);
+            let resources;
+            if (mod.resources) {
+                resources = await getResourceLinkInfo(mod.resources);
+            }
             
             return {
                 id: modId,
                 name: mod.name,
                 questions: questions,
                 answers: answers,
-                resources: mod.resources
+                resources: resources
             };
         })).then((modules) => {
             locals.modules = modules;
