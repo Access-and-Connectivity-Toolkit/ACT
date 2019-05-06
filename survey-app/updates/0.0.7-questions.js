@@ -50,7 +50,7 @@ const createQuestion = async (question, survey) => {
     if (surveys[survey]) {
         questionSurvey = surveys[survey];
     } else {
-        questionSurvey = new Module.model({name: survey});
+        questionSurvey = new Module.model({name: survey, rank: 1});
         surveys[survey] = questionSurvey;
         await questionSurvey.save();
     }
