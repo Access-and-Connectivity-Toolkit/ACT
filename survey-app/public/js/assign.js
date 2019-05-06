@@ -1,4 +1,8 @@
-var moduleAssigner = moduleAssigner || (function() {
+// userFormAssigner will ensure:
+// - role attribute in form has the already saved role id set to selected
+// - check all the modules that have already been assigned
+// - set hidden userId attribute in the form
+var userFormAssigner = userFormAssigner || (function() {
     let assignedModulesByUser = {};
 
     return {
@@ -8,6 +12,13 @@ var moduleAssigner = moduleAssigner || (function() {
         start: () => {
             $(document).ready(() => {
                 $('#modal').on('show.bs.modal', function(event) {
+                    const roleId = $(event.relatedTarget).data('role');
+
+                    if (roleId) {
+                        $(`select#role option[value=${roleId}]`).prop('selected', true);
+                    } else {
+                        $('select#role option[value="no-role"]').prop('selected', true);
+                    }
                     const userId = $(event.relatedTarget).data('user');
                     const userModules = assignedModulesByUser[userId];
 

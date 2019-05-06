@@ -83,6 +83,5 @@ async function updateModuleProgress(moduleId, userId, answersLength, isComplete)
 	 	if (err) {
 	 		console.error("error on find and update with module progress", err); //TODO: think about how we want to perform error handling
 		}
-	 })
-
+	 });
 }

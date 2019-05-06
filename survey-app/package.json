@@ -5,6 +5,7 @@
   "dependencies": {
     "async": "2.1.4",
     "box-node-sdk": "^1.22.1",
+    "csv-stringify": "^5.3.0",
     "dotenv": "4.0.0",
     "grabity": "^1.0.5",
     "keystone": "^4.0.0",
@@ -24,6 +25,6 @@
     "lint": "eslint .",
     "start": "node keystone.js",
     "compile": "stylus -w public/styles/site.styl -o public/styles/site.css",
-    "dev": "nodemon keysone"
+    "dev": "nodemon keystone.js"
   }
 }
