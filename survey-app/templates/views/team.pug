@@ -1,6 +1,16 @@
 extends ../layouts/default
 
 block content
+	script(type='text/javascript').
+		jQuery(document).ready(function () {
+			$('#daTable').DataTable({
+				'paging': false,
+				'info': false,
+				// by default, order by the Role column in the table
+				"order": [[ 3, "asc" ]],
+				'filter': false
+			});
+		})
 	.container: .jumbotron
 		if team
 			h2 #{team.name} Team Folder
@@ -16,35 +26,37 @@ block content
 				if members.length
 					.container
 
-						table.table
-							tr
-								th Name
-								th Assigned Modules
-								th Progress
-								th Role
-								th Email
-								th Options
-							each member in members
+						table.table(id="daTable")
+							thead
 								tr
-									td #{member.name.first} #{member.name.last}
-									td #{member.modules.join(", ")}
+									th Name
+									th Assigned Modules
+									th Progress
+									th Role
+									th Email
+									th Options
+							tbody
+								each member in members
+									tr
+										td #{member.name.first} #{member.name.last}
+										td #{member.modules.join(", ")}
 
-									if member.assigned
-										if member.completed
-											td #{member.completed} / #{member.assigned}
+										if member.assigned
+											if member.completed
+												td #{member.completed} / #{member.assigned}
+											else
+												td 0 / #{member.assigned}
 										else
-											td 0 / #{member.assigned}
-									else
-										td N / A
-									if member.roleName
-										td #{member.roleName}
+											td N / A
+										if member.roleName
+											td #{member.roleName}
 
-									else
-										td None
-									td
-										a(href=`mailto:` + member.email) #{member.email}
-									td
-										button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=member.role) Update
+										else
+											td None
+										td
+											a(href=`mailto:` + member.email) #{member.email}
+										td
+											button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=member.role) Update
 
 
 	script(src='js/assign.js')
