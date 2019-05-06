@@ -1,4 +1,5 @@
 const keystone = require('keystone');
+const Types = keystone.Field.Types;
 
 const Module = new keystone.List('Module', {
 	autokey: { from: 'name', path: 'key', unique: true },
@@ -7,7 +8,8 @@ const Module = new keystone.List('Module', {
 
 Module.add({
 	name: { type: String, required: true },
-	rank: { type: Number, required: true, initial: true}
+	rank: { type: Number, required: true, initial: true},
+	resources: {type: Types.TextArray}
 });
 
 Module.relationship({ ref: 'Question', refPath: 'module' });
