@@ -37,7 +37,8 @@ block content
                                 each resource in modules[active].resources
                                     a(href=resource.link) 
                                         .thumbnail
-                                            img(src=resource.image alt=resource.title)
+                                            if resource.image
+                                                img(src=resource.image alt=resource.title onerror="this.style.display='none'")
                                             .caption
                                                 h3 #{resource.title}
                                                 p #{resource.description}
