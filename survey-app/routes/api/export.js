@@ -1,6 +1,7 @@
 const keystone = require('keystone');
 const Answer = keystone.list('Answer').model;
-const _ = require('lodash'); 
+const _ = require('lodash');
+const stringify = require('csv-stringify');
 
 //can add other export types as needed
 exports.csv = async (req, res) => {
@@ -41,8 +42,19 @@ exports.csv = async (req, res) => {
 				flatAnswer['answers'] = answer['answer'];
 				flattenedAnswers.push(flatAnswer);
 			});
+			
+			if (flattenedAnswers.length === 0) {
+				return res.status(200).send('no results'); 
+			}
+			
+			res.setHeader('Content-Type', 'text/csv');
+			//if the same person can be assigned multiple teams, file name + fields may have to change
+			res.setHeader('Content-Disposition', 'attachment; filename=\"' + 'bcatAnswers-' + Date.now() + '.csv\"');
 
-			return res.json(flattenedAnswers);
+			stringify(flattenedAnswers, { header: true })
+				.pipe(res);
+			
+			return; 	
 		})
 		.catch(function(err) {
 			console.log('err', err);

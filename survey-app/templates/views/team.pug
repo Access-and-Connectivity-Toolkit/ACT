@@ -11,7 +11,7 @@ block content
 			if isLeader
 				div.row
 					div.col-xs-1.col-xs-offset-10
-						button#exportBtn.btn.btn-primary Export Answers
+						a.btn.btn-primary(href='/api/export/csv?teamId=' + user.team) Export Answers
 				h3 Your Team
 				if members.length
 					.container
@@ -31,10 +31,6 @@ block content
 									a.test(data-target='#modal', data-toggle='modal', data-user=member.id) Assign Modules
 
 	script(src='js/assign.js')
-	script(type='text/javascript').
-		var currentTeamId='#{user.team}' //see exportanswers.js for usage
-		var currentTeamName='#{team.name}'
-	script(src='js/exportanswers.js')
 	script(type='text/javascript').
 		moduleAssigner.setModuleMap(!{JSON.stringify(membersToModules)});
 		moduleAssigner.start();
