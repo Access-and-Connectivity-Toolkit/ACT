@@ -33,6 +33,7 @@ block content
 									th Assigned Modules
 									th Progress
 									th Role
+									th Affiliation
 									th Email
 									th Options
 							tbody
@@ -41,6 +42,7 @@ block content
 										td #{member.name.first} #{member.name.last}
 										td #{member.modules.join(", ")}
 
+										//- Number of assigned/completed modules or N/A if not assigned
 										if member.assigned
 											if member.completed
 												td #{member.completed} / #{member.assigned}
@@ -48,11 +50,17 @@ block content
 												td 0 / #{member.assigned}
 										else
 											td N / A
+
 										if member.roleName
 											td #{member.roleName}
-
 										else
 											td None
+										
+										if member.affiliation
+											td #{member.affiliation}
+										else 
+											td None
+											
 										td
 											a(href=`mailto:` + member.email) #{member.email}
 										td
