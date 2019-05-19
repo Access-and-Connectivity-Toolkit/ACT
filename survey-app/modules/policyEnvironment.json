@@ -1,0 +1,123 @@
+[
+  {
+    "name": "Policy Environment 1",
+    "question": "This module covers local, state, and regional policies that both support and constrain local broadband projects. ",
+    "type": "Textarea",
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 2",
+    "question": "Are there State laws or regulations that restrict or dictate broadband projects in your area?  ",
+    "type": "Scale",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 3",
+    "question": "Are there State laws or regulations that restrict or dictate broadband projects in your area?  ",
+    "type": "Checkboxes",
+    "answers": [
+      "My state has laws or regulations that guide government operations of broadband networks.",
+      "My state has laws or regulations that put market restrictions on government broadband networks.",
+      "We understand the laws and regulations that guide local government broadband purchasing.",
+      "My state has laws or regulations guide cable franchise agreements.",
+      "State laws or regulations on cable franchise agreements restrict local franchising authority on cable telecommunications providers.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 4",
+    "question": "If other, please explain.",
+    "type": "Textarea",
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 5",
+    "question": "Please provide a link to applicable state or tribal laws and regulations. ",
+    "type": "Textarea",
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 6",
+    "question": "Does your state or tribal government provide help or funding for local broadband projects?",
+    "type": "Scale",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 7",
+    "question": "Does your state or tribal government provide help or funding for local broadband projects?",
+    "type": "Checkboxes",
+    "answers": [
+      "We have a state broadband office.",
+      "Our state conducts assessments about broadband availability.",
+      "Our state maps broadband availability.",
+      "We have a statewide or regional broadband plan.",
+      "The state broadband office provides planning and/technical support for local efforts.",
+      "Our state Economic Development office considers broadband a foundation for economic growth. They provide support for broadband projects.",
+      "Our state has a grant program that support local broadband projects.",
+      "Our state has a loan program that supports local broadband projects.",
+      "Our state has a state Universal Service Fund that promotes telecommunications or broadband access.",
+      "Our state provides tax credits for infrastructure investments.",
+      "Our state has a statewide digital inclusion program.",
+      "Our state promotes broadband-ready communities. (certifications for easy permitting)",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 8",
+    "question": "If other, please explain.",
+    "type": "Textarea",
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 9",
+    "question": "Please provide the link to applicable state and tribal programs. ",
+    "type": "Textarea",
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 10",
+    "question": "Regional broadband and technology programs: Are you aware of other regional or state programs that support broadband planning or projects?",
+    "type": "Checkboxes",
+    "answers": [
+      "University extension offices support broadband planning and projects.",
+      "Rural development offices support broadband planning and projects.",
+      "Our regional council of governments supports broadband planning and projects.",
+      "Regional or local economic development authorities/councils support broadband planning and projects.",
+      "Other regional entities support broadband planning and projects.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 11",
+    "question": "If other, please explain.",
+    "type": "Textarea",
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 12",
+    "question": "How would you describe the efficacy of state and regional policies that support broadband projects in your state?",
+    "type": "Scale",
+    "answers": ["Poor","Extraordinary"],
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 13",
+    "question": "What changes would you like to see over the next one to two years in the regulatory, legal, or support structure around broadband? ",
+    "type": "Textarea",
+    "survey": "Policy Environment"
+  },
+  {
+    "name": "Policy Environment 14",
+    "question": "Links to resources that you’d like to record in your plan.",
+    "type": "Textarea",
+    "survey": "Policy Environment"
+  }
+]

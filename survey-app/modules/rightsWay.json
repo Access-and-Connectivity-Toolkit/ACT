@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Rights of Way 1",
+    "question": "This module looks at how government policies and resources encourage broadband build-outs and balance public interests.  This module addresses rights-of way. The more general topic of private use of public assets is covered in separate module.",
+    "type": "Info",
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 2",
+    "question": "Does the local government have an inventory of roads, conduit, and rights-of-way? This is a directory of rights-of-way with necessary detail to provide access and connectivity between points.",
+    "type": "Scale",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 3",
+    "question": "What information does the inventory of public assets contain?",
+    "type": "Checkboxes",
+    "answers": [
+      "We have identified the types of public assets that could be used for telecommunications",
+      "Our community maintains an asset inventory (a directory of public assets that could be used for telecommunications)",
+      "The asset inventory includes information about type, geo-location, and ownership of the assets.",
+      "The asset inventory includes information on readiness or fitness for use and capacity.",
+      "The asset inventory includes references to regulations about the use of those assets.",
+      "We have a process to maintain the accuracy of the asset data, including a process to regularly update the data.",
+      "The inventory is electronic and can be accessed or downloaded by prospective infrastructure builders.",
+      "Our community has information on related tribal, county, state, federal or other assets.",
+      "Our community has information on assets maintained by utility companies or private entities.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 4",
+    "question": "If other, please explain.",
+    "type": "Textarea",
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 5",
+    "question": "Do policies about public rights-of-way support the public interest?",
+    "type": "Scale",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 6",
+    "question": "Do policies about public rights-of-way support the public interest?",
+    "type": "Checkboxes",
+    "answers": [
+      "Our community has identified the policy jurisdictions for rights-of-way where we live.",
+      "Our agency has identified the state, county, federal, tribal, commercial, and other regulations that apply to rights-of-way in our community.",
+      "For rights-of-way within our management scope, our agency has well-defined policies and procedures.",
+      "Our jurisdiction has implemented a “dig once” policy that requires public notice for all trenching or major construction.",
+      "Our government works to coordinate construction to facilitate telecommunications infrastructure deployment as part of construction projects.",
+      "Our policies say that conduit must be laid as part of major road and construction projects.",
+      "We are aware of the rights-of-way regulations on county and state roads and lands in our jurisdiction. Information is accessible in our offices and websites.",
+      "We are aware of the rights-of-way regulations on federal roads and lands in our jurisdiction.",
+      "Information is accessible in our offices and websites.",
+      "Policies and procedures that regulate rights-of-way consider requirements for advanced wireless in communities.",
+      "Our government is aware of the wireless spectrum loads and interference in our geography and takes proactive steps to ensure good wireless service.",
+      "Policies that regulate rights-of-way are reviewed and updated regularly with input from stakeholders.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 7",
+    "question": "If other, please explain.",
+    "type": "Textarea",
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 8",
+    "question": "Do government leaders manage contracts involving rights of way (RoW) to ensure those agreements continue to meet the  needs of the community?",
+    "type": "Scale",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 9",
+    "question": "Do government leaders manage contracts involving rights of way (RoW) to ensure those agreements continue to meet the  needs of the community?",
+    "type": "Checkboxes",
+    "answers": [
+      "Leases and agreements that use RoW are in the public record.",
+      "Leases and agreements that use RoW include clearly-defined public benefits.",
+      "When reaching new agreements or renewing existing agreements, public input is requested and included in the process.",
+      "Our department allocates staff time to support the execution of telecommunications agreements that involve public asses or public right of way.",
+      "Our agency monitors the agreements and holds providers accountable.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 10",
+    "question": "If other, please explain.",
+    "type": "Textarea",
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 11",
+    "question": "How would you describe the efficacy of local policies that promote the use of Rights-of-Way, enhance telecommunications competition, and serve the public good?",
+    "type": "Scale",
+    "answers": ["Poor","Extraordinary"],
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 12",
+    "question": "What changes would you like to see in the next one to two years in the way that your community manages RoW as related to broadband?",
+    "type": "Textarea",
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 13",
+    "question": "Links to resources that you’d like to record in your plan.",
+    "type": "Textarea",
+    "survey": "Rights of Way"
+  }
+]

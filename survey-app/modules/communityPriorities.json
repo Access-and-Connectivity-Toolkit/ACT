@@ -1,41 +1,57 @@
 [
-	{
-	"name": "Community Priorities 01",
-	"question": "Identify the motivators for your engagement in this team, and what you best represents the needs of you and your community.",
-	"type": "Info",
-	"survey": "Community Priorities"
-	},
-	{
-	"name": "Community Priorities 02",
-	"question": "What motivates you to work on this project? Do you have specific areas of concern? ",
-	"type": "Textarea",
-	"survey": "Community Priorities"
-	},
-	{
-	"name": "Community Priorities 03",
-	"question": "What are the areas of concern in your community?   Please check all that apply: ",
-	"type": "Checkboxes",
-	"answers": ["Broadband service is not available in all or parts of our community.","Broadband service quality is poor or unreliable.","We have middle mile problems. Traffic into our community is throttled.","Broadband service is too expensive for the services offered.","We need better broadband to support our schools and other institutions.","We have a homework gap.  Our kids need access to the Internet at home.","We need better broadband to help residents access government services.","We need broadband to get access to telehealth and other health services.","Businesses are leaving because of lack of quality broadband.","Our workforce needs stronger digital skills.","Without better broadband, we can't retain and attract younger people to the area.","We need better broadband to attract businesses and drive economic development.","People need broadband to work at home or to run family businesses.","We are innovators. We need better connectivity to support and drive innovation.","Lack of digital access/skills is creating an opportunity gap. We need to work on inclusion and equity.","I don’t know."
-	],
-	"survey": "Community Priorities"
-	},
-	{
-	"name": "Community Priorities 04",
-	"question": "If there are other areas of concern, please explain:",
-	"type": "Textarea",
-	"survey": "Community Priorities"
-	},
-	{
-	"name": "Community Priorities 05",
-	"question": "Describe your community vision/goals and note how improved broadband supports those goals.  ",
-	"type": "Textarea",
-	"survey": "Community Priorities"
-	},
-	{
-	"name": "Community Priorities 06",
-	"question": "How important is broadband compared with other priorities in your community?",
-	"type": "Scale",
-	"answers": ["Few people mention it","Top of mind for many people"],
-	"survey": "Community Priorities"
-	}
+  {
+    "name": "Community Priorities 01",
+    "question": "Identify the motivators for your engagement in this team, and what you best represents the needs of you and your community.",
+    "type": "Info",
+    "survey": "Community Priorities"
+  },
+  {
+    "name": "Community Priorities 02",
+    "question": "What motivates you to work on this project? Do you have specific areas of concern? ",
+    "type": "Textarea",
+    "survey": "Community Priorities"
+  },
+  {
+    "name": "Community Priorities 03",
+    "question": "What are the areas of concern in your community?   Please check all that apply: ",
+    "type": "Checkboxes",
+    "answers": [
+      "Broadband service is not available in all or parts of our community.",
+      "Broadband service quality is poor or unreliable.",
+      "We have middle mile problems. Traffic into our community is throttled.",
+      "Broadband service is too expensive for the services offered.",
+      "We need better broadband to support our schools and other institutions.",
+      "We have a homework gap.  Our kids need access to the Internet at home.",
+      "We need better broadband to help residents access government services.",
+      "We need broadband to get access to telehealth and other health services.",
+      "Businesses are leaving because of lack of quality broadband.",
+      "Our workforce needs stronger digital skills.",
+      "Without better broadband, we can't retain and attract younger people to the area.",
+      "We need better broadband to attract businesses and drive economic development.",
+      "People need broadband to work at home or to run family businesses.",
+      "We are innovators. We need better connectivity to support and drive innovation.",
+      "Lack of digital access/skills is creating an opportunity gap. We need to work on inclusion and equity.",
+      "I don’t know."
+    ],
+    "survey": "Community Priorities"
+  },
+  {
+    "name": "Community Priorities 04",
+    "question": "If there are other areas of concern, please explain:",
+    "type": "Textarea",
+    "survey": "Community Priorities"
+  },
+  {
+    "name": "Community Priorities 05",
+    "question": "Describe your community vision/goals and note how improved broadband supports those goals.  ",
+    "type": "Textarea",
+    "survey": "Community Priorities"
+  },
+  {
+    "name": "Community Priorities 06",
+    "question": "How important is broadband compared with other priorities in your community?",
+    "type": "Scale",
+    "answers": ["Few people mention it", "Top of mind for many people"],
+    "survey": "Community Priorities"
+  }
 ]
