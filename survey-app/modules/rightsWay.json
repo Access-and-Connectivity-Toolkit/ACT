@@ -1,19 +1,19 @@
 [
   {
-    "name": "Rights of Way 1",
+    "name": "Rights of Way 01",
     "question": "This module looks at how government policies and resources encourage broadband build-outs and balance public interests.  This module addresses rights-of way. The more general topic of private use of public assets is covered in separate module.",
     "type": "Info",
     "survey": "Rights of Way"
   },
   {
-    "name": "Rights of Way 2",
+    "name": "Rights of Way 02",
     "question": "Does the local government have an inventory of roads, conduit, and rights-of-way? This is a directory of rights-of-way with necessary detail to provide access and connectivity between points.",
     "type": "Scale",
     "answers": ["Not at all", "To a large extent"],
     "survey": "Rights of Way"
   },
   {
-    "name": "Rights of Way 3",
+    "name": "Rights of Way 03",
     "question": "What information does the inventory of public assets contain?",
     "type": "Checkboxes",
     "answers": [
@@ -32,20 +32,20 @@
     "survey": "Rights of Way"
   },
   {
-    "name": "Rights of Way 4",
+    "name": "Rights of Way 04",
     "question": "If other, please explain.",
     "type": "Textarea",
     "survey": "Rights of Way"
   },
   {
-    "name": "Rights of Way 5",
+    "name": "Rights of Way 05",
     "question": "Do policies about public rights-of-way support the public interest?",
     "type": "Scale",
     "answers": ["Not at all", "To a large extent"],
     "survey": "Rights of Way"
   },
   {
-    "name": "Rights of Way 6",
+    "name": "Rights of Way 06",
     "question": "Do policies about public rights-of-way support the public interest?",
     "type": "Checkboxes",
     "answers": [
@@ -67,20 +67,20 @@
     "survey": "Rights of Way"
   },
   {
-    "name": "Rights of Way 7",
+    "name": "Rights of Way 07",
     "question": "If other, please explain.",
     "type": "Textarea",
     "survey": "Rights of Way"
   },
   {
-    "name": "Rights of Way 8",
+    "name": "Rights of Way 08",
     "question": "Do government leaders manage contracts involving rights of way (RoW) to ensure those agreements continue to meet the  needs of the community?",
     "type": "Scale",
     "answers": ["Not at all", "To a large extent"],
     "survey": "Rights of Way"
   },
   {
-    "name": "Rights of Way 9",
+    "name": "Rights of Way 09",
     "question": "Do government leaders manage contracts involving rights of way (RoW) to ensure those agreements continue to meet the  needs of the community?",
     "type": "Checkboxes",
     "answers": [

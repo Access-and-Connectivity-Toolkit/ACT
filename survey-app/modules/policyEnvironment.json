@@ -1,19 +1,19 @@
 [
   {
-    "name": "Policy Environment 1",
+    "name": "Policy Environment 01",
     "question": "This module covers local, state, and regional policies that both support and constrain local broadband projects. ",
-    "type": "Textarea",
+    "type": "Info",
     "survey": "Policy Environment"
   },
   {
-    "name": "Policy Environment 2",
+    "name": "Policy Environment 02",
     "question": "Are there State laws or regulations that restrict or dictate broadband projects in your area?  ",
     "type": "Scale",
     "answers": ["Not at all", "To a large extent"],
     "survey": "Policy Environment"
   },
   {
-    "name": "Policy Environment 3",
+    "name": "Policy Environment 03",
     "question": "Are there State laws or regulations that restrict or dictate broadband projects in your area?  ",
     "type": "Checkboxes",
     "answers": [
@@ -28,26 +28,26 @@
     "survey": "Policy Environment"
   },
   {
-    "name": "Policy Environment 4",
+    "name": "Policy Environment 04",
     "question": "If other, please explain.",
     "type": "Textarea",
     "survey": "Policy Environment"
   },
   {
-    "name": "Policy Environment 5",
+    "name": "Policy Environment 05",
     "question": "Please provide a link to applicable state or tribal laws and regulations. ",
     "type": "Textarea",
     "survey": "Policy Environment"
   },
   {
-    "name": "Policy Environment 6",
+    "name": "Policy Environment 06",
     "question": "Does your state or tribal government provide help or funding for local broadband projects?",
     "type": "Scale",
     "answers": ["Not at all", "To a large extent"],
     "survey": "Policy Environment"
   },
   {
-    "name": "Policy Environment 7",
+    "name": "Policy Environment 07",
     "question": "Does your state or tribal government provide help or funding for local broadband projects?",
     "type": "Checkboxes",
     "answers": [
@@ -69,13 +69,13 @@
     "survey": "Policy Environment"
   },
   {
-    "name": "Policy Environment 8",
+    "name": "Policy Environment 08",
     "question": "If other, please explain.",
     "type": "Textarea",
     "survey": "Policy Environment"
   },
   {
-    "name": "Policy Environment 9",
+    "name": "Policy Environment 09",
     "question": "Please provide the link to applicable state and tribal programs. ",
     "type": "Textarea",
     "survey": "Policy Environment"
