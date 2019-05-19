@@ -6852,3 +6852,9 @@ table.dataTable tbody tr {
   color: #fff;
   background-color: #fff;
 }
+.landingPageList {
+  padding-bottom: 1em;
+}
+.landingPageList li {
+  font-size: 15px;
+}
