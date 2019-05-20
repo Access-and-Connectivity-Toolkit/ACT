@@ -10,10 +10,20 @@ const fs = require('fs');
 const MODULES_FOLDER = 'modules/';
 
 const getQuestionFiles = (path) => {
-	return [
-        'broadbandActionTeam.json',
-        'communityPriorities.json',
-        'localInsightsOnData.json'
+	// return new Promise((resolve, reject) => {
+	// 	fs.readdir(path, (err, result) => {
+	// 		if (err) {
+	// 			reject(err);
+	// 		} else {
+	// 			resolve(result);
+	// 		}
+	// 	});
+    // });
+    return [
+        'policyEnvironment.json',
+        'rightsWay.json',
+        'stakeholderEngagement.json',
+        'usePublicAssets.json'
     ];
 };
 
@@ -54,6 +64,7 @@ const createQuestion = async (question, survey) => {
     const newQuestion = new Question.model(question);
     newQuestion.module = questionSurvey._id.toString();
 
+    // switch this to upsert -- maybe it would have been better to have this for each module
     await newQuestion.save();
 };
 
