@@ -10,10 +10,11 @@ const fs = require('fs');
 const MODULES_FOLDER = 'modules/';
 
 const getQuestionFiles = (path) => {
-	return [
-        'broadbandActionTeam.json',
-        'communityPriorities.json',
-        'localInsightsOnData.json'
+    return [
+        'policyEnvironment.json',
+        'rightsWay.json',
+        'stakeholderEngagement.json',
+        'usePublicAssets.json'
     ];
 };
 
