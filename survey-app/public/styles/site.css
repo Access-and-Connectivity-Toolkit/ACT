@@ -6791,7 +6791,6 @@ a {
   font-family: sans-serif;
 }
 #assessment-label {
-  text-align: right;
   margin-top: 10px;
 }
 #assessment-label h5 {
@@ -6839,6 +6838,9 @@ a {
   padding-top: 30px;
   padding-bottom: 10px;
   color: gray-light;
+}
+#moduleLinks {
+  padding-top: 10px;
 }
 .gallery-image img {
   display: block;

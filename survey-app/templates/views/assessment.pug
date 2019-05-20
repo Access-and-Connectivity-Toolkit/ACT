@@ -4,25 +4,18 @@ include ../mixins/question-types
 block content
     .container-fluid: .row.show-grid#assessment-mid
         .container
-            if path
-                .col-sm-8
-                    h2 #{path} Path
-                .col-sm-4#assessment-label
-                    if team
-                        h5 #{team.name} Assessment
-                if modules && modules.length
-                    .col-sm-12
-                        ul.nav.nav-pills(role="tablist")
-                            - let i = 0
-                            each mod in modules
-                                if i == active
-                                    li.nav-item.active
-                                        a.nav-link(href="/assessment?surveyIndex="+i++) #{mod.name}
-                                else
-                                    li.nav-item
-                                        a.nav-link(href="/assessment?surveyIndex="+i++) #{mod.name}
-            else
-                h2 You haven't been assigned an assessment path yet.
+            if modules && modules.length
+                .col-sm-12#moduleLinks
+                    ul.nav.nav-pills(role="tablist")
+                        - let i = 0
+                        each mod in modules
+                            if i == active
+                                li.nav-item.active
+                                    a.nav-link(href="/assessment?surveyIndex="+i++) #{mod.name}
+                            else
+                                li.nav-item
+                                    a.nav-link(href="/assessment?surveyIndex="+i++) #{mod.name}
+            
         .container-fluid#assessment-body
             .row
                 if modules && modules.length
