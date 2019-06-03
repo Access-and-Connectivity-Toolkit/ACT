@@ -81,3 +81,7 @@ exports.formatTeamMemberInfo = async(members, modMap) => {
 exports.getTeamById = async (teamId) => {
     return await Team.findOne({'_id': teamId});
 };
+
+exports.isTeamLeader = (team, userId) => {
+    return team.leader.toString() === userId.toString();
+};

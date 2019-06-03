@@ -5,10 +5,6 @@ const Roles = keystone.list('Role').model;
 
 const teamInfoHelper = require('../teamInfo');
 
-isTeamLeader = (team, userId) => {
-    return team.leader.toString() === userId.toString();
-};
-
 updateUser = async (userId, roleId, modules) => {
     const query = {'_id': userId};
     const update = {'assignedModules': modules, 'role': roleId !== "no-role" ? roleId : null};
@@ -62,7 +58,7 @@ exports = module.exports = async (req, res) => {
 
     teamInfoHelper.getTeamById(req.user.team).then(async (team) => {
         locals.team = team;
-        locals.isLeader = isTeamLeader(team, req.user._id);
+        locals.isLeader = teamInfoHelper.isTeamLeader(team, req.user._id);
         locals.user = req.user;
 
         return await teamInfoHelper.getTeamMembers(team._id);
