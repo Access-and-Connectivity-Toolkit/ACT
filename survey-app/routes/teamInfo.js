@@ -6,7 +6,6 @@ const Team = keystone.list('Team').model;
 const ModuleProgress = keystone.list('ModuleProgress').model;
 
 exports.getTeamMembers = async(teamId) => {
-    console.log(teamId);
 
     // Module list populate doesn't want to cooperate...
     return User.find({'team': teamId})
@@ -19,7 +18,6 @@ exports.getTeamMembers = async(teamId) => {
             path:'assignedModules.name'
         })
         .then((result) => {
-            console.log(result);
             return result;
         });
 };

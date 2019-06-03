@@ -8,6 +8,8 @@
  * modules in your project's /lib directory.
  */
 const _ = require('lodash');
+const keystone = require('keystone');
+const Team = keystone.list('Team').model;
 
 
 /**
@@ -25,7 +27,16 @@ exports.initLocals = (req, res, next) => {
 		{ label: 'Assessment', key: 'assessment', href:'/assessment'},
 	];
 	res.locals.user = req.user;
-	next();
+	
+	// Does this get called often?
+	if (req.user.team) {
+		Team.findOne({'_id': req.user.team}).then((team) => {
+			res.locals.team = team;
+			next();
+		});
+	} else {
+		next();
+	}
 };
 
 

@@ -68,6 +68,8 @@ html
 						each link in navLinks
 							li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
 					ul.nav.navbar-nav.navbar-right
+						if team
+							li: a(href='/home') #{team.name}
 						if user.canAccessKeystone
 							li: a(href='/keystone') Open Keystone
 						li: a(href='/keystone/signout') Sign Out
