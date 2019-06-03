@@ -3,3 +3,51 @@ extends ../layouts/default
 block content
 	.container: .jumbotron
 		h2 Home
+
+		//- .container: .jumbotron
+		//- if team
+		//- 	h2 #{team.name} Team
+		//- else
+		//- 	h2 Team
+
+		if team
+			h3 Your Team
+			if members.length
+				.container
+
+					table.table(id="daTable")
+						thead
+							tr
+								th Name
+								th Assigned Modules
+								th Progress
+								th Role
+								th Affiliation
+								th Email
+						tbody
+							each member in members
+								tr
+									td #{member.name.first} #{member.name.last}
+									td #{member.modules.join(", ")}
+
+									//- Number of assigned/completed modules or N/A if not assigned
+									if member.assigned
+										if member.completed
+											td #{member.completed} / #{member.assigned}
+										else
+											td 0 / #{member.assigned}
+									else
+										td N / A
+
+									if member.roleName
+										td #{member.roleName}
+									else
+										td None
+									
+									if member.affiliation
+										td #{member.affiliation}
+									else 
+										td None
+										
+									td
+										a(href=`mailto:` + member.email) #{member.email}
