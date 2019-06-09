@@ -107,24 +107,28 @@ block content
 				.modal-body
 					form(action="", method="POST")
 						.form-group
+							//- label Name
+							.form-group.row.modalFormRow
+								.form-group.col-xs-6.modalFormColumnLeft
+									//- label First Name
+									input.form-control(type="text", name="first", placeholder="First Name", required="true")
+								.form-group.col-xs-6.modalFormColumnRight
+									//- label Last Name
+									input.form-control(type="text", name="last", placeholder="Last Name", required="true")
 							.form-group
-								label First Name
-								input.form-control(type="text", name="first", placeholder="First Name", required="true")
-							.form-group
-								label Last Name
-								input.form-control(type="text", name="last", placeholder="Last Name", required="true")
-							.form-group
-								label Email
+								//- label Email
 								input.form-control(type="email", name="email", placeholder="Email Address", required="true")
 							.form-group
-								label Affiliation
+								//- label Affiliation
 								input.form-control(type="text", name="affiliation", placeholder="Affiliation")
-							.form-group
-								label Password (8+ characters, containing at least one number and capital)
-								input.form-control(type="password", name="password", placeholder="********", required="true")
-							.form-group
-								label Confirm Password
-								input.form-control(type="password", name="confirm", placeholder="********", required="true")
+							//- label Password
+							.form-group.row
+								.form-group.col-xs-6.modalFormColumnLeft
+									//- label Password
+									input.form-control(type="password", name="password", placeholder="Password", required="true")
+								.form-group.col-xs-6.modalFormColumnRight
+									//- label Confirm Password
+									input.form-control(type="password", name="confirm", placeholder="Confirm Password", required="true")
 
 						button.btn.btn-primary(type='button', data-dismiss='modal') Cancel
 						button.btn.btn-primary(type='submit') Create User
