@@ -5,11 +5,11 @@ exports.create = {
         {'name': 'Mayor/County Commissioner'},
         {'name': 'CIO/IT Manager'},
         {'name': 'Librarian'},
-        {'name': 'Educators'},
-        {'name': 'Business Leaders'},
-        {'name': 'Farmers/Ranchers'},
+        {'name': 'Educator'},
+        {'name': 'Business Leader'},
+        {'name': 'Farmer/Rancher'},
         {'name': 'Civic Leader'},
-        {'name': 'Local Advocates'},
+        {'name': 'Local Advocate'},
         {'name': 'Community Member'},
 	]
 };
