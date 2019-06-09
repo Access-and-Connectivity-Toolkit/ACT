@@ -1,5 +1,41 @@
 extends ../layouts/default
 
 block content
-	.container: .jumbotron
-		h2 Home
+	script(type='text/javascript').
+		jQuery(document).ready(function () {
+			$('#daTable').DataTable({
+				'paging': false,
+				'info': false,
+				// by default, order by the Role column in the table
+				"order": [[ 3, "asc" ]],
+				'filter': false
+			});
+		})
+	.container
+		if !team
+			h4 You don't have a team yet
+		else
+			if members.length
+				h2 Your Team
+				table.table(id="daTable")
+					thead
+						tr
+							th Name
+							th Assigned Modules
+							th Role
+							th Affiliation
+					tbody
+						each member in members
+							tr
+								td #{member.name.first} #{member.name.last}
+								td #{member.modules.join(", ")}
+
+								if member.roleName
+									td #{member.roleName}
+								else
+									td None
+								
+								if member.affiliation
+									td #{member.affiliation}
+								else 
+									td None

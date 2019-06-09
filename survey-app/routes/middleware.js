@@ -8,6 +8,9 @@
  * modules in your project's /lib directory.
  */
 const _ = require('lodash');
+const keystone = require('keystone');
+const Team = keystone.list('Team').model;
+const isTeamLeader = require('./teamInfo').isTeamLeader;
 
 
 /**
@@ -21,11 +24,25 @@ exports.initLocals = (req, res, next) => {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/home' },
 		{ label: 'About', key: 'about', href: '/about'},
-		{ label: 'Team', key: 'team', href: '/team'},
 		{ label: 'Assessment', key: 'assessment', href:'/assessment'},
 	];
 	res.locals.user = req.user;
-	next();
+	
+	// Does this get called often?
+	if (req.user && req.user.team) {
+		Team.findOne({'_id': req.user.team}).then((team) => {
+			res.locals.team = team;
+
+			if (isTeamLeader(team, req.user._id)) {
+				const teamLabel = { label: 'Team', key: 'team', href: '/team'};
+				res.locals.navLinks.splice(2, 0, teamLabel);
+			}
+
+			next();
+		});
+	} else {
+		next();
+	}
 };
 
 

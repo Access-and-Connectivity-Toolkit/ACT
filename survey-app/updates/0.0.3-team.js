@@ -7,7 +7,8 @@ const User = keystone.list('User').model;
 const team = {
     'name': 'Jefferson County',
     'state': 'Washington',
-    'leader': 'user@keystonejs.com'
+    'leader': 'user@keystonejs.com',
+    'county': 'Jefferson'
 }
 
 createTeam = async (team) => {
