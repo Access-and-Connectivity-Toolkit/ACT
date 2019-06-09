@@ -64,7 +64,7 @@ block content
 										td
 											a(href=`mailto:` + member.email) #{member.email}
 										td
-											button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=member.role._id) Update
+											button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=(member.role? member.role._id: null)) Update
 
 
 	script(src='js/assign.js')

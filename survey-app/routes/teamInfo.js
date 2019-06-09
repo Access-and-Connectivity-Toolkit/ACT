@@ -67,7 +67,9 @@ exports.formatTeamMemberInfo = async(members, modMap) => {
             assignedMap[assignedMods[j]] = true;
         }
         members[i].modules = modNames;
-        members[i].roleName = members[i].role.name;
+        if (members[i].role) {
+            members[i].roleName = members[i].role.name;
+        }
 
         members[i].assigned = modNames.length;
         members[i].completed = memberCompleted[members[i]._id];
