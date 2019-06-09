@@ -17,6 +17,23 @@ updateUser = async (userId, roleId, modules) => {
     });
 };
 
+createUser = async(req, teamId) => {
+    const newUser = new Users({
+        name: {first: req.body.first, last: req.body.last},
+        password: req.body.password,
+        email: req.body.email,
+        team: teamId,
+        isAdmin: false
+    });
+
+    // TODO: error handling
+    newUser.save((err) => {
+        if (err) {
+            console.error(err);
+        } 
+    });
+}
+
 createRoleMap = async() => {
     const roles = await Roles.find();
 
@@ -38,6 +55,7 @@ exports = module.exports = async (req, res) => {
         if (!req.body.userId) {
             console.error("missing user");
             // TODO: in app error messages
+            await createUser(req, req.user.team);
         } else {
             const userId = req.body.userId;
             delete req.body.userId;

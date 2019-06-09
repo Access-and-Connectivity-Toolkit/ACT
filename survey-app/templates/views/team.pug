@@ -22,6 +22,7 @@ block content
 				div.row
 					div.col-xs-1.col-xs-offset-10
 						a.btn.btn-primary(href='/api/export/csv?teamId=' + user.team) Export Answers
+						a.btn.btn-primary(data-target='#user', data-toggle='modal') Add User
 				h3 Your Team
 				if members.length
 					.container
@@ -97,3 +98,33 @@ block content
 							input(type="hidden", value="" name="userId" id="userId")
 						button.btn.btn-primary(type='button', data-dismiss='modal') Cancel
 						button.btn.btn-primary(type='submit') Update
+	
+	#user.modal
+		.modal-dialog 
+			.modal-content
+				.modal-header
+					h3.modal-title Add a Team Member
+				.modal-body
+					form(action="", method="POST")
+						.form-group
+							.form-group
+								label First Name
+								input.form-control(type="text", name="first", placeholder="First Name", required="true")
+							.form-group
+								label Last Name
+								input.form-control(type="text", name="last", placeholder="Last Name", required="true")
+							.form-group
+								label Email
+								input.form-control(type="email", name="email", placeholder="Email Address", required="true")
+							.form-group
+								label Affiliation
+								input.form-control(type="text", name="affiliation", placeholder="Affiliation")
+							.form-group
+								label Password (8+ characters, containing at least one number and capital)
+								input.form-control(type="password", name="password", placeholder="********", required="true")
+							.form-group
+								label Confirm Password
+								input.form-control(type="password", name="confirm", placeholder="********", required="true")
+
+						button.btn.btn-primary(type='button', data-dismiss='modal') Cancel
+						button.btn.btn-primary(type='submit') Create User

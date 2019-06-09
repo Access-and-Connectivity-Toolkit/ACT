@@ -78,14 +78,6 @@ exports = module.exports = async (req, res) => {
                     name: {first: req.body.first, last: req.body.last},
                     password: req.body.password,
                     email: req.body.email,
-                    phone: req.body.phone,
-                    location: {
-                        street1: req.body.st_address,
-                        postcode: req.body.zip,
-                        state: req.body.state,
-                        suburb: req.body.city,
-                        country: 'USA'
-                    },
                     team: team._id,
                     isAdmin: false
                 });
