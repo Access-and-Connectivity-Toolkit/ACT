@@ -3,14 +3,9 @@ extends ../layouts/default
 block content
 	.container: .jumbotron
 		h2 Home
-
-		//- .container: .jumbotron
-		//- if team
-		//- 	h2 #{team.name} Team
-		//- else
-		//- 	h2 Team
-
-		if team
+		if !team
+			h4 You don't have a team yet
+		else
 			h3 Your Team
 			if members.length
 				.container

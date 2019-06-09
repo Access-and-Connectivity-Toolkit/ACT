@@ -9,6 +9,7 @@ exports = module.exports = async (req, res) => {
 
     if (!req.user.team) {
         console.log('no team');
+        return view.render('home');
     }
     
     const modMap = await teamInfoHelper.createModuleMap();
@@ -25,6 +26,6 @@ exports = module.exports = async (req, res) => {
         locals.members = memberInfo.members;
         locals.membersToModules = memberInfo.membersToModules;
 
-        view.render('home');
+        return view.render('home');
     });
 };

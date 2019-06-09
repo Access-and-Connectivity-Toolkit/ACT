@@ -37,7 +37,6 @@ exports = module.exports = (app) => {
 	// API's
 	app.post('/api/respond', middleware.requireUser, routes.api.respond.question);
 	app.get('/api/export/csv', middleware.requireUser, routes.api.export.csv);
-	//app.get('/api/teamInfo', middleware.requireUser, routes.api.teamInfo.teamInfo);
 	
 	// Views
 	app.all('/', routes.views.index);
