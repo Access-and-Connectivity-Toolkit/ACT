@@ -6805,12 +6805,16 @@ a {
   margin-bottom: 0;
 }
 #landing .jumbotron {
-  background-color: #fff;
+  background-color: #4071b8;
   color: #fff;
   width: 70%;
   margin-top: 5%;
   margin-bottom: 5%;
   padding: 30px;
+}
+#landing h2,
+#landing-header h2 {
+  font-family: "Merriweather", "Georgia", serif;
 }
 #about {
   background-color: #e6f3f8;
