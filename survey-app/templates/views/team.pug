@@ -11,61 +11,56 @@ block content
 				'filter': false
 			});
 		})
-	.container: .jumbotron
-		if team
-			h2 #{team.name} Team
-		else
-			h2 Team
-
+	.container
 		if team
 			if isLeader
 				div.row
-					div.col-xs-1.col-xs-offset-10
-						a.btn.btn-primary(href='/api/export/csv?teamId=' + user.team) Export Answers
-						a.btn.btn-primary(data-target='#user', data-toggle='modal') Add User
-				h3 Your Team
+					div.col-xs-6
+						h2 Your Team
+					div.col-xs-6.teamButtons
+						div.btn-toolbar.pull-right
+							a.btn.btn-primary(href='/api/export/csv?teamId=' + user.team) Export Answers
+							a.btn.btn-primary(data-target='#user', data-toggle='modal') Add User
 				if members.length
-					.container
-
-						table.table(id="daTable")
-							thead
+					table.table(id="daTable")
+						thead
+							tr
+								th Name
+								th Assigned Modules
+								th Progress
+								th Role
+								th Affiliation
+								th Email
+								th Options
+						tbody
+							each member in members
 								tr
-									th Name
-									th Assigned Modules
-									th Progress
-									th Role
-									th Affiliation
-									th Email
-									th Options
-							tbody
-								each member in members
-									tr
-										td #{member.name.first} #{member.name.last}
-										td #{member.modules.join(", ")}
+									td #{member.name.first} #{member.name.last}
+									td #{member.modules.join(", ")}
 
-										//- Number of assigned/completed modules or N/A if not assigned
-										if member.assigned
-											if member.completed
-												td #{member.completed} / #{member.assigned}
-											else
-												td 0 / #{member.assigned}
+									//- Number of assigned/completed modules or N/A if not assigned
+									if member.assigned
+										if member.completed
+											td #{member.completed} / #{member.assigned}
 										else
-											td N / A
+											td 0 / #{member.assigned}
+									else
+										td N / A
 
-										if member.roleName
-											td #{member.roleName}
-										else
-											td None
+									if member.roleName
+										td #{member.roleName}
+									else
+										td None
+									
+									if member.affiliation
+										td #{member.affiliation}
+									else 
+										td None
 										
-										if member.affiliation
-											td #{member.affiliation}
-										else 
-											td None
-											
-										td
-											a(href=`mailto:` + member.email) #{member.email}
-										td
-											button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=(member.role? member.role._id: null)) Update
+									td
+										a(href=`mailto:` + member.email) #{member.email}
+									td
+										button.btn.btn-primary.btn-xs(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=(member.role? member.role._id: null)) Update
 
 
 	script(src='js/assign.js')
@@ -107,27 +102,19 @@ block content
 				.modal-body
 					form(action="", method="POST")
 						.form-group
-							//- label Name
 							.form-group.row.modalFormRow
 								.form-group.col-xs-6.modalFormColumnLeft
-									//- label First Name
 									input.form-control(type="text", name="first", placeholder="First Name", required="true")
 								.form-group.col-xs-6.modalFormColumnRight
-									//- label Last Name
 									input.form-control(type="text", name="last", placeholder="Last Name", required="true")
 							.form-group
-								//- label Email
 								input.form-control(type="email", name="email", placeholder="Email Address", required="true")
 							.form-group
-								//- label Affiliation
 								input.form-control(type="text", name="affiliation", placeholder="Affiliation")
-							//- label Password
 							.form-group.row
 								.form-group.col-xs-6.modalFormColumnLeft
-									//- label Password
 									input.form-control(type="password", name="password", placeholder="Password", required="true")
 								.form-group.col-xs-6.modalFormColumnRight
-									//- label Confirm Password
 									input.form-control(type="password", name="confirm", placeholder="Confirm Password", required="true")
 
 						button.btn.btn-primary(type='button', data-dismiss='modal') Cancel

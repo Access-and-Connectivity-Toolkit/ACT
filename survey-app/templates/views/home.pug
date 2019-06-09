@@ -1,48 +1,55 @@
 extends ../layouts/default
 
 block content
-	.container: .jumbotron
-		h2 Home
+	script(type='text/javascript').
+		jQuery(document).ready(function () {
+			$('#daTable').DataTable({
+				'paging': false,
+				'info': false,
+				// by default, order by the Role column in the table
+				"order": [[ 3, "asc" ]],
+				'filter': false
+			});
+		})
+	.container
 		if !team
 			h4 You don't have a team yet
 		else
-			h3 Your Team
 			if members.length
-				.container
-
-					table.table(id="daTable")
-						thead
+				h2 Your Team
+				table.table(id="daTable")
+					thead
+						tr
+							th Name
+							th Assigned Modules
+							th Progress
+							th Role
+							th Affiliation
+							th Email
+					tbody
+						each member in members
 							tr
-								th Name
-								th Assigned Modules
-								th Progress
-								th Role
-								th Affiliation
-								th Email
-						tbody
-							each member in members
-								tr
-									td #{member.name.first} #{member.name.last}
-									td #{member.modules.join(", ")}
+								td #{member.name.first} #{member.name.last}
+								td #{member.modules.join(", ")}
 
-									//- Number of assigned/completed modules or N/A if not assigned
-									if member.assigned
-										if member.completed
-											td #{member.completed} / #{member.assigned}
-										else
-											td 0 / #{member.assigned}
+								//- Number of assigned/completed modules or N/A if not assigned
+								if member.assigned
+									if member.completed
+										td #{member.completed} / #{member.assigned}
 									else
-										td N / A
+										td 0 / #{member.assigned}
+								else
+									td N / A
 
-									if member.roleName
-										td #{member.roleName}
-									else
-										td None
+								if member.roleName
+									td #{member.roleName}
+								else
+									td None
+								
+								if member.affiliation
+									td #{member.affiliation}
+								else 
+									td None
 									
-									if member.affiliation
-										td #{member.affiliation}
-									else 
-										td None
-										
-									td
-										a(href=`mailto:` + member.email) #{member.email}
+								td
+									a(href=`mailto:` + member.email) #{member.email}

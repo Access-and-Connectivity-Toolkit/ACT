@@ -1071,7 +1071,7 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333;
-  background-color: #4071b8;
+  background-color: #fff;
 }
 input,
 button,
@@ -1116,7 +1116,7 @@ img {
 .img-thumbnail {
   padding: 4px;
   line-height: 1.428571429;
-  background-color: #4071b8;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
@@ -1250,7 +1250,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Merriweather", "Georgia", serif;
+  font-family: "Source Sans Pro", "Helvetica", sans-serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -2447,7 +2447,7 @@ th {
   border-top: 2px solid #ddd;
 }
 .table .table {
-  background-color: #4071b8;
+  background-color: #fff;
 }
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,
@@ -4204,7 +4204,7 @@ tbody.collapse.in {
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #808080;
-  background-color: #4071b8;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
   cursor: default;
@@ -4289,7 +4289,7 @@ tbody.collapse.in {
   .nav-tabs.nav-justified > .active > a:hover,
   .nav-tabs-justified > .active > a:focus,
   .nav-tabs.nav-justified > .active > a:focus {
-    border-bottom-color: #4071b8;
+    border-bottom-color: #fff;
   }
 }
 .tab-content > .tab-pane {
@@ -5086,7 +5086,7 @@ a.badge:focus {
   padding: 4px;
   margin-bottom: 20px;
   line-height: 1.428571429;
-  background-color: #4071b8;
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
   transition: border 0.2s ease-in-out;
@@ -6805,7 +6805,7 @@ a {
   margin-bottom: 0;
 }
 #landing .jumbotron {
-  background-color: #4071b8;
+  background-color: #fff;
   color: #fff;
   width: 70%;
   margin-top: 5%;
@@ -6868,4 +6868,7 @@ table.dataTable tbody tr {
 }
 .modalFormRow {
   margin-bottom: 0px;
+}
+.teamButtons {
+  margin-top: 20px;
 }
