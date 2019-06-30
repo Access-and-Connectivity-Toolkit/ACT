@@ -83,7 +83,7 @@ block content
 								option(value="no-role") --- None ---
 
 								each role, id in roleMap
-									option(value=id) #{role}
+									option(value=id) #{role.name}
 							h4 Modules
 							each mod, id in modMap
 								.checkbox

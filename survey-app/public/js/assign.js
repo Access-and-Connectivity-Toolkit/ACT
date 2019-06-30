@@ -12,6 +12,10 @@ var userFormAssigner = userFormAssigner || (function() {
         start: () => {
             $(document).ready(() => {
                 $('#modal').on('show.bs.modal', function(event) {
+                    $('select#role').change(() => {
+                        console.log('ghakdhskf');
+                    });
+                    console.log('hi');
                     const roleId = $(event.relatedTarget).data('role');
 
                     if (roleId) {
