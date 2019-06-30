@@ -66,6 +66,7 @@ block content
 	script(src='js/assign.js')
 	script(type='text/javascript').
 		userFormAssigner.setModuleMap(!{JSON.stringify(membersToModules)});
+		userFormAssigner.setRolesMap(!{JSON.stringify(roleMap)});
 		userFormAssigner.start();
 
 	#modal.modal
@@ -74,6 +75,8 @@ block content
 				.modal-header
 					h3.modal-title Update Assigned Modules and Roles
 				.modal-body
+					.hidden#modal-error
+						+flash-message('Error updating modules based on role', 'danger')
 					form(action="", method="post")
 						.form-group
 							h4 Role
@@ -83,7 +86,7 @@ block content
 								option(value="no-role") --- None ---
 
 								each role, id in roleMap
-									option(value=id) #{role}
+									option(value=id) #{role.name}
 							h4 Modules
 							each mod, id in modMap
 								.checkbox

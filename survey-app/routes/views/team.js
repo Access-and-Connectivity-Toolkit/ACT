@@ -40,7 +40,7 @@ createRoleMap = async() => {
     const roleNames = {};
 
     for (let i = 0; i < roles.length; i++) {
-        roleNames[roles[i]._id] = roles[i].name;
+        roleNames[roles[i]._id] = roles[i];
     }
 
     return roleNames;
