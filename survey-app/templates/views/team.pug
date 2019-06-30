@@ -58,7 +58,7 @@ block content
 									else 
 										td None
 
-									td #{member._.lastLogin.format('MM-DD-YYYY')}
+									td.text-nowrap #{member._.lastLogin.format('MM-DD-YYYY')}
 									
 									td
 										a(href=`mailto:` + member.email) #{member.email}
