@@ -30,6 +30,7 @@ block content
 								th Progress
 								th Role
 								th Affiliation
+								th Last Active
 								th Email
 								th Options
 						tbody
@@ -56,7 +57,9 @@ block content
 										td #{member.affiliation}
 									else 
 										td None
-										
+
+									td.text-nowrap #{member._.lastLogin.format('MM-DD-YYYY')}
+									
 									td
 										a(href=`mailto:` + member.email) #{member.email}
 									td
