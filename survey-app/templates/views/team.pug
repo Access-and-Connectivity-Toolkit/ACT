@@ -30,6 +30,7 @@ block content
 								th Progress
 								th Role
 								th Affiliation
+								th Last Login
 								th Email
 								th Options
 						tbody
@@ -56,6 +57,9 @@ block content
 										td #{member.affiliation}
 									else 
 										td None
+
+									td
+										td #{member.lastLogin}
 										
 									td
 										a(href=`mailto:` + member.email) #{member.email}

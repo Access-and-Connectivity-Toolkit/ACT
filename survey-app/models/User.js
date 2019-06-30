@@ -14,7 +14,8 @@ User.add({
 	assignedModules: {type: Types.Relationship, ref: 'Module', many: true },
 	team: { type: Types.Relationship, ref: 'Team' },
 	role: { type: Types.Relationship, ref: 'Role'},
-	affiliation: { type: Types.Text }
+	affiliation: { type: Types.Text },
+	lastLogin: { type: Types.Datetime , initial: true, default: Date.now(), parseFormat: 'Do MMM YYYY' }
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 });

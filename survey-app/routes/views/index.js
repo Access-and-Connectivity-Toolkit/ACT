@@ -1,4 +1,5 @@
 const keystone = require('keystone');
+const User = keystone.list('User').model;
 
 exports = module.exports = (req, res) => {
 	const view = new keystone.View(req, res);
@@ -19,6 +20,19 @@ exports = module.exports = (req, res) => {
 		}
 
 		const onSuccess = () => {
+			const query = User.findOne({email: req.body.email});
+			console.log(query);
+			// findOneAndUpdate doesn't change updatedAt, so we're doing it manually...
+			const updates = {
+				lastLogin: Date.now()
+			};
+
+			User.findOneAndUpdate(query, updates, (err) => {
+				if (err) {
+					console.error('error on find and update', err); //TODO: think about how we want to perform error handling
+				}
+			});
+
 			res.redirect('/home');
 		}
 
