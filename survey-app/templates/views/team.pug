@@ -66,6 +66,7 @@ block content
 	script(src='js/assign.js')
 	script(type='text/javascript').
 		userFormAssigner.setModuleMap(!{JSON.stringify(membersToModules)});
+		userFormAssigner.setRolesMap(!{JSON.stringify(roleMap)});
 		userFormAssigner.start();
 
 	#modal.modal
