@@ -58,8 +58,8 @@ block content
 									else 
 										td None
 
-									td #{member.lastLogin}
-										
+									td #{member._.lastLogin.format('MM-DD-YYYY')}
+									
 									td
 										a(href=`mailto:` + member.email) #{member.email}
 									td
