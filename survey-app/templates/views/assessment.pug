@@ -4,21 +4,20 @@ include ../mixins/question-types
 block content
     .container-fluid: .row.show-grid#assessment-mid
         .container
-            if modules && modules.length
+            if modules
                 .col-sm-12#moduleLinks
                     ul.nav.nav-pills(role="tablist")
-                        - let i = 0
-                        each mod in modules
-                            if i == active
+                        each mod, index in modules
+                            if mod.id == active
                                 li.nav-item.active
-                                    a.nav-link(href="/assessment?surveyIndex="+i++) #{mod.name}
+                                    a.nav-link(href="/assessment/"+mod.id) #{mod.name}
                             else
                                 li.nav-item
-                                    a.nav-link(href="/assessment?surveyIndex="+i++) #{mod.name}
+                                    a.nav-link(href="/assessment/"+mod.id) #{mod.name}
             
         .container-fluid#assessment-body
             .row
-                if modules && modules.length
+                if modules
                     .container
                         .col-sm-8
                             h3 #{modules[active].name}

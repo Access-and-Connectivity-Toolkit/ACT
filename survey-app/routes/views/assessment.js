@@ -1,5 +1,5 @@
 const keystone = require('keystone');
-
+const _ = require('lodash');
 const grabity = require('grabity');
 
 const Module = keystone.list('Module').model;
@@ -41,14 +41,15 @@ exports = module.exports = (req, res) => {
     
     const locals = res.locals;
     locals.section = 'assessment';
-	
     locals.path = "Test";
-    locals.active = req.query.surveyIndex || 0;
 
     view.query('team', Team.findOne({'_id': req.user.team}));
 
     getAssignedModules(req.user.assignedModules).then((mods) => {
-        Promise.all(mods.map(async (mod) => {
+		locals.active = req.params.moduleId || mods[0].id;
+		console.log('setting active value to', locals.active);
+
+		Promise.all(mods.map(async (mod) => {
             const modId = mod._id;
             const questions = await getModuleQuestions(modId);
             const answers = await getUserAnswers(modId, req.user.id);
@@ -65,8 +66,13 @@ exports = module.exports = (req, res) => {
                 resources: resources
             };
         })).then((modules) => {
-            locals.modules = modules;
-            view.render('assessment');
+			let mappedModules = _.keyBy(modules, function(m) {
+				return m.id;
+			});
+        	
+            locals.modules = mappedModules;
+            console.log('modules should now be a map', locals.modules);
+			view.render('assessment');
         });
     });
 };

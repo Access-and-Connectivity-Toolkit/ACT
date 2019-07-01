@@ -2,6 +2,7 @@ const keystone = require('keystone');
 
 const Users = keystone.list('User').model;
 const Roles = keystone.list('Role').model;
+const ModuleProgress = keystone.list('ModuleProgress').model;
 
 const teamInfoHelper = require('../teamInfo');
 
@@ -15,6 +16,24 @@ updateUser = async (userId, roleId, modules) => {
 
         return mods;
     });
+    
+    modules.forEach(function(m) {
+    	ModuleProgress.findOne({'moduleId': m, 'userId': userId}).then(function(progress) {
+    		if (!progress) {
+    			let userProgress = new ModuleProgress({
+					userId: userId,
+					moduleId: m,
+					progress: 'NOT_STARTED', 
+					percentage: 0
+				});
+    			userProgress.save((err) => {
+    				if (err) {
+    					console.log('could not save user progress. Error:', err);
+					}
+				}); 
+			}
+		})
+	})
 };
 
 createUser = async(req, teamId) => {
