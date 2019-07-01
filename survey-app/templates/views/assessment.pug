@@ -4,7 +4,7 @@ include ../mixins/question-types
 block content
     .container-fluid: .row.show-grid#assessment-mid
         .container
-            if modules
+            if modules && Object.keys(modules).length > 0
                 .col-sm-12#moduleLinks
                     ul.nav.nav-pills(role="tablist")
                         each mod, index in modules
@@ -17,7 +17,7 @@ block content
             
         .container-fluid#assessment-body
             .row
-                if modules
+                if modules && Object.keys(modules).length > 0
                     .container
                         .col-sm-8
                             h3 #{modules[active].name}
@@ -35,6 +35,6 @@ block content
                                                 h3 #{resource.title}
                                                 p #{resource.description}
 
-                if !modules || modules.length == 0
+                else
                     .container
                         h4 You Haven't Been Assigned Any Modules 

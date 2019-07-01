@@ -32,13 +32,13 @@ block content
 						th State
 						th
 				tbody
-					each module in assignedModules
+					each progress in assignedModules
 						tr
-							td #{module.moduleId.name}
-							td.text-right #{module._.percentage.format('0,')}%
-							td #{module._.progress.format()}
+							td #{progress.moduleId.name}
+							td.text-right #{progress._.percentage.format('0,')}%
+							td #{progress._.progress.format()}
 							td
-								a.btn.btn-primary.btn-xs(href='/assessment/' + module.id) Go to Assessment
+								a.btn.btn-primary.btn-xs(href='/assessment/' + progress.moduleId.id) Go to Assessment
 						
 		if !team
 			h4 You don't have a team yet

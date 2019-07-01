@@ -46,8 +46,15 @@ exports = module.exports = (req, res) => {
     view.query('team', Team.findOne({'_id': req.user.team}));
 
     getAssignedModules(req.user.assignedModules).then((mods) => {
-		locals.active = req.params.moduleId || mods[0].id;
-		console.log('setting active value to', locals.active);
+    	var activeId; 
+    	
+    	if (req.params.moduleId) {
+    		activeId = req.params.moduleId;
+		} else if (mods.length > 0) {
+			return res.redirect('/assessment/' + mods[0].id);
+		}
+		
+    	locals.active = activeId; 
 
 		Promise.all(mods.map(async (mod) => {
             const modId = mod._id;
@@ -71,7 +78,6 @@ exports = module.exports = (req, res) => {
 			});
         	
             locals.modules = mappedModules;
-            console.log('modules should now be a map', locals.modules);
 			view.render('assessment');
         });
     });
