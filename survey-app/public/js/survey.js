@@ -42,7 +42,8 @@ var localStorageStuff = localStorageStuff || (function () {
 		if (isComplete) {
 			queryUrl += '?isComplete=' + isComplete
 		}
-
+		
+		console.log('inside of submit answers, should be seeing thsi');
 		$.ajax({
 			method: 'POST',
 			url: queryUrl,
