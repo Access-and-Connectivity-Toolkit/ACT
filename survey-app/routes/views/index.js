@@ -1,4 +1,5 @@
 const keystone = require('keystone');
+const User = keystone.list('User').model;
 
 exports = module.exports = (req, res) => {
 	const view = new keystone.View(req, res);
@@ -19,6 +20,17 @@ exports = module.exports = (req, res) => {
 		}
 
 		const onSuccess = () => {
+			const query = User.findOne({email: req.body.email});
+			const updates = {
+				lastLogin: Date.now()
+			};
+
+			User.findOneAndUpdate(query, updates, (err) => {
+				if (err) {
+					console.error('error on find and update', err);
+				}
+			});
+
 			res.redirect('/home');
 		}
 
