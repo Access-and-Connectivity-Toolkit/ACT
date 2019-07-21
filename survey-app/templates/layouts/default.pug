@@ -31,7 +31,7 @@ html
 		//- you can upgrade to 2.1.4 (also bundled) for better performance.
 		script(src='/js/jquery/jquery-1.11.3.min.js')
 		script(type='text/javascript').
-			var currentUserId = '#{user.id}'; //see survey.js for currentUserId usage
+			var currentUserId = '#{user? user.id : undefined}'; //see survey.js for currentUserId usage
 		script(src='/js/survey.js')
 		script(src='/js/assign.js')
 		link(rel='stylesheet', href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')

@@ -20,11 +20,11 @@ exports = module.exports = async (req, res) => {
         locals.user = req.user;
         
         let modules = await Promise.all(req.user.assignedModules.map(async (m) => {
-			let progress = await ModuleProgress.findOne({'moduleId': m}).populate('moduleId');
+			let progress = await ModuleProgress.findOne({'moduleId': m, 'userId': req.user}).populate('moduleId');
 			return progress;
 		}));
         
-        console.log('inside of team info helpers shit', modules);
+        console.log('inside of team info helpers', modules);
         
 		locals.assignedModules = modules;
         return await teamInfoHelper.getTeamMembers(team._id);
