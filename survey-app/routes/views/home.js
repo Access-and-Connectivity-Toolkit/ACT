@@ -24,8 +24,6 @@ exports = module.exports = async (req, res) => {
 			return progress;
 		}));
         
-        console.log('inside of team info helpers', modules);
-        
 		locals.assignedModules = modules;
         return await teamInfoHelper.getTeamMembers(team._id);
     }).then(async (members) => {
