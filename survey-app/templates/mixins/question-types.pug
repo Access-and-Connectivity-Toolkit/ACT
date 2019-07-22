@@ -1,7 +1,7 @@
 mixin radio-question(question)
     if question
         div(class="form-group")
-            p.question #{question.question}
+            p #{question.question}
             each ans in question.answers
                 .radio.answers
                     label
@@ -11,7 +11,7 @@ mixin radio-question(question)
 mixin checkbox-question(question)
     if question
          div(class="form-group")
-            p.question #{question.question}
+            p #{question.question}
             each ans in question.answers
                 .checkbox.answers
                     label
@@ -21,13 +21,13 @@ mixin checkbox-question(question)
 mixin textarea-question(question)
      if question
          div(class="form-group")
-            p.question #{question.question}
+            p #{question.question}
             textarea.form-control(rows="5" name=question.id)
 
 mixin scale-question(question)
      if question
         div(class="form-group")
-            p.question #{question.question}
+            p #{question.question}
             .radio.answers.scale
                 if question.answers && question.answers.length >= 2
                     span #{question.answers[0]}
@@ -48,7 +48,8 @@ mixin scale-question(question)
 
 mixin info-question(question)
     if question
-        p.question #{question.question}
+        p #{question.question}
+        br
 
 mixin question-form(questions, moduleId, answers)
     form(method="POST" action="" id="assessment")

@@ -2,7 +2,7 @@ extends ../layouts/default
 include ../mixins/question-types
 
 block content
-    .container-fluid: .row.show-grid#assessment-mid
+    .container-fluid: .row.show-grid
         .container
             if modules && Object.keys(modules).length > 0
                 .col-sm-12#moduleLinks
@@ -15,7 +15,7 @@ block content
                                 li.nav-item
                                     a.nav-link(href="/assessment/"+mod.id) #{mod.name}
             
-        .container-fluid#assessment-body
+        .container-fluid
             .row
                 if modules && Object.keys(modules).length > 0
                     .container
