@@ -45,9 +45,10 @@ block content
 						tbody
 							each progress in assignedModules
 								tr
-									td #{progress.moduleId.name}
+									td 
+										a(href='/assessment/' + progress.moduleId.id) #{progress.moduleId.name}
 									td #{progress._.progress.format()}
-									td.text-right #{progress._.percentage.format('0,')}%
+									td #{progress._.percentage.format('0,')}% Answered
 									td Tbd
 									td
 										a(href='/assessment/' + progress.moduleId.id) 
