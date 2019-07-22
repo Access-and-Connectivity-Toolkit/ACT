@@ -6766,18 +6766,6 @@ button.close {
   background-color: #fff;
   padding: 20px;
 }
-#assessment-mid {
-  background-color: #fff;
-}
-#assessment-body {
-  background-color: #e6f3f8;
-  padding-bottom: 30px;
-  margin-top: 10px;
-}
-#assessment-body h3,
-#assessment-body h2 {
-  font-family: sans-serif;
-}
 #assessment-label {
   margin-top: 10px;
 }
@@ -6803,12 +6791,6 @@ button.close {
 #landing h2,
 #landing-header h2 {
   font-family: "Merriweather", "Georgia", serif;
-}
-#about {
-  background-color: #e6f3f8;
-}
-#about p {
-  line-height: 2;
 }
 #signin {
   background-color: #233251;
@@ -6869,4 +6851,10 @@ button.close {
 }
 .leftLink {
   margin-right: 40px;
+}
+.scaleLeft {
+  margin-right: 5px;
+}
+.scaleRight {
+  margin-left: 1em;
 }
