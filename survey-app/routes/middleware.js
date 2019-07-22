@@ -25,9 +25,15 @@ exports.initLocals = (req, res, next) => {
 		{ label: 'Home', key: 'home', href: '/home' },
 		{ label: 'About', key: 'about', href: '/about'},
 		{ label: 'Resources', key: 'resources', href: '/resources'},
-		{ label: 'Assessment', key: 'assessment', href:'/assessment'},
+		{ label: 'Assessment', key: 'assessment', href:'/assessment'}
 	];
 	res.locals.user = req.user;
+
+	// Non-logged in users shouldn't see Home or Assessment
+	if (!req.user) {
+		res.locals.navLinks.shift();
+		res.locals.navLinks.pop();
+	}
 	
 	// Does this get called often?
 	if (req.user && req.user.team) {

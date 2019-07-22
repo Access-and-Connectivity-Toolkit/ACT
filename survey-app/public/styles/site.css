@@ -2698,7 +2698,7 @@ output {
   padding-top: 7px;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #555;
+  color: #eee;
 }
 .form-control {
   display: block;
@@ -2707,7 +2707,7 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #555;
+  color: #eee;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
@@ -4069,7 +4069,7 @@ tbody.collapse.in {
   font-size: 14px;
   font-weight: normal;
   line-height: 1;
-  color: #555;
+  color: #eee;
   text-align: center;
   background-color: #eee;
   border: 1px solid #ccc;
@@ -6762,10 +6762,6 @@ button.close {
   background-size: 100%;
   background-repeat: no-repeat;
 }
-#landing-mid {
-  background-color: #fff;
-  padding: 20px;
-}
 #assessment-label {
   margin-top: 10px;
 }
@@ -6773,24 +6769,17 @@ button.close {
   font-family: sans-serif;
   font-weight: bold;
 }
-#landing-mid p {
-  line-height: 2;
-}
 .navbar-inverse,
 .navbar-default {
   margin-bottom: 0;
 }
 #landing .jumbotron {
-  background-color: #4071b8;
-  color: #fff;
-  width: 70%;
+  background-color: #eee;
+  color: #000;
+  width: 65%;
   margin-top: 5%;
   margin-bottom: 5%;
   padding: 30px;
-}
-#landing h2,
-#landing-header h2 {
-  font-family: "Merriweather", "Georgia", serif;
 }
 #signin {
   background-color: #233251;
