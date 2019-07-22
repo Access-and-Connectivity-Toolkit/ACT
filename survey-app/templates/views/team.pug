@@ -81,6 +81,23 @@ block content
 													span.glyphicon.glyphicon-cog
 					.panel-footer.text-right
 						a(data-target='#user', data-toggle='modal') Add participant
+				.panel.panel-default
+					.panel-heading Community Representation
+					.panel-body
+						p Modules lacking participants: 
+						p Role Unrepresented: 
+						table.table(id="modTable")
+								thead
+									tr
+										th Module
+										th Participants
+										th Actions
+								tbody
+									td Name
+									td # Participants
+									td
+										a(href='') 
+											span.glyphicon.glyphicon-save
 
 
 	script(type='text/javascript').
