@@ -49,7 +49,7 @@ block content
 										a(href='/assessment/' + progress.moduleId.id) #{progress.moduleId.name}
 									td #{progress._.progress.format()}
 									td #{progress._.percentage.format('0,')}% Answered
-									td Tbd
+									td #{progress._.updatedAt.format('MM/DD/YYYY')}
 									td
 										a(href='/assessment/' + progress.moduleId.id) 
 											span.glyphicon.glyphicon-play
