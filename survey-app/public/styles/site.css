@@ -6721,9 +6721,6 @@ button.close {
 .navbar-right {
   margin-right: 0px;
 }
-a {
-  color: #333;
-}
 .answers {
   margin-left: 15px;
 }
@@ -6875,4 +6872,13 @@ table.dataTable tbody tr {
 }
 .teamButtons {
   margin-top: 20px;
+}
+.panel {
+  margin-top: 25px;
+}
+.glyphicon {
+  margin-right: 10px;
+}
+.leftLink {
+  margin-right: 40px;
 }
