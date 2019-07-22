@@ -44,6 +44,7 @@ exports = module.exports = (app) => {
 	app.all('/signup', routes.views.signup);
 	app.all(['/assessment', '/assessment/:moduleId'], middleware.requireUser, routes.views.assessment);
 	app.get('/about', middleware.requireUser, routes.views.about);
+	app.get('/resources', middleware.requireUser, routes.views.resources);
 	app.all('/team', middleware.requireUser, routes.views.team);
 	app.get('/home', middleware.requireUser, routes.views.home);
 
