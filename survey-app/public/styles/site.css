@@ -6781,20 +6781,17 @@ button.close {
   margin-bottom: 5%;
   padding: 30px;
 }
-#signin {
-  background-color: #233251;
-  color: #fff;
+#landing-mid h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-#signin a {
-  color: #e6f3f8;
-  text-decoration: underline;
+#landing-mid {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 .help-block a {
   color: #4071b8;
   text-decoration: underline;
-}
-#showPassword {
-  text-align: right;
 }
 #footer {
   border-top: 1px solid gray-lighter;
@@ -6813,12 +6810,6 @@ button.close {
 .thumbnail {
   color: #fff;
   background-color: #fff;
-}
-.landingPageList {
-  padding-bottom: 1em;
-}
-.landingPageList li {
-  font-size: 15px;
 }
 .modalFormColumnRight {
   padding-left: 7px;
@@ -6846,4 +6837,7 @@ button.close {
 }
 .scaleRight {
   margin-left: 1em;
+}
+.leftButton {
+  margin-right: 20px;
 }
