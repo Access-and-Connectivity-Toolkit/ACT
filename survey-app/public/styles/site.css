@@ -6785,10 +6785,6 @@ button.close {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-#landing-mid {
-  margin-left: 20px;
-  margin-right: 20px;
-}
 .help-block a {
   color: #4071b8;
   text-decoration: underline;
@@ -6840,4 +6836,17 @@ button.close {
 }
 .leftButton {
   margin-right: 20px;
+}
+#introTabsContent {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.nav-link {
+  background-color: #eee;
+}
+.btn-primary {
+  background-color: #0070b9;
+}
+.btn-default {
+  background-color: #eee;
 }
