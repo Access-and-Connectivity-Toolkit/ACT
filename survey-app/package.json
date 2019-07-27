@@ -9,7 +9,7 @@
     "dotenv": "4.0.0",
     "grabity": "^1.0.5",
     "keystone": "^4.1.0",
-    "lodash": "^4.13.1",
+    "lodash": "^4.17.15",
     "mongodb-backup": "^1.6.9",
     "mongodb-restore": "^1.6.2",
     "pug": "^2.0.3",
