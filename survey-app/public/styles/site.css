@@ -6850,3 +6850,6 @@ button.close {
 .btn-default {
   background-color: #eee;
 }
+.form-control {
+  color: #000;
+}
