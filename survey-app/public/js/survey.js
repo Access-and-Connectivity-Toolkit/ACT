@@ -42,7 +42,7 @@ var localStorageStuff = localStorageStuff || (function () {
 		if (isComplete) {
 			queryUrl += '?isComplete=' + isComplete
 		}
-
+		
 		$.ajax({
 			method: 'POST',
 			url: queryUrl,

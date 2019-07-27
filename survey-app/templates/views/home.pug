@@ -10,8 +10,35 @@ block content
 				"order": [[ 3, "asc" ]],
 				'filter': false
 			});
+			
+			$('#moduleTable').DataTable({
+				'paging': false,
+				'info': false,
+				"order": [[0, "asc"]],
+				'filter': false
+			});
 		})
 	.container
+		if !assignedModules
+			h4 No assigned modules
+		else
+			h2 Your Modules
+			table.table(id="moduleTable")
+				thead
+					tr
+						th Module Name
+						th Percentage
+						th State
+						th
+				tbody
+					each progress in assignedModules
+						tr
+							td #{progress.moduleId.name}
+							td.text-right #{progress._.percentage.format('0,')}%
+							td #{progress._.progress.format()}
+							td
+								a.btn.btn-primary.btn-xs(href='/assessment/' + progress.moduleId.id) Go to Assessment
+						
 		if !team
 			h4 You don't have a team yet
 		else
