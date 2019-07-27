@@ -39,11 +39,10 @@ exports = module.exports = (app) => {
 	app.get('/api/export/csv', middleware.requireUser, routes.api.export.csv);
 	
 	// Views
-	app.all('/', routes.views.index);
-	app.all('/join', routes.views.join);
-	app.all('/signup', routes.views.signup);
+	app.get('/', routes.views.index);
 	app.all(['/assessment', '/assessment/:moduleId'], middleware.requireUser, routes.views.assessment);
-	app.get('/about', middleware.requireUser, routes.views.about);
+	app.get('/about', routes.views.about);
+	app.get('/resources', routes.views.resources);
 	app.all('/team', middleware.requireUser, routes.views.team);
 	app.get('/home', middleware.requireUser, routes.views.home);
 

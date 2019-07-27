@@ -3,66 +3,60 @@ extends ../layouts/default
 block content
 	script(type='text/javascript').
 		jQuery(document).ready(function () {
-			$('#daTable').DataTable({
-				'paging': false,
-				'info': false,
-				// by default, order by the Role column in the table
-				"order": [[ 3, "asc" ]],
-				'filter': false
-			});
-			
 			$('#moduleTable').DataTable({
 				'paging': false,
 				'info': false,
-				"order": [[0, "asc"]],
+				"order": [[1, "asc"]],
 				'filter': false
 			});
 		})
 	.container
-		if !assignedModules
-			h4 No assigned modules
-		else
-			h2 Your Modules
-			table.table(id="moduleTable")
-				thead
-					tr
-						th Module Name
-						th Percentage
-						th State
-						th
-				tbody
-					each progress in assignedModules
-						tr
-							td #{progress.moduleId.name}
-							td.text-right #{progress._.percentage.format('0,')}%
-							td #{progress._.progress.format()}
-							td
-								a.btn.btn-primary.btn-xs(href='/assessment/' + progress.moduleId.id) Go to Assessment
-						
-		if !team
-			h4 You don't have a team yet
-		else
-			if members.length
-				h2 Your Team
-				table.table(id="daTable")
-					thead
-						tr
-							th Name
-							th Assigned Modules
-							th Role
-							th Affiliation
-					tbody
-						each member in members
-							tr
-								td #{member.name.first} #{member.name.last}
-								td #{member.modules.join(", ")}
 
-								if member.roleName
-									td #{member.roleName}
-								else
-									td None
-								
-								if member.affiliation
-									td #{member.affiliation}
-								else 
-									td None
+		.panel.panel-default
+			.panel-heading Announcements
+			.panel-body
+				| Watch this space
+			.panel-footer.text-right
+				a() View prior announcements
+
+		.panel.panel-default
+			.panel-heading Suggested Resources
+			.panel-body
+				| Review your county's reported access on 
+				a(href='https://i3cex.internet-is-infrastructure.org/sessions/new') this  
+				| tool for the module Local Insights on Data
+			.panel-footer.text-right
+				a() View all Resource Guides
+		
+		.panel.panel-default
+			.panel-heading Your Assessment
+			.panel-body
+				if !assignedModules
+					h4 No assigned modules
+				else
+					.progress
+						.progress-bar(role="progressbar", aria-volumemax="100", aria-valuemin="0", aria-valuenow="50", style="width:50%") % Complete
+					table.table(id="moduleTable")
+						thead
+							tr
+								th Module Name
+								th Status
+								th Questions
+								th Last Activity
+								th Actions
+						tbody
+							each progress in assignedModules
+									tr
+										if progress
+											td 
+												a(href='/assessment/' + progress.moduleId.id) #{progress.moduleId.name}
+											td #{progress._.progress.format()}
+											td #{progress._.percentage.format('0,')}% Answered
+											td #{progress._.updatedAt.format('MM/DD/YYYY')}
+											td
+												a(href='/assessment/' + progress.moduleId.id) 
+													span.glyphicon.glyphicon-play
+												a(href='')
+													span.glyphicon.glyphicon-save
+										else
+											td Something went wrong. Please go to the assessment page for this module.

@@ -49,7 +49,12 @@ exports = module.exports = (req, res) => {
     	var activeId; 
     	
     	if (req.params.moduleId) {
-    		activeId = req.params.moduleId;
+            const modIds = mods.map(mod => mod._id.toString());
+            if (modIds.includes(req.params.moduleId)) {
+                activeId = req.params.moduleId;
+            } else {
+                throw new Error("Not Found");
+            }
 		} else if (mods.length > 0) {
 			return res.redirect('/assessment/' + mods[0].id);
 		}
@@ -80,5 +85,8 @@ exports = module.exports = (req, res) => {
             locals.modules = mappedModules;
 			view.render('assessment');
         });
+    }).catch((err) => {
+        console.error(err);
+        view.render('errors/404');
     });
 };

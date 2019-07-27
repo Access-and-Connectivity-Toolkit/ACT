@@ -1,12 +1,9 @@
 const keystone = require('keystone');
 
-const Team = keystone.list('Team').model;
-
 exports = module.exports = (req, res) => {
     const view = new keystone.View(req, res);
     const locals = res.locals;
+    locals.section = 'resources';
 
-    view.query('teams', Team.find());
-
-    view.render('join');
+    view.render('resources');
 };

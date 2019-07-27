@@ -1,7 +1,7 @@
 mixin radio-question(question)
     if question
         div(class="form-group")
-            p.question #{question.question}
+            p #{question.question}
             each ans in question.answers
                 .radio.answers
                     label
@@ -11,7 +11,7 @@ mixin radio-question(question)
 mixin checkbox-question(question)
     if question
          div(class="form-group")
-            p.question #{question.question}
+            p #{question.question}
             each ans in question.answers
                 .checkbox.answers
                     label
@@ -21,22 +21,22 @@ mixin checkbox-question(question)
 mixin textarea-question(question)
      if question
          div(class="form-group")
-            p.question #{question.question}
+            p #{question.question}
             textarea.form-control(rows="5" name=question.id)
 
 mixin scale-question(question)
      if question
         div(class="form-group")
-            p.question #{question.question}
+            p #{question.question}
             .radio.answers.scale
                 if question.answers && question.answers.length >= 2
-                    span #{question.answers[0]}
+                    span.scaleLeft #{question.answers[0]} 
                     each val in [1, 2, 3, 4, 5]
                         label.radio-inline
                             input(type="radio", name=question.id, value=val)
                     span #{question.answers[1]}
                 else
-                    span Not at all
+                    span.scaleLeft Not at all 
                     each val in [1, 2, 3, 4, 5]
                         label.radio-inline
                             input(type="radio", name=question.id, value=val)
@@ -44,11 +44,12 @@ mixin scale-question(question)
             .checkbox.answers.scale
                 label
                     input.checkbox-input(type="radio" value=0 name=question.id)
-                    | N/A
+                    span.scaleRight N/A
 
 mixin info-question(question)
     if question
-        p.question #{question.question}
+        p #{question.question}
+        br
 
 mixin question-form(questions, moduleId, answers)
     form(method="POST" action="" id="assessment")
@@ -65,6 +66,8 @@ mixin question-form(questions, moduleId, answers)
                 +info-question(question)
 
         input.form-control(type="hidden", name="moduleId", value=moduleId, required="true")
+
+        hr
 
         button.btn.btn-primary(type="submit" id="save-progress") Save
         button.btn.btn-primary(type="submit", id="complete-module") Mark as complete

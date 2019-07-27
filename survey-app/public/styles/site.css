@@ -2698,7 +2698,7 @@ output {
   padding-top: 7px;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #555;
+  color: #eee;
 }
 .form-control {
   display: block;
@@ -2707,7 +2707,7 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #555;
+  color: #eee;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
@@ -4069,7 +4069,7 @@ tbody.collapse.in {
   font-size: 14px;
   font-weight: normal;
   line-height: 1;
-  color: #555;
+  color: #eee;
   text-align: center;
   background-color: #eee;
   border: 1px solid #ccc;
@@ -5966,9 +5966,9 @@ button.close {
 }
 .modal-content {
   position: relative;
-  background-color: #e6f3f8;
+  background-color: #fff;
   border: 1px solid #999;
-  border: 1px solid #4071b8;
+  border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
   box-shadow: 0 3px 9px rgba(0,0,0,0.5);
   background-clip: padding-box;
@@ -6721,14 +6721,8 @@ button.close {
 .navbar-right {
   margin-right: 0px;
 }
-a {
-  color: #333;
-}
 .answers {
   margin-left: 15px;
-}
-.question {
-  font-weight: bold;
 }
 .scale {
   display: inline-block;
@@ -6738,12 +6732,6 @@ a {
 }
 .modal-content {
   text-align: center;
-  border: #4071b8 6px solid;
-}
-.modal-content .btn-secondary {
-  background-color: #fff;
-  border: #4071b8 1.5px solid;
-  color: #4071b8;
 }
 .modal-content .btn {
   margin-bottom: 10px;
@@ -6774,22 +6762,6 @@ a {
   background-size: 100%;
   background-repeat: no-repeat;
 }
-#landing-mid {
-  background-color: #fff;
-  padding: 20px;
-}
-#assessment-mid {
-  background-color: #fff;
-}
-#assessment-body {
-  background-color: #e6f3f8;
-  padding-bottom: 30px;
-  margin-top: 10px;
-}
-#assessment-body h3,
-#assessment-body h2 {
-  font-family: sans-serif;
-}
 #assessment-label {
   margin-top: 10px;
 }
@@ -6797,45 +6769,25 @@ a {
   font-family: sans-serif;
   font-weight: bold;
 }
-#landing-mid p {
-  line-height: 2;
-}
 .navbar-inverse,
 .navbar-default {
   margin-bottom: 0;
 }
 #landing .jumbotron {
-  background-color: #4071b8;
-  color: #fff;
-  width: 70%;
+  background-color: #eee;
+  color: #000;
+  width: 65%;
   margin-top: 5%;
   margin-bottom: 5%;
   padding: 30px;
 }
-#landing h2,
-#landing-header h2 {
-  font-family: "Merriweather", "Georgia", serif;
-}
-#about {
-  background-color: #e6f3f8;
-}
-#about p {
-  line-height: 2;
-}
-#signin {
-  background-color: #233251;
-  color: #fff;
-}
-#signin a {
-  color: #e6f3f8;
-  text-decoration: underline;
+#landing-mid h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .help-block a {
   color: #4071b8;
   text-decoration: underline;
-}
-#showPassword {
-  text-align: right;
 }
 #footer {
   border-top: 1px solid gray-lighter;
@@ -6851,18 +6803,9 @@ a {
   max-width: 100%;
   height: auto;
 }
-table.dataTable tbody tr {
-  background-color: #e6f3f8 !important;
-}
 .thumbnail {
   color: #fff;
   background-color: #fff;
-}
-.landingPageList {
-  padding-bottom: 1em;
-}
-.landingPageList li {
-  font-size: 15px;
 }
 .modalFormColumnRight {
   padding-left: 7px;
@@ -6875,4 +6818,35 @@ table.dataTable tbody tr {
 }
 .teamButtons {
   margin-top: 20px;
+}
+.panel {
+  margin-top: 25px;
+}
+.glyphicon {
+  margin-right: 10px;
+}
+.leftLink {
+  margin-right: 40px;
+}
+.scaleLeft {
+  margin-right: 5px;
+}
+.scaleRight {
+  margin-left: 1em;
+}
+.leftButton {
+  margin-right: 20px;
+}
+#introTabsContent {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.nav-link {
+  background-color: #eee;
+}
+.btn-primary {
+  background-color: #0070b9;
+}
+.btn-default {
+  background-color: #eee;
 }

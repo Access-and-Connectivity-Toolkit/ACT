@@ -4,64 +4,50 @@ block content
 	div#landing
 		div#landing-top
 			.container: .jumbotron
-				h2 Gathering community knowledge to support local broadband efforts
-				p A comprehensive planning tool that invites teams to assess their 
-					| broadband landscape and develop fact-based action plans. 
+				h2 Broadband Connectivity Assessment Tool
+				h3 Gather Community Knowledge to Improve Broadband Access
+				hr
+				p A comprehensive planning tool that invites teams to engage local communities, assess their broadband landscape, and develop fact-based action plans. 
 
 		.container-fluid#landing-mid
 			.container
-				div.row.show-grid
-					div.col-md-6 
-						h3 What is it?
-						p The Broadband Community Assessment Tool (BCAT) is an online planning tool designed to 
-							| inspire and support local broadband planning efforts. It was developed by dedicated 
-							| volunteers committed to universal broadband access and community engagement. The 
-							| application was informed by earlier work by the National Telecommunication and Information 
-							| Administration, the Washington State Office of the CIO, members of the University of 
-							| Washington Masters of Science in Information Management, and with input from local 
-							| broadband leaders, advocates and industry members. 
-						button.btn.btn-primary.btn-lg(data-target='#startModal', data-toggle='modal') Get Started
-					div.col-md-6#signin
-						h3 Sign in
-						form(method='POST', action='/', role='signin')
-							div.form-group
-								label(for='userLogin') Username or email address
-								input.form-control(type='email', name="email", id='userLogin')
-							div.form-group
-								label(for='userPwd') Password
-								input.form-control(type='password', name="password", id='userPwd')
-								p#showPassword
-									a() Show password
-							button.btn.btn-submit.btn-primary(type='submit') Sign in
-							br
-							a() Forgot login?
+				h3 Four Steps to a More Connected Community
+				ul.nav.nav-tabs(id="introTabs", role="tablist")
+					li.nav-item.active
+						a.nav-link(href="#team" data-toggle="tab") Establish a Team
+					li.nav-item
+						a.nav-link(href="#access" data-toggle="tab") Assess Access and Quality
+					li.nav-item
+						a.nav-link(href="#action" data-toggle="tab") Establish an Action Plan
+					li.nav-item
+						a.nav-link(href="#execute" data-toggle="tab") Execute
+				.tab-content(id="introTabsContent")
+					.tab-pane.active(id="team") 
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+							| incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+							| exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+							| reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+							| sunt in culpa qui officia deserunt mollit anim id est laborum.
+							| incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+							| exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+							| reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+							| sunt in culpa qui officia deserunt mollit anim id est laborum.
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+							| incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+							| exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+							| reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+							| sunt in culpa qui officia deserunt mollit anim id est laborum.
+							| incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+							| exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+							| reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+							| sunt in culpa qui officia deserunt mollit anim id est laborum.
+					.tab-pane(id="access")
+						p Assess Access and Quality
+					.tab-pane(id="action")
+						p Establish an Action Plan
+					.tab-pane(id="execute") 
+						p Execute
+				hr
 
-		.container-fluid#about
-			.container
-				h3 Why use this assessment?
-				div.row.show-grid
-					div.col-md-6.landingPageList
-						ul
-							li To deepen a shared understanding of the broadband landscape
-							li To mobilize community action to improve connectivity
-							li To attract investment
-							li To better aggregate demand
-
-					div.col-md-6.landingPageList
-						ul
-							li To identify opportunities to streamline processes 
-							li To leverage public assets to support public access and private investment
-							li To document insights and preserve plan
-							li To articulate vision and chart progress
-	#startModal.modal
-		.modal-dialog
-			.modal-content
-				.modal-header
-					button.btn.close(type='button', data-dismiss='modal') &times;
-					h3.modal-title Let's get started!
-				.modal-body
-					div
-						a.btn.btn-primary(type='button', href="/join") Joining an existing team?
-						p or
-						button.btn.btn-primary(type='button', data-dismiss='modal') Looking to organize a team?
-					button.btn.btn-secondary.btn-sm(type='button', data-dismiss='modal') Not sure?
+				a.btn.btn-primary.leftButton(href='/home/') Participate in Your BCAT
+				a.btn.btn-default(href='mailto:bcatfeedback@gmail.com') Create a Team

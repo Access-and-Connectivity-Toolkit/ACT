@@ -24,9 +24,16 @@ exports.initLocals = (req, res, next) => {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/home' },
 		{ label: 'About', key: 'about', href: '/about'},
-		{ label: 'Assessment', key: 'assessment', href:'/assessment'},
+		{ label: 'Resources', key: 'resources', href: '/resources'},
+		{ label: 'Assessment', key: 'assessment', href:'/assessment'}
 	];
 	res.locals.user = req.user;
+
+	// Non-logged in users shouldn't see Home or Assessment
+	if (!req.user) {
+		res.locals.navLinks.shift();
+		res.locals.navLinks.pop();
+	}
 	
 	// Does this get called often?
 	if (req.user && req.user.team) {
@@ -35,7 +42,7 @@ exports.initLocals = (req, res, next) => {
 
 			if (isTeamLeader(team, req.user._id)) {
 				const teamLabel = { label: 'Team', key: 'team', href: '/team'};
-				res.locals.navLinks.splice(2, 0, teamLabel);
+				res.locals.navLinks.splice(3, 0, teamLabel);
 			}
 
 			next();

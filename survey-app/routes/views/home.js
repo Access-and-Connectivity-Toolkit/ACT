@@ -6,11 +6,6 @@ exports = module.exports = async (req, res) => {
     const view = new keystone.View(req, res);
     const locals = res.locals;
     locals.section = 'home';
-
-    if (!req.user.team) {
-        console.log('no team');
-        return view.render('home');
-    }
     
     const modMap = await teamInfoHelper.createModuleMap();
     locals.modMap = modMap;
@@ -24,15 +19,7 @@ exports = module.exports = async (req, res) => {
 			return progress;
 		}));
         
-		locals.assignedModules = modules;
-        return await teamInfoHelper.getTeamMembers(team._id);
-    }).then(async (members) => {
-        const memberInfo = await teamInfoHelper.formatTeamMemberInfo(members, modMap);
-
-        locals.members = memberInfo.members;
-        locals.membersToModules = memberInfo.membersToModules;
-        
-
+        locals.assignedModules = modules;
         return view.render('home');
     });
 };
