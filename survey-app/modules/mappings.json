@@ -1,0 +1,59 @@
+{
+    "Team Lead": [
+        "Community Priorities",
+        "Broadband Action Team",
+        "Stakeholder Engagement"
+    ],
+    "Business Leader": ["Community Priorities"],
+    "CIO/IT Manager": [
+        "Community Priorities",
+        "Broadband Action Team",
+        "Stakeholder Engagement",
+        "Local Insights on Provider Data",
+        "Provider Engagement",
+        "Use of Public Assets",
+        "Rights of Way",
+        "Policy Environment"
+    ],
+    "City Manager": [
+        "Community Priorities",
+        "Broadband Action Team",
+        "Stakeholder Engagement",
+        "Local Insights on Provider Data",
+        "Provider Engagement",
+        "Rights of Way",
+        "Policy Environment"
+    ],
+    "Civic Leader": ["Community Priorities"],
+    "Community Member": ["Community Priorities"],
+    "Economic Development Manager": [
+        "Community Priorities",
+        "Broadband Action Team",
+        "Stakeholder Engagement",
+        "Local Insights on Provider Data",
+        "Provider Engagement",
+        "Use of Public Assets",
+        "Policy Environment"
+    ],
+    "Educator": ["Community Priorities"],
+    "Farmer/Rancher": ["Community Priorities"],
+    "Librarian": ["Community Priorities"],
+    "Local Advocate": ["Community Priorities"],
+    "Mayor/County Commissioner": [
+        "Community Priorities",
+        "Broadband Action Team",
+        "Stakeholder Engagement",
+        "Local Insights on Provider Data",
+        "Provider Engagement",
+        "Use of Public Assets",
+        "Rights of Way",
+        "Policy Environment"
+    ],
+    "Internet Service Provider": [
+        "Community Priorities",
+        "Stakeholder Engagement",
+        "Provider Engagement",
+        "Policy Environment",
+        "Local Insights on Provider Data"
+    ]
+}
