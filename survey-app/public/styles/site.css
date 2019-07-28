@@ -6796,7 +6796,11 @@ button.close {
   color: gray-light;
 }
 #moduleLinks {
-  padding-top: 10px;
+  padding-top: 65px;
+  margin-left: 10px;
+}
+#moduleLinks .nav-link {
+  background-color: #fff;
 }
 .gallery-image img {
   display: block;
@@ -6852,4 +6856,10 @@ button.close {
 }
 .form-control {
   color: #000;
+}
+body {
+  padding-top: 70px;
+}
+#assessment h3 {
+  padding-bottom: 20px;
 }

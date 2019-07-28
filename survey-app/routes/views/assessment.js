@@ -3,6 +3,7 @@ const _ = require('lodash');
 const grabity = require('grabity');
 
 const Module = keystone.list('Module').model;
+const ModuleProgress = keystone.list('ModuleProgress').model;
 const Question = keystone.list('Question').model;
 const Team = keystone.list('Team').model;
 const Answer = keystone.list('Answer').model;
@@ -36,7 +37,11 @@ getResourceLinkInfo = async(links) => {
     return results;
 };
 
-exports = module.exports = (req, res) => {
+getUserProgress = async (userId) => {
+    return await ModuleProgress.find({userId: userId});
+};
+
+exports = module.exports = async (req, res) => {
     const view = new keystone.View(req, res);
     
     const locals = res.locals;
@@ -45,7 +50,7 @@ exports = module.exports = (req, res) => {
 
     view.query('team', Team.findOne({'_id': req.user.team}));
 
-    getAssignedModules(req.user.assignedModules).then((mods) => {
+    getAssignedModules(req.user.assignedModules).then(async (mods) => {
     	var activeId; 
     	
     	if (req.params.moduleId) {
@@ -59,7 +64,10 @@ exports = module.exports = (req, res) => {
 			return res.redirect('/assessment/' + mods[0].id);
 		}
 		
-    	locals.active = activeId; 
+        locals.active = activeId; 
+        
+        const userProgress = await getUserProgress(req.user.id);
+        locals.progress = userProgress;
 
 		Promise.all(mods.map(async (mod) => {
             const modId = mod._id;
