@@ -70,7 +70,7 @@ async function updateModuleProgress(moduleId, userId, answersLength, isComplete)
 	if (isComplete && isComplete === 'true') {
 		progress = 'COMPLETE';
 	} else {
-		let moduleTotal = await Question.find({module: moduleId});
+		let moduleTotal = await Question.find({module: moduleId, type:{$ne: "Info"}});
 		percentage = (answersLength / moduleTotal.length) * 100.0;
 	}
 
@@ -84,5 +84,5 @@ async function updateModuleProgress(moduleId, userId, answersLength, isComplete)
 	 	if (err) {
 	 		console.error("error on find and update with module progress", err); //TODO: think about how we want to perform error handling
 		}
-	 });
+	});
 }
