@@ -132,7 +132,7 @@ block content
 										input.checkbox-input(type="checkbox", value=id, name=mod)
 										| #{mod}
 							input(type="hidden", value="" name="userId" id="userId")
-						button.btn.btn-primary(type='button', data-dismiss='modal') Cancel
+						button.btn.btn-primary.leftButton(type='button', data-dismiss='modal') Cancel
 						button.btn.btn-primary(type='submit') Update
 	
 	#user.modal
@@ -158,5 +158,5 @@ block content
 								.form-group.col-xs-6.modalFormColumnRight
 									input.form-control(type="password", name="confirm", placeholder="Confirm Password", required="true")
 
-						button.btn.btn-primary(type='button', data-dismiss='modal') Cancel
+						button.btn.btn-primary.leftButton(type='button', data-dismiss='modal') Cancel
 						button.btn.btn-primary(type='submit') Create User
