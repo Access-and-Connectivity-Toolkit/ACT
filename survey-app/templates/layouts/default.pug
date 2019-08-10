@@ -51,14 +51,13 @@ html
 			//- ... or completely change this header to suit your design.
 
 		div(role="navigation").navbar.navbar-default.navbar-fixed-top
-			.navbar-header: .container-fluid
-				button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-					span.sr-only Toggle navigation
-					span.icon-bar
-					span.icon-bar
-					span.icon-bar
 			a.navbar-brand(href='/')
 					img(alt='BCAT', src='../images/BCATlogo_white.svg')
+			button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+				span.sr-only Toggle navigation
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
 			.collapse.navbar-collapse
 				ul.nav.navbar-nav.navbar-left
 					each link in navLinks

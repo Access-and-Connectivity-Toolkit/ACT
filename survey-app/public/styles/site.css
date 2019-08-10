@@ -6759,7 +6759,7 @@ button.close {
 }
 #landing-top {
   background-image: url("../images/paul-gilmore-184255-unsplash.jpg");
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 #assessment-label {
@@ -6780,6 +6780,11 @@ button.close {
   margin-top: 5%;
   margin-bottom: 5%;
   padding: 30px;
+}
+@media screen and (max-width: 600px) {
+  #landing .jumbotron {
+    width: 100%;
+  }
 }
 #landing-mid h3 {
   padding-top: 10px;
