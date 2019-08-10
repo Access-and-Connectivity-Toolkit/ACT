@@ -4,8 +4,15 @@ include ../mixins/question-types
 block content
     .container
         if modules && Object.keys(modules).length > 0
-            .row 
-                .col-sm-3
+            .visible-xs
+                select.custom-select(onchange="location=this.value;")  
+                    each mod, index in modules
+                        if mod.id == active
+                            option(value="/assessment/"+mod.id selected) #{mod.name}
+                        else
+                            option(value="/assessment/"+mod.id) #{mod.name}
+            .row
+                .col-sm-3.hidden-xs
                     if modules && Object.keys(modules).length > 0
                         #moduleLinks
                             ul.nav.nav-stacked(data-spy="affix")
@@ -17,7 +24,7 @@ block content
                                         li.nav-item
                                             a.nav-link(href="/assessment/"+mod.id) #{mod.name}
                 .col-sm-9#assessment
-                    h3 #{modules[active].name}
+                    h3.hidden-xs #{modules[active].name}
 
                     .progress
                         .progress-bar(role="progressbar", aria-volumemax="100", aria-valuemin="0", aria-valuenow="50", style="width:50%") % Complete
