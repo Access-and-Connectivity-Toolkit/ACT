@@ -6802,7 +6802,7 @@ button.close {
 }
 #moduleLinks {
   padding-top: 65px;
-  margin-left: 10px;
+  margin-left: -35px;
 }
 #moduleLinks .nav-link {
   background-color: #fff;
@@ -6865,7 +6865,7 @@ button.close {
 body {
   padding-top: 50px;
 }
-#assessment h3 {
+#assessment-page h3 {
   padding-top: 10px;
   padding-bottom: 10px;
 }
