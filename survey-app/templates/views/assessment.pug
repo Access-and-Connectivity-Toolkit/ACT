@@ -2,39 +2,36 @@ extends ../layouts/default
 include ../mixins/question-types
 
 block content
-    .container-fluid: .row.show-grid
-        .container
-            if modules && Object.keys(modules).length > 0
-                .col-sm-12#moduleLinks
-                    ul.nav.nav-pills(role="tablist")
-                        each mod, index in modules
-                            if mod.id == active
-                                li.nav-item.active
-                                    a.nav-link(href="/assessment/"+mod.id) #{mod.name}
-                            else
-                                li.nav-item
-                                    a.nav-link(href="/assessment/"+mod.id) #{mod.name}
-            
-        .container-fluid
+    .container
+        if modules && Object.keys(modules).length > 0
+            .visible-xs
+                select.custom-select(onchange="location=this.value;")
+                    each mod, index in modules
+                        if mod.id == active
+                            option(value="/assessment/"+mod.id selected) #{mod.name}
+                        else
+                            option(value="/assessment/"+mod.id) #{mod.name}
             .row
-                if modules && Object.keys(modules).length > 0
-                    .container
-                        .col-sm-8
-                            h3 #{modules[active].name}
-                            if modules[active].questions
-                                +question-form(modules[active].questions, modules[active].id, modules[active].answers)
-                        .col-sm-4
-                            if modules[active].resources.length > 0
-                                h3 Resources
-                                each resource in modules[active].resources
-                                    a(href=resource.link) 
-                                        .thumbnail
-                                            if resource.image
-                                                img(src=resource.image alt=resource.title onerror="this.style.display='none'")
-                                            .caption
-                                                h3 #{resource.title}
-                                                p #{resource.description}
+                .col-sm-3.hidden-xs
+                    if modules && Object.keys(modules).length > 0
+                        #moduleLinks
+                            ul.nav.nav-stacked(data-spy="affix")
+                                each mod, index in modules
+                                    if mod.id == active
+                                        li.nav-item
+                                            a.nav-link.active(href="/assessment/"+mod.id) #{mod.name}
+                                    else
+                                        li.nav-item
+                                            a.nav-link(href="/assessment/"+mod.id) #{mod.name}
+                .col-sm-9#assessment-page
+                    h3.hidden-xs #{modules[active].name}
 
-                else
-                    .container
-                        h4 You Haven't Been Assigned Any Modules 
+                    .progress
+                        .progress-bar(role="progressbar", aria-volumemax="100", aria-valuemin="0", aria-valuenow="50", style="width:50%") % Complete
+
+                    if modules[active].questions
+                        +question-form(modules[active].questions, modules[active].id, modules[active].answers)
+
+        else
+            .container
+                h4 You Haven't Been Assigned Any Modules 

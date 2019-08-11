@@ -19,8 +19,8 @@ block content
 					.panel-body
 						| Watch this space
 					.panel-footer.text-right
-						a.leftLink() Create new announcement
-						a() View prior announcements
+						a.leftLink() Create Announcement
+						a() View Previous
 				.panel.panel-default
 					.panel-heading Reporting
 					.panel-body
@@ -36,70 +36,72 @@ block content
 						.progress
 							.progress-bar(role="progressbar", aria-volumemax="100", aria-valuemin="0", aria-valuenow="50", style="width:50%") % Complete
 						if members.length
-							table.table(id="daTable")
-								thead
-									tr
-										th Participant
-										th Affiliation
-										th Role
-										th Module Status
-										th Last Activity
-										th Actions
-								tbody
-									each member in members
+							.table-responsive
+								table.table(id="daTable")
+									thead
 										tr
-											td #{member.name.first} #{member.name.last}
+											th Participant
+											th.hidden-xs Affiliation
+											th.hidden-xs Role
+											th Module Status
+											th.hidden-xs Last Activity
+											th Actions
+									tbody
+										each member in members
+											tr
+												td #{member.name.first} #{member.name.last}
 
-											if member.affiliation
-												td #{member.affiliation}
-											else 
-												td None
+												if member.affiliation
+													td.hidden-xs #{member.affiliation}
+												else 
+													td.hidden-xs None
 
-											if member.roleName
-												td #{member.roleName}
-											else
-												td None
-
-											//- Number of assigned/completed modules or N/A if not assigned
-											if member.assigned
-												if member.completed
-													if member.completed !== member.assigned
-														td.text-right In Progress (#{member.completed}/#{member.assigned})
-													else
-														td.text-right Done (#{member.completed}/#{member.assigned})
+												if member.roleName
+													td.hidden-xs #{member.roleName}
 												else
-													td.text-right Not Started (0/#{member.assigned})
-											else
-												td.text-right N/A
+													td.hidden-xs None
 
-											td.text-nowrap.text-right #{member._.lastLogin.format('MM/DD/YYYY')}
-											
-											td.text-center.text-nowrap
-												a(href=`mailto:` + member.email) 
-													span.glyphicon.glyphicon-envelope
-												a(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=(member.role? member.role._id: null)) 
-													span.glyphicon.glyphicon-pencil
-												a(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=(member.role? member.role._id: null)) 
-													span.glyphicon.glyphicon-cog
+												//- Number of assigned/completed modules or N/A if not assigned
+												if member.assigned
+													if member.completed
+														if member.completed !== member.assigned
+															td.text-right In Progress (#{member.completed}/#{member.assigned})
+														else
+															td.text-right Done (#{member.completed}/#{member.assigned})
+													else
+														td.text-right Not Started (0/#{member.assigned})
+												else
+													td.text-right N/A
+
+												td.text-nowrap.text-right.hidden-xs #{member._.lastLogin.format('MM/DD/YYYY')}
+												
+												td.text-center.text-nowrap
+													a(href=`mailto:` + member.email) 
+														span.glyphicon.glyphicon-envelope
+													a(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=(member.role? member.role._id: null)) 
+														span.glyphicon.glyphicon-pencil
+													a(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=(member.role? member.role._id: null)) 
+														span.glyphicon.glyphicon-cog
 					.panel-footer.text-right
-						a(data-target='#user', data-toggle='modal') Add participant
+						a(data-target='#user', data-toggle='modal') Add Participant
 				.panel.panel-default
 					.panel-heading Community Representation
 					.panel-body
 						p Modules lacking participants: 
 						p Role Unrepresented: 
-						table.table(id="modTable")
-								thead
-									tr
-										th Module
-										th Participants
-										th Actions
-								tbody
-									td Name
-									td # Participants
-									td
-										a(href='') 
-											span.glyphicon.glyphicon-save
+						.table-responsive
+							table.table(id="modTable")
+									thead
+										tr
+											th Module
+											th Participants
+											th Actions
+									tbody
+										td Name
+										td # Participants
+										td
+											a(href='') 
+												span.glyphicon.glyphicon-save
 
 
 	script(type='text/javascript').
@@ -132,7 +134,7 @@ block content
 										input.checkbox-input(type="checkbox", value=id, name=mod)
 										| #{mod}
 							input(type="hidden", value="" name="userId" id="userId")
-						button.btn.btn-primary(type='button', data-dismiss='modal') Cancel
+						button.btn.btn-primary.leftButton(type='button', data-dismiss='modal') Cancel
 						button.btn.btn-primary(type='submit') Update
 	
 	#user.modal
@@ -158,5 +160,5 @@ block content
 								.form-group.col-xs-6.modalFormColumnRight
 									input.form-control(type="password", name="confirm", placeholder="Confirm Password", required="true")
 
-						button.btn.btn-primary(type='button', data-dismiss='modal') Cancel
+						button.btn.btn-primary.leftButton(type='button', data-dismiss='modal') Cancel
 						button.btn.btn-primary(type='submit') Create User

@@ -17,7 +17,7 @@ block content
 			.panel-body
 				| Watch this space
 			.panel-footer.text-right
-				a() View prior announcements
+				a() View Previous
 
 		.panel.panel-default
 			.panel-heading Suggested Resources
@@ -26,7 +26,7 @@ block content
 				a(href='https://i3cex.internet-is-infrastructure.org/sessions/new') this  
 				| tool for the module Local Insights on Data
 			.panel-footer.text-right
-				a() View all Resource Guides
+				a() View All Resource Guides
 		
 		.panel.panel-default
 			.panel-heading Your Assessment
@@ -36,27 +36,28 @@ block content
 				else
 					.progress
 						.progress-bar(role="progressbar", aria-volumemax="100", aria-valuemin="0", aria-valuenow="50", style="width:50%") % Complete
-					table.table(id="moduleTable")
-						thead
-							tr
-								th Module Name
-								th Status
-								th Questions
-								th Last Activity
-								th Actions
-						tbody
-							each progress in assignedModules
-									tr
-										if progress
-											td 
-												a(href='/assessment/' + progress.moduleId.id) #{progress.moduleId.name}
-											td #{progress._.progress.format()}
-											td #{progress._.percentage.format('0,')}% Answered
-											td #{progress._.updatedAt.format('MM/DD/YYYY')}
-											td
-												a(href='/assessment/' + progress.moduleId.id) 
-													span.glyphicon.glyphicon-play
-												a(href='')
-													span.glyphicon.glyphicon-save
-										else
-											td Something went wrong. Please go to the assessment page for this module.
+					.table-responsive
+						table.table(id="moduleTable")
+							thead
+								tr
+									th Module Name
+									th.hidden-xs Status
+									th Progress
+									th.hidden-xs Last Activity
+									th Actions
+							tbody
+								each progress in assignedModules
+										tr
+											if progress
+												td 
+													a(href='/assessment/' + progress.moduleId.id) #{progress.moduleId.name}
+												td.hidden-xs #{progress._.progress.format()}
+												td #{progress._.percentage.format('0,')}% Answered
+												td.hidden-xs #{progress._.updatedAt.format('MM/DD/YYYY')}
+												td
+													a(href='/assessment/' + progress.moduleId.id) 
+														span.glyphicon.glyphicon-play
+													a(href='')
+														span.glyphicon.glyphicon-save
+											else
+												td Something went wrong. Please go to the assessment page for this module.

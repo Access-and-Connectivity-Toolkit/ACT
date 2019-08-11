@@ -6759,7 +6759,7 @@ button.close {
 }
 #landing-top {
   background-image: url("../images/paul-gilmore-184255-unsplash.jpg");
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 #assessment-label {
@@ -6781,6 +6781,11 @@ button.close {
   margin-bottom: 5%;
   padding: 30px;
 }
+@media screen and (max-width: 600px) {
+  #landing .jumbotron {
+    width: 100%;
+  }
+}
 #landing-mid h3 {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -6796,7 +6801,11 @@ button.close {
   color: gray-light;
 }
 #moduleLinks {
-  padding-top: 10px;
+  padding-top: 65px;
+  margin-left: -35px;
+}
+#moduleLinks .nav-link {
+  background-color: #fff;
 }
 .gallery-image img {
   display: block;
@@ -6826,7 +6835,7 @@ button.close {
   margin-right: 10px;
 }
 .leftLink {
-  margin-right: 40px;
+  margin-right: 15px;
 }
 .scaleLeft {
   margin-right: 5px;
@@ -6835,7 +6844,7 @@ button.close {
   margin-left: 1em;
 }
 .leftButton {
-  margin-right: 20px;
+  margin-right: 15px;
 }
 #introTabsContent {
   margin-top: 20px;
@@ -6852,4 +6861,23 @@ button.close {
 }
 .form-control {
   color: #000;
+}
+body {
+  padding-top: 50px;
+}
+#assessment-page h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.custom-select {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  font-size: 1.5em;
+}
+.custom-select select {
+  display: none;
 }

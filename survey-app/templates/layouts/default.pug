@@ -50,23 +50,14 @@ html
 			//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
 			//- ... or completely change this header to suit your design.
 
-		//- if !user
-		//- 	div(role="navigation").navbar.navbar-inverse.navbar-static-top
-		//- 		#landing-header: .container-fluid
-		//- 			a.navbar-logo(href='/')
-		//- 				img(alt='BCAT', src='../images/BCATlogo_white.svg')
-		//- 			h2 Broadband Connectivity Assessment Tool
-		//- else
-			//- #header: .container-fluid
-		div(role="navigation").navbar.navbar-default.navbar-static-top
-			.navbar-header: .container-fluid
-				button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-					span.sr-only Toggle navigation
-					span.icon-bar
-					span.icon-bar
-					span.icon-bar
+		div(role="navigation").navbar.navbar-default.navbar-fixed-top
 			a.navbar-brand(href='/')
 					img(alt='BCAT', src='../images/BCATlogo_white.svg')
+			button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+				span.sr-only Toggle navigation
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
 			.collapse.navbar-collapse
 				ul.nav.navbar-nav.navbar-left
 					each link in navLinks
@@ -75,7 +66,7 @@ html
 					if user && user.canAccessKeystone
 						li: a(href='/keystone') Open Keystone
 					if team
-						li: a(href='/home') #{team.name}
+						li.hidden-xs.hidden-sm.hidden-md: a(href='/home') #{team.name}
 					if user
 						li: a(href='/keystone/signout') Sign Out
 					else
