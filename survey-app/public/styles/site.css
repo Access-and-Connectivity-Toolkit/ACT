@@ -6873,6 +6873,11 @@ body {
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 1.17em;
-  font-weight: bold;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  font-size: 1.5em;
+}
+.custom-select select {
+  display: none;
 }

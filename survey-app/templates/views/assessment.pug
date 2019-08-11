@@ -5,7 +5,7 @@ block content
     .container
         if modules && Object.keys(modules).length > 0
             .visible-xs
-                select.custom-select(onchange="location=this.value;")  
+                select.custom-select(onchange="location=this.value;")
                     each mod, index in modules
                         if mod.id == active
                             option(value="/assessment/"+mod.id selected) #{mod.name}
