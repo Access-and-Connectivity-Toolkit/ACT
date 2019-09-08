@@ -1,65 +1,32 @@
 [
   {
     "name": "Rights of Way 01",
-    "question": "This module looks at how government policies and resources encourage broadband build-outs and balance public interests.  This module addresses rights-of way. The more general topic of private use of public assets is covered in separate module.",
+    "question": "This module looks at how policies leverage public rights-of-way to support broadband build-outs and balance public interests.  This module addresses rights-of way. The more general topic of private use of public assets is covered in separate module.",
     "type": "Info",
     "survey": "Rights of Way"
   },
   {
     "name": "Rights of Way 02",
-    "question": "Does the local government have an inventory of roads, conduit, and rights-of-way? This is a directory of rights-of-way with necessary detail to provide access and connectivity between points.",
-    "type": "Scale",
+    "question": "Are public rights-of-way used to support communication services?",
+    "type": "Radio",
     "answers": ["Not at all", "To a large extent"],
     "survey": "Rights of Way"
   },
   {
     "name": "Rights of Way 03",
-    "question": "What information does the inventory of public assets contain?",
-    "type": "Checkboxes",
-    "answers": [
-      "We have identified the types of public assets that could be used for telecommunications",
-      "Our community maintains an asset inventory (a directory of public assets that could be used for telecommunications)",
-      "The asset inventory includes information about type, geo-location, and ownership of the assets.",
-      "The asset inventory includes information on readiness or fitness for use and capacity.",
-      "The asset inventory includes references to regulations about the use of those assets.",
-      "We have a process to maintain the accuracy of the asset data, including a process to regularly update the data.",
-      "The inventory is electronic and can be accessed or downloaded by prospective infrastructure builders.",
-      "Our community has information on related tribal, county, state, federal or other assets.",
-      "Our community has information on assets maintained by utility companies or private entities.",
-      "I don’t know.",
-      "Other."
-    ],
-    "survey": "Rights of Way"
-  },
-  {
-    "name": "Rights of Way 04",
-    "question": "If other, please explain.",
-    "type": "Textarea",
-    "survey": "Rights of Way"
-  },
-  {
-    "name": "Rights of Way 05",
-    "question": "Do policies about public rights-of-way support the public interest?",
-    "type": "Scale",
-    "answers": ["Not at all", "To a large extent"],
-    "survey": "Rights of Way"
-  },
-  {
-    "name": "Rights of Way 06",
-    "question": "Do policies about public rights-of-way support the public interest?",
+    "question": "Please check each statement that is true in your community.",
     "type": "Checkboxes",
     "answers": [
       "Our community has identified the policy jurisdictions for rights-of-way where we live.",
       "Our agency has identified the state, county, federal, tribal, commercial, and other regulations that apply to rights-of-way in our community.",
       "For rights-of-way within our management scope, our agency has well-defined policies and procedures.",
-      "Our jurisdiction has implemented a “dig once” policy that requires public notice for all trenching or major construction.",
+      "Our jurisdiction has implemented a 'dig once' policy that requires public notice for all trenching or major construction.",
       "Our government works to coordinate construction to facilitate telecommunications infrastructure deployment as part of construction projects.",
       "Our policies say that conduit must be laid as part of major road and construction projects.",
       "We are aware of the rights-of-way regulations on county and state roads and lands in our jurisdiction. Information is accessible in our offices and websites.",
       "We are aware of the rights-of-way regulations on federal roads and lands in our jurisdiction.",
       "Information is accessible in our offices and websites.",
       "Policies and procedures that regulate rights-of-way consider requirements for advanced wireless in communities.",
-      "Our government is aware of the wireless spectrum loads and interference in our geography and takes proactive steps to ensure good wireless service.",
       "Policies that regulate rights-of-way are reviewed and updated regularly with input from stakeholders.",
       "I don’t know.",
       "Other."
@@ -67,9 +34,36 @@
     "survey": "Rights of Way"
   },
   {
-    "name": "Rights of Way 07",
-    "question": "If other, please explain.",
-    "type": "Textarea",
+    "name": "Rights of Way 04",
+    "question": "Check which broadband best practices are currently in use:",
+    "type": "Checkboxes",
+    "answers": [
+      "Our Agencies manage conduit and ensure that additional open access conduit is build with each infrastructure project.",
+      "When other organizations build conduit in public rights-of-way, our government maintains ownership over the conduit.",
+      "Lease rates for conduit promote competition and use, driving an active whole and retail market.",
+      "Government requires some public use fiber strands to be included as part of private build outs.",
+      "When capacity is available, government conduit is open and available for lease by other entities.",
+      "Conduit and fiber routes are mapped and appropriately interconnected."
+    ],
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 05",
+    "question": "Are public rights-of-way used to support wireless devices and services?",
+    "type": "",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Rights of Way"
+  },
+  {
+    "name": "Rights of Way 05",
+    "question": "Check which broadband best practices are currently in use:",
+    "type": "Checkboxes",
+    "answers": [
+      "Policies and procedures that regulate rights-of-way consider requirements for advanced wireless in communities.",
+      "Our government is aware of the wireless spectrum loads and interference in our geography and takes proactive steps to ensure good wireless service.",
+      "Our government has a documented plan for 5G antenna installation and management.",
+      "Providers have already started to deploy 5G in our community."
+    ],
     "survey": "Rights of Way"
   },
   {
@@ -104,7 +98,7 @@
     "name": "Rights of Way 11",
     "question": "How would you describe the efficacy of local policies that promote the use of Rights-of-Way, enhance telecommunications competition, and serve the public good?",
     "type": "Scale",
-    "answers": ["Poor","Extraordinary"],
+    "answers": ["Poor", "Extraordinary"],
     "survey": "Rights of Way"
   },
   {

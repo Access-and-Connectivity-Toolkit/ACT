@@ -1,0 +1,108 @@
+[
+  {
+    "name": "Provider Engagement 01",
+    "question": "This is about the relationship between local leaders and Internet Service Providers (ISPs). Please complete this module from your perspective as a local leader or an an ISP. This module aims to create greater alignment between local leaders and providers on current and future deployment and service demand. Please complete the Local Insights on Provider Data module prior to completing this module. ",
+    "type": "Info",
+    "survey": "Provider Engagement"
+  },
+  {
+    "name": "Provider Engagement 02",
+    "question": "Do local leaders and service providers in your area communicate with each other?",
+    "type": "",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Provider Engagement"
+  },
+  {
+    "name": "Provider Engagement 03",
+    "question": "Do local leaders and service providers in your area communicate with each other?",
+    "type": "Checkboxes",
+    "answers": [
+      "We've reviewed the list of providers that serve our community.",
+      "We have a point person we know how to contact at each service provider.",
+      "We've met with some of the providers that serve our community.",
+      "We've met with most of the providers that serve our community.",
+      "We have regular communication with at least one provider.",
+      "Providers have confirmed or clarified their coverage, including technology types, advertised upload and download speeds, and blocks or homes served.",
+      "We meet with with non-traditional providers such as research and education networks, nonprofit networks, and energy co-ops.",
+      "There are companies on this list that I have never heard of.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Provider Engagement"
+  },
+  {
+    "name": "Provider Engagement 04",
+    "question": "ISP Deplyment Plans and Challenges: Do local leaders work with providers to understand deployment plans, projections, and challenges?",
+    "type": "",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Provider Engagement"
+  },
+  {
+    "name": "Provider Engagement 05",
+    "question": "Do local leaders work with providers to understand deployment plans, projections, and challenges?",
+    "type": "Checkboxes",
+    "answers": [
+      "Our leadership has told providers what services, speeds, and coverage is needed in our community.",
+      "Residential providers have shared deployment plans and timelines.",
+      "Business providers have shared deployment plans and timelines.",
+      "Middle mile or backhaul providers have shared deployment plans and timelines.",
+      "For providers in our community that receive e-Rate funding, we understand their service contracts and upgrade plans.",
+      "For providers in our community that receive Connect America Funding, we understand their deployment commitments and timeframes.",
+      "For providers in our community that receive Rural Utilities Service funding, we understand their deployment commitments and timeframes.",
+      "If census blocks in our region are eligible for additional Connect America Fund support, we solicit support and interest from providers.",
+      "If applicable, Research and Education Network providers are included in provider discussions, especially those that impact community anchor institutions.",
+      "If local providers have identified deployment barriers, government officials are aware of those barriers and work to fix them.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Provider Engagement"
+  },
+  {
+    "name": "Provider Engagement 06",
+    "question": "Demand Aggregation: Do leaders consider current and future broadband needs and communicate those needs to providers?",
+    "type": "Radio",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Provider Engagement"
+  },
+  {
+    "name": "Provider Engagement 07",
+    "question": "Do leaders consider current and future broadband needs and communicate those needs to providers?",
+    "type": "Checkboxes",
+    "answers": [
+      "We have a multi-year telecommunications plan that covers government agencies and functions.",
+      "We have tabulated the telecommunications costs and projections across government agencies.",
+      "We have a multi-year telecommunications plan that explains broadband demand across government agencies or departments.",
+      "We have a multi-year telecommunications plan that aggregates broadband demand across government agencies or departments.",
+      "We have some awareness of the current and future needs for broadband in our business community.",
+      "We have documented the current and future broadband needs of businesses.",
+      "We have some awareness of the current and future needs for broadband in our community anchor institutions.",
+      "We have documented the current and future broadband needs of community anchor institutions.",
+      "We have some awareness of the current and future broadband needs for residents and people considering moving here.",
+      "We have documented the current and future broadband needs of residents.",
+      "We have a multi-year telecommunications plan that aggregates broadband demand across sectors of the community.",
+      "We request input from the public in order to understand current issues, gaps, and future needs.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Provider Engagement"
+  },
+  {
+    "name": "Provider Engagement 08",
+    "question": "How would you rate the efficacy of communications, agreements, and partnerships with service providers?",
+    "type": "Radio",
+    "answers": ["Poor", "Extraordinary"],
+    "survey": "Provider Engagement"
+  },
+  {
+    "name": "Provider Engagement 09",
+    "question": "What changes would you like to see in the next one to two years in the way that your community works with service providers?",
+    "type": "Textarea",
+    "survey": "Provider Engagement"
+  },
+  {
+    "name": "Provider Engagement 10",
+    "question": "Links to resources that you’d like to record in your plan.",
+    "type": "Textarea",
+    "survey": "Provider Engagement"
+  }
+]

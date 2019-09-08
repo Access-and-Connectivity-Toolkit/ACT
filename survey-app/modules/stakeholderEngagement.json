@@ -1,13 +1,13 @@
 [
   {
     "name": "Stakeholder Engagement 01",
-    "question": "Engage stakeholders to understand interests and concerns and to lay the foundation for future partnerships or investments. This module evaluates the current state of engagement.",
+    "question": "Engage stakeholders to understand interests and concerns and to lay the foundation for future partnerships or investments.",
     "type": "Info",
     "survey": "Stakeholder Engagement"
   },
   {
     "name": "Stakeholder Engagement 02",
-    "question": "What motivates you to work on this project? Do you have specific areas of concern? ",
+    "question": "How engaged are stakeholders in your planning process?",
     "type": "Textarea",
     "survey": "Stakeholder Engagement"
   },
@@ -15,7 +15,22 @@
     "name": "Stakeholder Engagement 03",
     "question": "Have you contacted the stakeholders?   Please check all that apply: ",
     "type": "Checkboxes",
-    "answers": ["We’ve contacted many of the stakeholders on our list.","We have a formal plan or program to engage stakeholders.","We engage with stakeholders informally.","We have an advisory group that provides insight and direction on broadband projects.","Our meetings are open to the public.","Planning documents and meeting notes are publicly-available.","Stakeholder feedback is documented.","Project plans are regularly adjusted to reflect input from stakeholders.","Our stakeholder plan includes engagement with people who have concerns or who may be critical of our efforts.","Stakeholder engagement activities are appropriate to each audience.","We’ve identified potential project partners (e.g. local businesses or nonprofits).","Public-private partnerships are part of our broadband plan.","I don’t know.","Other."],
+    "answers": [
+      "We’ve contacted many of the stakeholders on our list.",
+      "We have a formal plan or program to engage stakeholders.",
+      "We engage with stakeholders informally.",
+      "We have an advisory group that provides insight and direction on broadband projects.",
+      "Our meetings are open to the public.",
+      "Planning documents and meeting notes are publicly-available.",
+      "Stakeholder feedback is documented.",
+      "Project plans are regularly adjusted to reflect input from stakeholders.",
+      "Our stakeholder plan includes engagement with people who have concerns or who may be critical of our efforts.",
+      "Stakeholder engagement activities are appropriate to each audience.",
+      "We’ve identified potential project partners (e.g. local businesses or nonprofits).",
+      "Public-private partnerships are part of our broadband plan.",
+      "I don’t know.",
+      "Other."
+    ],
     "survey": "Stakeholder Engagement"
   },
   {
@@ -28,24 +43,22 @@
     "name": "Stakeholder Engagement 05",
     "question": "Have you asked community members about their connectivity needs and interests? Please check all that apply: ",
     "type": "Checkboxes",
-    "answers": ["We informally discuss input from residents and businesses.","We have a formal process to gather input from residents.","We have a formal process to gather input from business owners, entrepreneurs, and business organizations.","We have a formal process to gather input from community anchor institutions and nonprofit organizations.","We solicit community input as part of our franchise renewal process and carrier negotiations.","We’ve conducted community surveys or meetings to discuss community connectivity.","We issue public reports that summarize the connectivity needs and issues expressed in community surveys or forums.","I don’t know.","Other."],
+    "answers": [
+      "We informally discuss input from residents and businesses.",
+      "We have a formal process to gather input from residents.",
+      "We have a formal process to gather input from business owners, entrepreneurs, and business organizations.",
+      "We have a formal process to gather input from community anchor institutions and nonprofit organizations.",
+      "We solicit community input as part of our franchise renewal process and carrier negotiations.",
+      "We’ve conducted community surveys or meetings to discuss community connectivity.",
+      "We issue public reports that summarize the connectivity needs and issues expressed in community surveys or forums.",
+      "We have aggregated demand and issued an RFP to providers.",
+      "I don’t know.",
+      "Other."
+    ],
     "survey": "Stakeholder Engagement"
   },
   {
     "name": "Stakeholder Engagement 06",
-    "question": "If other, please explain.",
-    "type": "Textarea",
-    "survey": "Stakeholder Engagement"
-  },
-  {
-    "name": "Stakeholder Engagement 07",
-    "question": "What type of engagement do you have with area service providers? Please check all that apply: ",
-    "type": "Checkboxes",
-    "answers": ["We know the service providers that operate in our community.","We cultivate relationships with providers.","We tell providers what we need; i.e., needs of residents and businesses","We understand the deployment plans of providers operating in our community.","Our government leaders manage contracts to ensure that agreements serve the public interest.","I don’t know.","Other."],
-    "survey": "Stakeholder Engagement"
-  },
-  {
-    "name": "Stakeholder Engagement 08",
     "question": "If other, please explain.",
     "type": "Textarea",
     "survey": "Stakeholder Engagement"

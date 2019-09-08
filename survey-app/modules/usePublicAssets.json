@@ -7,14 +7,14 @@
   },
   {
     "name": "Use of Public Assets 02",
-    "question": "Does the local government have an inventory of public assets? This is a list of available resources or property and often refers to infrastructure.",
+    "question": "How complete is an inventory of public assets? This is a list of available resources or property and often refers to infrastructure.",
     "type": "Scale",
     "answers": ["Not at all", "To a large extent"],
     "survey": "Use of Public Assets"
   },
   {
     "name": "Use of Public Assets 03",
-    "question": "Does the local government have an inventory of public assets? This is a list of available resources or property and often refers to infrastructure.",
+    "question": "Please check each statement that is true regarding your public inventory.",
     "type": "Checkboxes",
     "answers": [
       "We have identified the types of public assets that could be used for telecommunications",
@@ -47,7 +47,7 @@
   },
   {
     "name": "Use of Public Assets 06",
-    "question": "Do government agencies develop and manage policies to facilitate the use of public assets?",
+    "question": "Check which best practices on policies are currently in use.",
     "type": "Checkboxes",
     "answers": [
       "Our community has identified the regulatory jurisdictions for each asset type in the inventory.",
@@ -62,9 +62,7 @@
       "Asset leasing and pricing costs are based on financial models that are reviewed regularly.",
       "Pole attachment leasing models and regulations are consistent with the FCC's pole attachment rules.",
       "Policies and procedures for asset use are updated regularly. Stakeholder input is used when updates are made.",
-      "Policies have been updated to include considerations for wireless infrastructure such as antennas, towers, small cells and outdoor distributed antenna systems.",
-      "I don’t know.",
-      "Other."
+      "Policies have been updated to include considerations for wireless infrastructure such as antennas, towers, small cells and outdoor distributed antenna systems."
     ],
     "survey": "Use of Public Assets"
   },
@@ -76,30 +74,22 @@
   },
   {
     "name": "Use of Public Assets 08",
-    "question": "Do government leaders manage contracts to ensure those agreements continue to meet the needs of the community?",
+    "question": "Do government leaders manage contracts to ensure those agreements continue to meet the needs of broadband access?",
     "type": "Scale",
     "answers": ["Not at all", "To a large extent"],
     "survey": "Use of Public Assets"
   },
   {
     "name": "Use of Public Assets 09",
-    "question": "Do government leaders manage contracts to ensure those agreements continue to meet the  needs of the community?",
+    "question": "Check which best practices are currently in use.",
     "type": "Checkboxes",
     "answers": [
       "Leases and agreements with providers are in the public record.",
       "Leases and agreements with providers include clearly-defined public benefits.",
       "When reaching new agreements or renewing existing agreements, public input is requested and included in the process.",
       "Our department allocates staff time to support the execution of telecommunications agreements that involve public asses.",
-      "Our agency monitors the agreements and holds providers accountable.",
-      "I don’t know.",
-      "Other."
+      "Our agency monitors the agreements and holds providers accountable."
     ],
-    "survey": "Use of Public Assets"
-  },
-  {
-    "name": "Use of Public Assets 10",
-    "question": "If other, please explain.",
-    "type": "Textarea",
     "survey": "Use of Public Assets"
   },
   {
@@ -111,7 +101,7 @@
   },
   {
     "name": "Use of Public Assets 12",
-    "question": "Do policies and regulations use government telecommunication infrastructure to improve broadband services to government agencies, institutions, businesses, and consumers?",
+    "question": "Check the implemented policies and regulations regarding government telecommunication infrastructure.",
     "type": "Checkboxes",
     "answers": [
       "Government agencies manage agreements that govern access to telecommunications networks and assets to ensure that those agreements continue to meet the public interest.",
@@ -119,15 +109,8 @@
       "Government network infrastructure is accessible, such as through manholes.",
       "Government policies promote and support carrier-neutral colocation facilities.",
       "When capacity is available, government networks are open and available for lease by other entities.",
-      "I don’t know.",
       "Other."
     ],
-    "survey": "Use of Public Assets"
-  },
-  {
-    "name": "Use of Public Assets 13",
-    "question": "If other, please explain.",
-    "type": "Textarea",
     "survey": "Use of Public Assets"
   },
   {

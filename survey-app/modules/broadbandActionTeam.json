@@ -1,11 +1,12 @@
 [
   {
     "name": "Broadband Action Team 01",
-    "question": "The goal of this module is to establish your starting point as a team. Identify the current represenation of your broadband action team to identify what actions need to be taken to better represent the community.",
+    "question": "The goal of this module is to establish your starting point as a team. ",
     "type": "Info",
     "survey": "Broadband Action Team"
   },
   {
+    
     "name": "Broadband Action Team 02",
     "question": "Is there a broadband champion in your community? Is there more than one?",
     "type": "Radio",
