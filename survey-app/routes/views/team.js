@@ -36,25 +36,7 @@ updateUser = async (user) => {
 	}
 
     if (user.modules) {
-        update.assignedModules = user.modules;
-
-        user.modules.forEach(function (m) {
-            ModuleProgress.findOne({'moduleId': m, 'userId': userId}).then(function (progress) {
-                if (!progress) {
-                    let userProgress = new ModuleProgress({
-                        userId: userId,
-                        moduleId: m,
-                        progress: 'NOT_STARTED',
-                        percentage: 0
-                    });
-                    userProgress.save((err) => {
-                        if (err) {
-                            console.error('could not save user progress. Error:', err);
-                        }
-                    });
-                }
-            })
-        });
+        update.assignedModules = user.modules instanceof Array ? user.modules : [user.modules];
     }
 
     Users.findOneAndUpdate(query, update, {new: true}, (err, updatedUser) => {
@@ -72,10 +54,29 @@ updateUser = async (user) => {
                 });
             }
         }
-
         return updatedUser;
     });
 
+    if (user.modules) {
+        //if user modules exists, create module progress
+        update.assignedModules.forEach(function (m) {
+            ModuleProgress.findOne({'moduleId': m, 'userId': userId}).then(function (progress) {
+                if (!progress) {
+                    let userProgress = new ModuleProgress({
+                        userId: userId,
+                        moduleId: m,
+                        progress: 'NOT_STARTED',
+                        percentage: 0
+                    });
+                    userProgress.save((err) => {
+                        if (err) {
+                            console.error('could not save user progress. Error:', err);
+                        }
+                    });
+                }
+            })
+        });
+    }
 };
 
 createUser = async(req, teamId) => {
