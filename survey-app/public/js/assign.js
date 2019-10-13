@@ -20,6 +20,18 @@ var userFormAssigner = userFormAssigner || (function() {
                     $('#modal-error').addClass('hidden');
                 });
 
+				$('#edit-user').on('show.bs.modal', function(event) {
+					const currUser = $(event.relatedTarget).data('user');
+					
+					$(this).find('input[name="first"]').val(currUser.name.first);
+					$(this).find('input[name="last"]').val(currUser.name.last);
+					$(this).find('input[name="email"]').val(currUser.email);
+					$(this).find('input[name="affiliation"]').val(currUser.affiliation);
+
+					// Set a hidden form field with the current user id
+					$(this).find("#editUserId").val(currUser._id);
+				});
+
                 $('#modal').on('show.bs.modal', function(event) {
                 	// Select appropriate modules based on chosen role
                     $('select#role').change(() => {
@@ -30,6 +42,7 @@ var userFormAssigner = userFormAssigner || (function() {
                             $('#modal-error').removeClass('hidden');
                             return;
                         }
+                        
 						let roleModules = rolesMap[roleId].modules;
 						$(':checkbox').each(function() {
 							const moduleId = this.value;

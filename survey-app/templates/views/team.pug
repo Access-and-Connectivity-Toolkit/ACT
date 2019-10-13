@@ -78,12 +78,12 @@ block content
 												td.text-center.text-nowrap
 													a(href=`mailto:` + member.email) 
 														span.glyphicon.glyphicon-envelope
-													a(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=(member.role? member.role._id: null)) 
+													a(data-target='#edit-user', data-toggle='modal', data-user=member) 
 														span.glyphicon.glyphicon-pencil
 													a(data-target='#modal', data-toggle='modal', data-user=member.id, data-role=(member.role? member.role._id: null)) 
 														span.glyphicon.glyphicon-cog
 					.panel-footer.text-right
-						a(data-target='#user', data-toggle='modal') Add Participant
+						a(data-target='#create-user', data-toggle='modal') Add Participant
 				.panel.panel-default
 					.panel-heading Community Representation
 					.panel-body
@@ -120,7 +120,6 @@ block content
 					form(action="", method="post")
 						.form-group
 							h4 Role
-
 							select.form-control(id="role", name="role")
 
 								option(value="no-role") --- None ---
@@ -131,13 +130,13 @@ block content
 							each mod, id in modMap
 								.checkbox
 									label
-										input.checkbox-input(type="checkbox", value=id, name=mod)
+										input.checkbox-input(type="checkbox", value=id, name='modules')
 										| #{mod}
 							input(type="hidden", value="" name="userId" id="userId")
 						button.btn.btn-primary.leftButton(type='button', data-dismiss='modal') Cancel
 						button.btn.btn-primary(type='submit') Update
 	
-	#user.modal
+	#create-user.modal
 		.modal-dialog 
 			.modal-content
 				.modal-header
@@ -162,3 +161,28 @@ block content
 
 						button.btn.btn-primary.leftButton(type='button', data-dismiss='modal') Cancel
 						button.btn.btn-primary(type='submit') Create User
+	#edit-user.modal
+		.modal-dialog
+			.modal-content
+				.modal-header
+					h3.modal-title Update Team Member
+				.modal-body
+					form(action="", method="POST")
+						.form-group
+							.form-group.row.modalFormRow
+								.form-group.col-xs-6.modalFormColumnLeft
+									input.form-control(type="text", name="first", placeholder="First Name")
+								.form-group.col-xs-6.modalFormColumnRight
+									input.form-control(type="text", name="last", placeholder="Last Name")
+							.form-group
+								input.form-control(type="email", name="email", placeholder="Email Address")
+							.form-group
+								input.form-control(type="text", name="affiliation", placeholder="Affiliation")
+							.form-group.row
+								.form-group.col-xs-6.modalFormColumnLeft
+									input.form-control(type="password", name="password", placeholder="Password")
+								.form-group.col-xs-6.modalFormColumnRight
+									input.form-control(type="password", name="confirm", placeholder="Confirm Password")
+							input(type="hidden", value="" name="userId" id="editUserId")
+						button.btn.btn-primary.leftButton(type='button', data-dismiss='modal') Cancel
+						button.btn.btn-primary(type='submit') Update User						
