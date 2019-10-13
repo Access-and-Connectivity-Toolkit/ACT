@@ -9,10 +9,10 @@ const teamInfoHelper = require('../teamInfo');
 updateUser = async (user) => {
 	const userId = user.userId;
 	let roleId = user.role;
-
+	
 	const query = {'_id': userId};
 	
-    const update = {};
+	const update = {};
     
     if (user.first || user.last) {
     	update.name = {};
@@ -33,49 +33,49 @@ updateUser = async (user) => {
 	if (user.affiliation) {
 		update.affiliation = user.affiliation;
 	}
-    
-    if (roleId) {
-    	update.role = roleId !== "no-role" ? roleId : null;
-	}
-	
-	if (user.modules) {
-    	update.assignedModules = user.modules;
 
-		user.modules.forEach(function(m) {
-			ModuleProgress.findOne({'moduleId': m, 'userId': userId}).then(function(progress) {
-				if (!progress) {
-					let userProgress = new ModuleProgress({
-						userId: userId,
-						moduleId: m,
-						progress: 'NOT_STARTED',
-						percentage: 0
-					});
-					userProgress.save((err) => {
-						if (err) {
-							console.error('could not save user progress. Error:', err);
-						}
-					});
-				}
-			})
-		});
-	}
-	
+    if (roleId) {
+        update.role = roleId !== "no-role" ? roleId : null;
+    }
+
+    if (user.modules) {
+        update.assignedModules = user.modules;
+
+        user.modules.forEach(function (m) {
+            ModuleProgress.findOne({'moduleId': m, 'userId': userId}).then(function (progress) {
+                if (!progress) {
+                    let userProgress = new ModuleProgress({
+                        userId: userId,
+                        moduleId: m,
+                        progress: 'NOT_STARTED',
+                        percentage: 0
+                    });
+                    userProgress.save((err) => {
+                        if (err) {
+                            console.error('could not save user progress. Error:', err);
+                        }
+                    });
+                }
+            })
+        });
+    }
+
     Users.findOneAndUpdate(query, update, {new: true}, (err, updatedUser) => {
         if (err) {
             console.error(err);
         } else {
-			if (user.password && user.confirm && user.password === user.confirm) {
-				// TODO: display error if password + confirm doens't match
-				updatedUser.password = user.password;
-        		//explicitly call save to encrypt password before storing
-				updatedUser.save((err) => {
-					if (err) {
-						console.error('could not update user password. Error:', err);
-					}
-				}); 
-			}
-		}
-        
+            if (user.password && user.confirm && user.password === user.confirm) {
+                // TODO: display error if password + confirm doens't match
+                updatedUser.password = user.password;
+                //explicitly call save to encrypt password before storing
+                updatedUser.save((err) => {
+                    if (err) {
+                        console.error('could not update user password. Error:', err);
+                    }
+                });
+            }
+        }
+
         return updatedUser;
     });
 
@@ -86,8 +86,8 @@ createUser = async(req, teamId) => {
         name: {first: req.body.first, last: req.body.last},
         password: req.body.password,
         email: req.body.email,
-        team: teamId,
-		affiliation: req.body.affiliation,
+        team: teamId, 
+        affiliation: req.body.affiliation,
         isAdmin: false
     });
 

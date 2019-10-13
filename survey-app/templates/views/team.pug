@@ -161,28 +161,28 @@ block content
 
 						button.btn.btn-primary.leftButton(type='button', data-dismiss='modal') Cancel
 						button.btn.btn-primary(type='submit') Create User
-	#edit-user.modal
-		.modal-dialog
-			.modal-content
-				.modal-header
-					h3.modal-title Update Team Member
-				.modal-body
-					form(action="", method="POST")
-						.form-group
-							.form-group.row.modalFormRow
-								.form-group.col-xs-6.modalFormColumnLeft
-									input.form-control(type="text", name="first", placeholder="First Name")
-								.form-group.col-xs-6.modalFormColumnRight
-									input.form-control(type="text", name="last", placeholder="Last Name")
-							.form-group
-								input.form-control(type="email", name="email", placeholder="Email Address")
-							.form-group
-								input.form-control(type="text", name="affiliation", placeholder="Affiliation")
-							.form-group.row
-								.form-group.col-xs-6.modalFormColumnLeft
-									input.form-control(type="password", name="password", placeholder="Password")
-								.form-group.col-xs-6.modalFormColumnRight
-									input.form-control(type="password", name="confirm", placeholder="Confirm Password")
-							input(type="hidden", value="" name="userId" id="editUserId")
-						button.btn.btn-primary.leftButton(type='button', data-dismiss='modal') Cancel
-						button.btn.btn-primary(type='submit') Update User						
+    #edit-user.modal
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h3.modal-title Update Team Member
+                .modal-body
+                    form(action="", method="POST")
+                        .form-group
+                            .form-group.row.modalFormRow
+                                .form-group.col-xs-6.modalFormColumnLeft
+                                    input.form-control(type="text", name="first", placeholder="First Name")
+                                .form-group.col-xs-6.modalFormColumnRight
+                                    input.form-control(type="text", name="last", placeholder="Last Name")
+                            .form-group
+                                input.form-control(type="email", name="email", placeholder="Email Address")
+                            .form-group
+                                input.form-control(type="text", name="affiliation", placeholder="Affiliation")
+                            .form-group.row
+                                .form-group.col-xs-6.modalFormColumnLeft
+                                    input.form-control(type="password", name="password", placeholder="Password")
+                                .form-group.col-xs-6.modalFormColumnRight
+                                    input.form-control(type="password", name="confirm", placeholder="Confirm Password")
+                            input(type="hidden", value="" name="userId" id="editUserId")
+                        button.btn.btn-primary.leftButton(type='button', data-dismiss='modal') Cancel
+                        button.btn.btn-primary(type='submit') Update User						
