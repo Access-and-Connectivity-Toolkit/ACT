@@ -6,7 +6,9 @@ const ModuleProgress = keystone.list('ModuleProgress').model;
 
 const teamInfoHelper = require('../teamInfo');
 
-updateUser = async (user) => {
+updateUser = async (req) => {
+    const user = req.body;
+    
 	const userId = user.userId;
 	let roleId = user.role;
 	
@@ -39,12 +41,13 @@ updateUser = async (user) => {
         update.assignedModules = user.modules instanceof Array ? user.modules : [user.modules];
     }
 
-    Users.findOneAndUpdate(query, update, {new: true}, (err, updatedUser) => {
-        if (err) {
-            console.error(err);
-        } else {
-            if (user.password && user.confirm && user.password === user.confirm) {
-                // TODO: display error if password + confirm doens't match
+    var userPasswordError = false;
+	
+	try {
+        var updatedUser = await Users.findOneAndUpdate(query, update, {new: true});
+
+        if (user.password && user.confirm) {
+            if (user.password === user.confirm) {
                 updatedUser.password = user.password;
                 //explicitly call save to encrypt password before storing
                 updatedUser.save((err) => {
@@ -52,11 +55,18 @@ updateUser = async (user) => {
                         console.error('could not update user password. Error:', err);
                     }
                 });
+            } else {
+                userPasswordError = true;
             }
         }
-        return updatedUser;
-    });
+    } catch (err) {
+	    console.error('an error has occurred, could not update user. Error:', err);
+    }
 
+    if (userPasswordError) {
+        req.flash('error', 'user information updated, but password was not updated since password and confirm don\'t match');
+    }
+    
     if (user.modules) {
         //if user modules exists, create module progress
         update.assignedModules.forEach(function (m) {
@@ -88,13 +98,13 @@ createUser = async(req, teamId) => {
         affiliation: req.body.affiliation,
         isAdmin: false
     });
-
-    // TODO: error handling
-    newUser.save((err) => {
-        if (err) {
-            console.error(err);
-        } 
-    });
+    
+    try {
+        await newUser.save();
+    } catch (err) {
+        console.error(err);
+        req.flash('error', `could not save user ${req.body.email}`);
+    }
 }
 
 createRoleMap = async() => {
@@ -117,11 +127,15 @@ exports = module.exports = async (req, res) => {
     view.on('post', async () => {
         if (!req.body.userId) {
             console.error("missing user");
-            // TODO: in app error messages
-            await createUser(req, req.user.team);
+            if (req.body.password !== req.body.confirm) {
+                req.flash('error', `user not stored - password and confirm values don't match for ${req.body.email}`);
+            } else {
+                await createUser(req, req.user.team);
+            }
         } else {
-            await updateUser(req.body);
+            await updateUser(req);
         }
+        
         res.redirect('back');
     });
 
