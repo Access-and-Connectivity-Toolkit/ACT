@@ -15,8 +15,8 @@ All of the code for the project is current in the `survey-app` folder. This proj
 * Clone the repository   
 
   ```
-  git clone https://github.com/will-saunders/BCAT.git
-  cd BCAT/survey-app
+  git clone https://github.com/Access-and-Connectivity-Toolkit/ACT.git
+  cd ACT/survey-app
   npm install
   ```
 * Create a `.env` file with a cookie secret:   
@@ -34,7 +34,7 @@ All of the code for the project is current in the `survey-app` folder. This proj
 
 ## Structure
 ```
-BCAT/survey-app
+ACT/survey-app
 |-- models
 |-- public
     |-- styles
