@@ -46,7 +46,7 @@ updateUser = async (req) => {
 	try {
         var updatedUser = await Users.findOneAndUpdate(query, update, {new: true});
 
-        if (user.password && user.confirm) {
+        if (updatedUser && user.password && user.confirm) {
             if (user.password === user.confirm) {
                 updatedUser.password = user.password;
                 //explicitly call save to encrypt password before storing
@@ -64,7 +64,7 @@ updateUser = async (req) => {
     }
 
     if (userPasswordError) {
-        req.flash('error', 'user information updated, but password was not updated since password and confirm don\'t match');
+        req.flash('error', 'User information updated, but password was not updated since password and confirm don\'t match');
     }
     
     if (user.modules) {
@@ -103,7 +103,7 @@ createUser = async(req, teamId) => {
         await newUser.save();
     } catch (err) {
         console.error(err);
-        req.flash('error', `could not save user ${req.body.email}`);
+        req.flash('error', `Could not save user ${req.body.email}`);
     }
 }
 
@@ -128,7 +128,7 @@ exports = module.exports = async (req, res) => {
         if (!req.body.userId) {
             console.error("missing user");
             if (req.body.password !== req.body.confirm) {
-                req.flash('error', `user not stored - password and confirm values don't match for ${req.body.email}`);
+                req.flash('error', `User not stored - password and confirm values don't match for ${req.body.email}`);
             } else {
                 await createUser(req, req.user.team);
             }
