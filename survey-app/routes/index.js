@@ -21,6 +21,7 @@
 const keystone = require('keystone');
 const middleware = require('./middleware');
 const importRoutes = keystone.importer(__dirname);
+var sslRedirect = require('heroku-ssl-redirect');
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -34,6 +35,7 @@ const routes = {
 
 // Setup Route Bindings
 exports = module.exports = (app) => {
+	app.use(sslRedirect());
 	// API's
 	app.post('/api/respond', middleware.requireUser, routes.api.respond.question);
 	app.get('/api/export/csv', middleware.requireUser, routes.api.export.csv);

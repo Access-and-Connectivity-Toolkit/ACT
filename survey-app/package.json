@@ -8,6 +8,7 @@
     "csv-stringify": "^5.3.0",
     "dotenv": "4.0.0",
     "grabity": "^1.0.5",
+    "heroku-ssl-redirect": "0.0.4",
     "keystone": "^4.1.0",
     "lodash": "^4.17.15",
     "mongodb-backup": "^1.6.9",
