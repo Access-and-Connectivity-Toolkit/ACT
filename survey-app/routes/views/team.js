@@ -13,30 +13,27 @@ updateUser = async (user) => {
 	const query = {'_id': userId};
 	
 	const update = {};
-    
-    if (user.first || user.last) {
-    	update.name = {};
-	}
-    
-    if (user.first) {
-    	update.name.first = user.first;
-	}
-
-	if (user.last) {
-		update.name.last = user.last;
+	if (user.first || user.last) {
+	    update.name = {};
+        if (user.first) {
+            update.name.first = user.first;
+        }
+        if (user.last) {
+            update.name.last = user.last;
+        }
 	}
 	
 	if (user.email) {
-    	update.email = user.email;
+	    update.email = user.email;
 	}
 	
 	if (user.affiliation) {
 		update.affiliation = user.affiliation;
 	}
-
-    if (roleId) {
-        update.role = roleId !== "no-role" ? roleId : null;
-    }
+	
+	if (roleId) {
+	    update.role = roleId !== "no-role" ? roleId : null;
+	}
 
     if (user.modules) {
         update.assignedModules = user.modules;
