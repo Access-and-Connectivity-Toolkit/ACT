@@ -19,6 +19,7 @@ keystone.init({
 	'views': 'templates/views',
 	'view engine': 'pug',
 
+	'mongo': process.env.MONGO_URI || 'mongodb://localhost/bcat',
 	'auto update': true,
 	'session': true,
 	'auth': true,
