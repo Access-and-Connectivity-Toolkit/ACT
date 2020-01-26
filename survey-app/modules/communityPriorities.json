@@ -12,7 +12,7 @@
     "survey": "Community Priorities"
   },
   {
-    "name": "Community Priorities 025",
+    "name": "Community Priorities 03",
     "question": "What are your top community needs for broadband?",
     "type": "Checkboxes",
     "answers": [
@@ -26,10 +26,11 @@
       "Skilled Workforce: Our workforce needs stronger digital skills.",
       "Home Based Work: Enable working from home and home based businesses.",
       "Attract Young Workers: Retain and attract younger people to the area."
-    ]
+    ],
+    "survey": "Community Priorities"
   },
   {
-    "name": "Community Priorities 03",
+    "name": "Community Priorities 04",
     "question": "What are your top broadband service challenges?",
     "type": "Checkboxes",
     "answers": [
@@ -42,19 +43,19 @@
     "survey": "Community Priorities"
   },
   {
-    "name": "Community Priorities 04",
+    "name": "Community Priorities 05",
     "question": "If there are other areas of concern, please explain:",
     "type": "Textarea",
     "survey": "Community Priorities"
   },
   {
-    "name": "Community Priorities 05",
+    "name": "Community Priorities 06",
     "question": "Describe your community vision/goals and how improved broadband supports those goals.  ",
     "type": "Textarea",
     "survey": "Community Priorities"
   },
   {
-    "name": "Community Priorities 06",
+    "name": "Community Priorities 07",
     "question": "How important is better broadband compared with other priorities in your community?",
     "type": "Scale",
     "answers": ["Few people mention it", "Top of mind for many people"],
