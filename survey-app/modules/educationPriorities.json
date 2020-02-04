@@ -1,0 +1,160 @@
+[
+  {
+    "name": "Broadband in Education 01",
+    "question": "Explores the link between broadband connectivity and education - both in the school and at home.",
+    "type": "Info",
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 02",
+    "question": "What is the relationship between broadband and education in your learning environment?  How does school and home connectivity enable or hinder the desired educational outcomes in your community?",
+    "type": "Textarea",
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 03",
+    "question": "Rate the adequacy of your school connectivity to support the digital services and applications that students and teachers utilize.",
+    "type": "Scale",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 04",
+    "question": "Do your schools have sufficient bandwidth to support the digital services and applications that students and teachers utilize?",
+    "type": "Checkboxes",
+    "answers": [
+      "None of our schools have sufficient connectivity.",
+      "We have sufficient connectivity at some but not all of our schools.",
+      "We have enough bandwidth to the schools but we lack network connectivity within the schools.",
+      "We have a plan to meet our school connectivity needs in the next year.",
+      "Our technology plan ensures that we will always have ample bandwidth for future educational applications.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 05",
+    "question": "Rate student access to Internet for completing homework outside of school.",
+    "type": "Scale",
+    "answers": ["Homework gap", "Connected community"],
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 06",
+    "question": "Do students have access to Internet when they leave school or is there a 'homework gap'?",
+    "type": "Checkboxes",
+    "answers": [
+      "Many of our students do not have access to the Internet at their homes.",
+      "Some of our students use Smart phone connections only to complete their homework.",
+      "I know that there are gaps in access but I don't know how severe the problem is.",
+      "Students often go the public libraries to do their homework.",
+      "Students often go to other facilities to get access to the Internet.",
+      "We have a  one-to-one computer program.",
+      "We have a  one-to-one computer program that includes Internet access at home.",
+      "We have a one-to-one computer program, but we don't send the computers home.",
+      "We have a one-to-one computer program, and students without Internet  at home can access resources offline with their computing device ",
+      "Most of our students have computers and have Internet access at home",
+      "Our community is virtually 100% connected.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 07",
+    "question": "How dependent is your curriculum on broadband connectivity?",
+    "type": "Scale",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 08",
+    "question": "Is your curriculum dependent on broadband connectivity?",
+    "type": "Checkboxes",
+    "answers": [
+      "We intentionally avoid digital media and technology.",
+      "We rely on online courses for at least some of our classes.  This could include enrichment or collaboration programs.",
+      "We use digital platforms to enrich learning in many of our classes.",
+      "We are increasing our use of digital text books.",
+      "All of our text books are digital.",
+      "All of our learning is via online courses.",
+      "We use online standardized tests.",
+      "Digital skills are integrated into the curricula at every grade and every level.",
+      "Digital technologies have changed the way we teach.  For example using flipped classrooms, personalized, and more peer learning.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 09",
+    "question": "Do educators receive professional development training and support to help that integrated technology into education?",
+    "type": "Scale",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 10",
+    "question": "Check the best practices that are used in your school.",
+    "type": "Checkboxes",
+    "answers": [
+      "Our curriculum articulates the digital skills that students need to master at each age and level.",
+      "Annual professional development opportunities are afforded to all educators to enhance their digital proficiencies.",
+      "An in-school educational technology coach is available to help teachers integrate technology. ",
+      "Our Information Technology network is robust and well maintained.",
+      "Social media policies are collaboratively developed and regularly updated.",
+      "All staff receive regular training in security and privacy protections.",
+      "All security patches are deployed.",
+      "Security",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 11",
+    "question": "If your school uses E-Rate to support their communications broadband, check which programs you generally participate in.",
+    "type": "Checkboxes",
+    "answers": [
+      "Category 1 services - Services used to connect broadband or internet to eligible locations, or services that provide the basic conduit access to the internet.",
+      "Category 2 services - Internal connections services needed to enable high-speed broadband connectivity and broadband internal connections components. ",
+      "Not in use.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 12",
+    "question": "Assessment and Aspirations for use of Broadband in Education",
+    "type": "Info",
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 13",
+    "question": "Overall, how would you rate the school connectivity in your community as it pertains to education? How well does broadband support your educational objectives?",
+    "type": "Scale",
+    "answers": ["Poor", "Extraordinary"],
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 14",
+    "question": "Overall, how would you rate the home connectivity in your community as it pertains to education? How well does broadband support your educational objectives?",
+    "type": "Scale",
+    "answers": ["Poor", "Extraordinary"],
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 15",
+    "question": "What changes would you like to see in the next one to two years in your school and/or home connectivity plans?",
+    "type": "Textarea",
+    "survey": "Broadband in Education"
+  },
+  {
+    "name": "Broadband in Education 16",
+    "question": "Links to resources that you’d like to record in your plan.",
+    "type": "Textarea",
+    "survey": "Broadband in Education"
+  }
+]

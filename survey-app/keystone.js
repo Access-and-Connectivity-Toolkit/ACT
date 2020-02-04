@@ -10,8 +10,8 @@ const keystone = require('keystone');
 // and documentation.
 
 keystone.init({
-	'name': 'BCAT',
-	'brand': 'BCAT',
+	'name': 'ACT',
+	'brand': 'ACT',
 
 	'stylus': 'public',
 	'static': 'public',
