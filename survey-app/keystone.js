@@ -23,7 +23,7 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User',
+	'user model': 'User'
 });
 
 // Load your project's Models
@@ -43,7 +43,7 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 // Set login image
-keystone.set('signin logo', '../images/BCATlogo.svg');
+keystone.set('signin logo', '../images/ACT_logo_F.svg');
 keystone.set('signin redirect', '/home');
 keystone.set('signout redirect', '/');
 
