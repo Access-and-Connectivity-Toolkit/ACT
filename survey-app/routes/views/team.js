@@ -104,6 +104,7 @@ exports = module.exports = async (req, res) => {
 
         locals.members = memberInfo.members;
         locals.membersToModules = memberInfo.membersToModules;
+        locals.percentage = memberInfo.teamPercentage.toFixed(1);
 
         view.render('team');
     });
