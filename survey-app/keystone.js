@@ -54,4 +54,10 @@ keystone.set('nav', {
 });
 
 // Start Keystone to connect to your database and initialise the web server
-keystone.start();
+//keystone.start();
+// start secure?
+keystone.start({
+  onHttpServerCreated: function() {
+    var server = keystone.httpServer;
+  }
+});
