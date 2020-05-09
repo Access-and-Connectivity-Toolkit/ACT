@@ -56,6 +56,9 @@ exports.formatTeamMemberInfo = async(members, modMap) => {
     const memberIds = members.map(_ => ObjectId(_.id));
     const memberCompleted = await getNumModulesCompleted(memberIds);
 
+    let teamAssigned = 0;
+    let teamCompleted = 0;
+
     for (let i = 0; i < members.length; i++) {
         // translate module and role ids into names for each user
         const assignedMods = members[i].assignedModules;
@@ -71,13 +74,23 @@ exports.formatTeamMemberInfo = async(members, modMap) => {
             members[i].roleName = members[i].role.name;
         }
 
-        members[i].assigned = modNames.length;
-        members[i].completed = memberCompleted[members[i]._id];
+        if (modNames) {
+            members[i].assigned = modNames.length;
+            teamAssigned += modNames.length;
+        }
+
+        const completed = memberCompleted[members[i]._id];
+        if (completed) {
+            members[i].completed = completed;
+            teamCompleted += completed;
+        }
 
         membersToModules[members[i].id] = assignedMap;
     }
 
-    return {members: members, membersToModules: membersToModules};
+    const teamPercentage = teamCompleted * 100.0 / teamAssigned;
+
+    return {members: members, membersToModules: membersToModules, teamPercentage: teamPercentage};
 };
 
 exports.getTeamById = async (teamId) => {

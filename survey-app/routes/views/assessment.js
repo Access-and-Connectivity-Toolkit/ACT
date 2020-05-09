@@ -37,8 +37,8 @@ getResourceLinkInfo = async(links) => {
     return results;
 };
 
-getUserProgress = async (userId) => {
-    return await ModuleProgress.find({userId: userId});
+getUserProgress = async (userId, moduleId) => {
+    return await ModuleProgress.findOne({userId: userId, moduleId: moduleId});
 };
 
 exports = module.exports = async (req, res) => {
@@ -65,14 +65,13 @@ exports = module.exports = async (req, res) => {
 		}
 		
         locals.active = activeId; 
-        
-        const userProgress = await getUserProgress(req.user.id);
-        locals.progress = userProgress;
 
 		Promise.all(mods.map(async (mod) => {
             const modId = mod._id;
             const questions = await getModuleQuestions(modId);
             const answers = await getUserAnswers(modId, req.user.id);
+            const userProgress = await getUserProgress(req.user.id, mod._id);
+            
             let resources;
             if (mod.resources) {
                 resources = await getResourceLinkInfo(mod.resources);
@@ -83,7 +82,8 @@ exports = module.exports = async (req, res) => {
                 name: mod.name,
                 questions: questions,
                 answers: answers,
-                resources: resources
+                resources: resources,
+                progress: userProgress.percentage.toFixed(1)
             };
         })).then((modules) => {
 			let mappedModules = _.keyBy(modules, function(m) {

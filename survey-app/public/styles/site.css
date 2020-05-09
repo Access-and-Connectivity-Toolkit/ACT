@@ -6881,3 +6881,11 @@ body {
 .custom-select select {
   display: none;
 }
+.progress {
+  margin-bottom: 0;
+}
+.progress-text {
+  text-align: right;
+  font-size: small;
+  font-weight: bold;
+}
