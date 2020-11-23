@@ -10,8 +10,8 @@ const keystone = require('keystone');
 // and documentation.
 
 keystone.init({
-	'name': 'BCAT',
-	'brand': 'BCAT',
+	'name': 'ACT',
+	'brand': 'ACT',
 
 	'stylus': 'public',
 	'static': 'public',
@@ -19,10 +19,11 @@ keystone.init({
 	'views': 'templates/views',
 	'view engine': 'pug',
 
+	'mongo': process.env.MONGO_URI || 'mongodb://localhost/bcat',
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User',
+	'user model': 'User'
 });
 
 // Load your project's Models
@@ -42,7 +43,7 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 // Set login image
-keystone.set('signin logo', '../images/BCATlogo.svg');
+keystone.set('signin logo', '../images/ACT_logo_F.svg');
 keystone.set('signin redirect', '/home');
 keystone.set('signout redirect', '/');
 

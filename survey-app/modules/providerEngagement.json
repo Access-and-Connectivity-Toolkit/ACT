@@ -8,7 +8,7 @@
   {
     "name": "Provider Engagement 02",
     "question": "Do local leaders and service providers in your area communicate with each other?",
-    "type": "",
+    "type": "Scale",
     "answers": ["Not at all", "To a large extent"],
     "survey": "Provider Engagement"
   },
@@ -33,7 +33,7 @@
   {
     "name": "Provider Engagement 04",
     "question": "ISP Deplyment Plans and Challenges: Do local leaders work with providers to understand deployment plans, projections, and challenges?",
-    "type": "",
+    "type": "Scale",
     "answers": ["Not at all", "To a large extent"],
     "survey": "Provider Engagement"
   },

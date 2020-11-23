@@ -19,7 +19,7 @@ const folderId = '58640691930';
 async function runBackup() {
 	await backup({
 		 
-		uri: process.env.MONGODB_URI,
+		uri: process.env.MONGO_URI,
 		root: __dirname + "/", // write files into this dir
 		tar: 'dump-me.tar',
 		callback: function(err) {

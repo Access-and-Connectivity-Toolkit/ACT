@@ -25,6 +25,7 @@ All of the code for the project is current in the `survey-app` folder. This proj
   echo "COOKIE_SECRET=<a_bunch_of_characters>" > .env
   ```
   For now, `<a_bunch_of_characters>` can be whatever you'd like.  
+  If you can't get the .env file to work, then you can workaround the issue locally by adding 'cookie secret': 'some text' into the keystone.js file.
 
 * In a separate terminal start mongodb: `mongod`
 * Run `npm start`

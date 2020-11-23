@@ -1,0 +1,113 @@
+[
+  {
+    "name": "Business Leadership 01",
+    "question": "Broadband in Business",
+    "type": "Info",
+    "survey": "Business Leadership"
+  },
+  {
+    "name": "Business Leadership 02",
+    "question": "Please describe the role, if any, that broadband connectivity plays in your current and future business plans.",
+    "type": "Textarea",
+    "survey": "Business Leadership"
+  },
+  {
+    "name": "Business Leadership 03",
+    "question": "How important is broadband connectivity to the business or businesses that you represent? ",
+    "type": "Scale",
+    "answers": ["Not at all", "My business is dead without the Internet"],
+    "survey": "Business Leadership"
+  },
+  {
+    "name": "Business Leadership 04",
+    "question": "Do you have the sufficient broadband connectivity to operate your business",
+    "type": "Checkboxes",
+    "answers": [
+      "No.",
+      "We have a basic service but I cannot afford to upgrade at this time.",
+      "I have the best service available in my area, but the speed/reliability/latency does not meet my business needs.",
+      "Business broadband meets my needs now, but given the importance of this service, I am concerned that the offerings may not keep pace as the business grows and changes.",
+      "A single provider services my business; I should have redundant connections.",
+      "My central location is well served; now I need better broadband in other locations or factory floors.",
+      "I have ample capacity, reliability, and service quality for my business.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Business Leadership"
+  },
+  {
+    "name": "Business Leadership 05",
+    "question": "What percent of your business conducted online?",
+    "type": "Scale",
+    "answers": ["0%", "100%"],
+    "survey": "Business Leadership"
+  },
+  {
+    "name": "Business Leadership 06",
+    "question": "How much of your business is based on e-commerce?",
+    "type": "Checkboxes",
+    "answers": [
+      "My business is strickly in-person.",
+      "I don't event have a web site.",
+      "I have a website but it is not a primary form of leads or business.",
+      "My business would be better if I could update my web presence.",
+      "A number of my business comes from Internet leads.",
+      "I take orders online.",
+      "My business in about half in store and half online.",
+      "My business is 100% online.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Business Leadership"
+  },
+  {
+    "name": "Business Leadership 07",
+    "question": "How much do you rely on the Internet to manage your business?",
+    "type": "Scale",
+    "answers": ["Not at all", "To a large extent"],
+    "survey": "Business Leadership"
+  },
+  {
+    "name": "Business Leadership 08",
+    "question": "I what ways do you rely on broadband connectivity to manage your business?",
+    "type": "Checkboxes",
+    "answers": [
+      "Broadband is not necessary for my business.",
+      "I need high speed connections at my main location and mobile access.",
+      "I primarily use mobile broaband since my work is mobile.",
+      "I do all of my ordering online.",
+      "I am online regularly to check suppliers and/or market prices.",
+      "My customers expect to be able to email me with questions.",
+      "I spend the entire day on the computer online.",
+      "My systems are connected 24x7.",
+      "I don’t know.",
+      "Other."
+    ],
+    "survey": "Business Leadership"
+  },
+  {
+    "name": "Business Leadership 09",
+    "question": "Assessment and Aspirations for use of Broadband in Business",
+    "type": "Info",
+    "survey": "Business Leadership"
+  },
+  {
+    "name": "Business Leadership 10",
+    "question": "How would you rate the broadband connections that serve your business? How well does broadband support your business objectives?",
+    "type": "Scale",
+    "answers": ["Poor", "Extraordinary"],
+    "survey": "Business Leadership"
+  },
+  {
+    "name": "Business Leadership 11",
+    "question": "What changes would you like to see in the next one to two years in your business connectivity plans?",
+    "type": "Textarea",
+    "survey": "Business Leadership"
+  },
+  {
+    "name": "Business Leadership 12",
+    "question": "Links to resources that you’d like to record in your plan.",
+    "type": "Textarea",
+    "survey": "Business Leadership"
+  }
+]

@@ -4,7 +4,10 @@
         "Broadband Action Team",
         "Stakeholder Engagement"
     ],
-    "Business Leader": ["Community Priorities"],
+    "Business Leader": [
+        "Community Priorities",
+        "Business Leadership"
+    ],
     "CIO/IT Manager": [
         "Community Priorities",
         "Stakeholder Engagement",
@@ -32,7 +35,10 @@
         "Use of Public Assets",
         "Policy Environment"
     ],
-    "Educator": ["Community Priorities"],
+    "Educator": [
+        "Community Priorities",
+        "Broadband in Education"
+    ],
     "Farmer/Rancher": ["Community Priorities"],
     "Librarian": ["Community Priorities"],
     "Local Advocate": ["Community Priorities"],

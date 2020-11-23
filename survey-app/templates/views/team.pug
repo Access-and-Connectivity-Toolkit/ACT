@@ -28,13 +28,14 @@ block content
 							span.glyphicon.glyphicon-save
 						| Export all answers to CSV
 					.panel-footer More reporting is coming! 
-						a(href='mailto:act.product.feedback@gmail.com' ) Contact BCAT 
+						a(href='mailto:act.product.feedback@gmail.com' ) Contact ACT 
 						| with suggestions or to share your creations.
 				.panel.panel-default
 					.panel-heading Participant Status
 					.panel-body
 						.progress
-							.progress-bar(role="progressbar", aria-volumemax="100", aria-valuemin="0", aria-valuenow="50", style="width:50%") % Complete
+							.progress-bar(role="progressbar", aria-volumemax="100", aria-valuemin="0", aria-valuenow=percentage, style="width:" + percentage + "%") 
+						p.progress-text #{percentage}% Complete
 						if members.length
 							.table-responsive
 								table.table(id="daTable")

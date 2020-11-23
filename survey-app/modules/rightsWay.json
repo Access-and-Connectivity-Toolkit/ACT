@@ -50,12 +50,12 @@
   {
     "name": "Rights of Way 05",
     "question": "Are public rights-of-way used to support wireless devices and services?",
-    "type": "",
+    "type": "Scale",
     "answers": ["Not at all", "To a large extent"],
     "survey": "Rights of Way"
   },
   {
-    "name": "Rights of Way 05",
+    "name": "Rights of Way 06",
     "question": "Check which broadband best practices are currently in use:",
     "type": "Checkboxes",
     "answers": [
