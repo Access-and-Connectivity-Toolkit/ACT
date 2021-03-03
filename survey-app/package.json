@@ -10,7 +10,7 @@
     "grabity": "^1.0.5",
     "keystone": "^4.1.0",
     "lodash": "^4.17.19",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "stylus": "0.54.5"
   },
   "devDependencies": {
