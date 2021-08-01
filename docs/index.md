@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+# Welcome to ACT Broadband
 
-You can use the [editor on GitHub](https://github.com/Access-and-Connectivity-Toolkit/ACT/edit/webpage/docs/index.md) to maintain and preview the content for your website in Markdown files.
+This was a great project to improve on the NTIA's Broadband Community Assessment Tool (BCAT)
+We built a really open-source tool designed for broadband community action teams to use in documenting the need for broadband and the resources available to get it.  
+## Current status: Shut Down
+The Project and the app are now **shut down**, though they could be reactivated quickly if there were users.
+The code is available in this github repo. It has a few outdated dependencies, so we shut down the app
+The documentation, inclusing wireframes, survey material and art are available in the docs folder of the main branch.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## What it was
+The system was built in Node.js using the [Keystone CMS](https://keystonejs.com/) libraries.  The beta testing app ran on a small cloud-based virtual machine based on Ubuntu 18.04. It relies on a separate instance of MongoDB, which can run on the same VM if you don't have too many users. It also runs fine on a Raspberry Pi 3.
+Much of the work was done as a [project](https://democracylab.org/projects/21) at DemocracyLab hackathon events in 2018-2019.
+Thanks to a tremendous amount of great innovation and development by a very creative team, the app was successful in beta testing with communities around the US, but did not find users ready to commit when ready for production.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Access-and-Connectivity-Toolkit/ACT/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Want to try it?
+Instructions for cloning and building are here.
+If you have questions, please contact the project owners through the github repo.
